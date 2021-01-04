@@ -1,16 +1,47 @@
-### Hi there 👋
+### Hi there 👋, d-exclaimation here.
 
-<!--
-**d-exclaimation/d-exclaimation** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+# Welcome to my Github page
 
-Here are some ideas to get you started:
+## About myself:
+> - 💻 Preffered Language : `Typescript(Javascript) or Swift` 
+> - 🧑‍💻 Current occupation: `Student`
+> - 🛠 Libraries on my toolbelt: [`React`, `SwiftUI`, `UIKit`, `Node.js`, `Unity`]
+> - ❓Why am I here? `idk`
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## Stuff
+> - 🔭 I’m currently working on something with `⚛ React, MobX, Express and friends`
+> - 🌱 I’m currently learning `ASP.NET Core`
+> - 🤔 I’m looking for help with life .....lol
+> - 💬 Ask me about something if you feel like it, idk
+> - 📫 How to reach me: [`@d_exclaimation`](https://twitter.com/d_exclaimation) on Twitter or idk make an issue on a random repo of mine
+
+```tsx
+import React from 'react';
+
+const App: React.FC = () => {
+  return (
+    <div>
+      Hello
+    </div>
+  );
+};
+
+export default App;
+```
+
+```swift
+import SwiftUI
+
+struct ContentView: View {
+  var body: some View {
+    Text("Hello")
+      .padding()
+  }
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
+}
+```
