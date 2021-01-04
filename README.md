@@ -45,3 +45,5 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 ```
+
+Oh yeah, this is a portfolio / about me page I made with plain HTML and CSS [`Page`](https://exclaimation-portfolio.netlify.app/)
