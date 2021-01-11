@@ -9,8 +9,8 @@
 > - ❓Why am I here? `idk`
 
 ## Stuff
-> - 🔭 I’m currently working on something with `⚛ React, MobX, Express and friends`
-> - 🌱 I’m currently learning `a backend technologies either ASP.NET Core, Go, or Rust(maybe)`
+> - 🔭 I’m currently working on something with `Go, Gin, LINE Messaging API SDK, Heroku`
+> - 🌱 I’m currently learning `Golang and it's ecosystem for backend`
 > - 🤔 I’m looking for help with life .....lol
 > - 💬 Ask me about something if you feel like it, idk
 > - 📫 How to reach me: [`@d_exclaimation`](https://twitter.com/d_exclaimation) on Twitter or idk make an issue on a random repo of mine
