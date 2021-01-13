@@ -8,7 +8,7 @@
 > - ❓Why am I here? `idk`
 
 ## Stuff
-> - 🔭 I’m currently working on something with `Go, Gin, LINE Messaging API SDK, Heroku`
+> - 🔭 I’m currently working on something with `Go, Gin, LINE Messaging API SDK, Heroku vs Netlify`
 > - 🌱 I’m currently learning `Golang and it's ecosystem for backend`
 > - 🤔 I’m looking for help with life .....lol
 > - 💬 Ask me about something if you feel like it, idk
