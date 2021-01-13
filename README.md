@@ -3,7 +3,6 @@
 # Welcome to my Github page
 
 ## About myself:
-> - 💻 Preffered Language : `Go, Typescript(Javascript) or Swift` 
 > - 🧑‍💻 Current occupation: `Student`
 > - 🛠 Libraries on my toolbelt: [`React`, `SwiftUI`, `UIKit`, `Node.js`, `Unity`, `Express`]
 > - ❓Why am I here? `idk`
