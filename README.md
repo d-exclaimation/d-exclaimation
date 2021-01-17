@@ -4,11 +4,11 @@
 
 ## About myself:
 > - 🧑‍💻 Current occupation: `Student`
-> - 🛠 Libraries on my toolbelt: [`Fiber`, `Gin`, `Actix` ,`React`, `SwiftUI`, `UIKit`, `Node.js`, `Unity`, `Express`]
+> - 🛠 Libraries on my toolbelt: [`Fiber`, `Gin`,`React`, `SwiftUI`, `UIKit`, `Node.js`, `Unity`, `Express`]
 > - ❓Why am I here? `idk`
 
 ## Stuff
-> - 🔭 I’m currently working on something with `Go, Gin, LINE Messaging API SDK, Heroku vs Netlify`
+> - 🔭 I’m currently working on something with `Go, LINE Messaging API SDK, Discord API, Twitter API, Zoom API, Rust, Actix Web, Netlify`
 > - 🌱 I’m currently learning `Golang and it's ecosystem for backend`
 > - 🤔 I’m looking for help with life .....lol
 > - 💬 Ask me about something if you feel like it, idk
