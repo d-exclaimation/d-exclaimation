@@ -4,7 +4,7 @@
 
 ## About myself:
 > - 🧑‍💻 Current occupation: `Student`
-> - 🛠 Libraries on my toolbelt: [`React`, `SwiftUI`, `UIKit`, `Node.js`, `Unity`, `Express`]
+> - 🛠 Libraries on my toolbelt: [`Fiber`, `Gin`, `Actix` ,`React`, `SwiftUI`, `UIKit`, `Node.js`, `Unity`, `Express`]
 > - ❓Why am I here? `idk`
 
 ## Stuff
