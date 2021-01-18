@@ -3,15 +3,15 @@
 # Welcome to my Github page
 
 ## About myself:
-> - 🧑‍💻 Current occupation: `Student`
-> - 🛠 Libraries on my toolbelt: [`Fiber`, `Gin`,`React`, `SwiftUI`, `UIKit`, `Node.js`, `Unity`, `Express`]
-> - ❓Why am I here? `idk`
+> - 🧑‍💻 Current occupation: `Student....yeah`
+> - 🛠 Libraries on my toolbelt: [`Fiber`, `Gin`, `React`, `SwiftUI`, `UIKit`, `Node.js`, `Unity`, `Express`, `My Own Private Libraries`]
+> - ❓Why am I here? `idk, I was just planning to store my projects but making it public is kinda a good start to build a reputation`
 
 ## Stuff
-> - 🔭 I’m currently working on something with `Go, LINE Messaging API SDK, Discord API, Twitter API, Zoom API, Rust, Actix Web, Netlify`
-> - 🌱 I’m currently learning `Golang and it's ecosystem for backend`
-> - 🤔 I’m looking for help with life .....lol
-> - 💬 Ask me about something if you feel like it, idk
+> - 🔭 I’m currently working on something with `LINE Messaging API SDK, Discord API, Twitter API, Zoom API, Facebook API, Rust, Actix Web`
+> - 🌱 I’m currently learning `Rust && C++ for a bit of embedded system stuff but mostly just for performance focus servers and apps`
+> - 🤔 I’m looking for help with `Embedded system stuff probably idk`
+> - 💬 Ask me about `anything`
 > - 📫 How to reach me: [`@d_exclaimation`](https://twitter.com/d_exclaimation) on Twitter or idk make an issue on a random repo of mine
 
-Oh yeah, this is a portfolio / about me page I made with plain HTML and CSS [`Page`](https://exclaimation-portfolio.netlify.app/)
+Oh yeah, this is a portfolio / about me page I made with plain HTML and CSS a while back [`Page`](https://exclaimation-portfolio.netlify.app/)
