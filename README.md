@@ -4,9 +4,9 @@
 ![](https://visitor-badge.laobi.icu/badge?page_id=d-exclaimation.d-exclaimation)
 
 ## About myself:
-> - 🧑‍💻 Current occupation: `Student....yeah`
+> - 🧑‍💻 Current occupation: `Student`
 > - 🛠 Libraries on my toolbelt: [`Gin-Gonic`, `Fiber`, `React`, `SwiftUI`, `UIKit`, `Node.js`, `Unity`, `Express`, `My Own Private Libraries`]
-> - ❓Why am I here? `idk, I was just planning to store my projects but making it public is kinda a good start to build a reputation`
+> - ❓Why am I here? `idk, I was just planning to store my projects but I'm just trying to build some reputation`
 
 ## Stuff
 > - 🔭 I’m currently working on something with `LINE Messaging API SDK, Discord API, Twitter API, Zoom API, Facebook API, Rust, Actix Web`
