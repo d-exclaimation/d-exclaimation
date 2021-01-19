@@ -4,7 +4,7 @@
 
 ## About myself:
 > - 🧑‍💻 Current occupation: `Student....yeah`
-> - 🛠 Libraries on my toolbelt: [`Fiber`, `Gin`, `React`, `SwiftUI`, `UIKit`, `Node.js`, `Unity`, `Express`, `My Own Private Libraries`]
+> - 🛠 Libraries on my toolbelt: [`Gin-Gonic`, `Fiber`, `React`, `SwiftUI`, `UIKit`, `Node.js`, `Unity`, `Express`, `My Own Private Libraries`]
 > - ❓Why am I here? `idk, I was just planning to store my projects but making it public is kinda a good start to build a reputation`
 
 ## Stuff
