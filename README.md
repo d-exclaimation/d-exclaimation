@@ -7,6 +7,9 @@
 > - 🛠 Libraries on my toolbelt: [`Gin-Gonic`, `Fiber`, `React`, `SwiftUI`, `UIKit`, `Node.js`, `Unity`, `Express`, `My Own Private Libraries`]
 > - ❓Why am I here? `idk, I was just planning to store my projects but making it public is kinda a good start to build a reputation`
 
+![](https://visitor-badge.laobi.icu/badge?page_id=d-exclaimation.d-exclaimation)
+![GitHub stats](https://github-readme-stats.vercel.app/api?username=d-exclaimation&show_icons=true&theme=tokyonight)
+
 ## Stuff
 > - 🔭 I’m currently working on something with `LINE Messaging API SDK, Discord API, Twitter API, Zoom API, Facebook API, Rust, Actix Web`
 > - 🌱 I’m currently learning `Rust && C++ for a bit of embedded system stuff but mostly just for performance focus servers and apps`
