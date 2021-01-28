@@ -9,8 +9,8 @@
 > - ❓Why am I here? `idk, I was just planning to store my projects but now I'm just trying to build some reputation`
 
 ## Stuff
-> - 🔭 I’m currently working on something with `LINE Messaging API SDK, Discord API, Zoom API, Facebook API, Rust`
-> - 🌱 I’m currently learning `Rust or C++ for a bit of embedded system stuff but mostly just for performance focus servers and apps`
+> - 🔭 I’m currently working on something with `LINE Messaging API SDK, Discord API, Zoom API, Facebook API, WeChat API(maybe), Rust`
+> - 🌱 I’m currently learning `Rust Web Assembly and Managing my own server and databases`
 > - 🤔 I’m looking for help with `nothing atm`
 > - 💬 Ask me about `anything`
 > - 📫 How to reach me: [`@d_exclaimation`](https://twitter.com/d_exclaimation) on Twitter or idk make an issue on a random repo of mine
