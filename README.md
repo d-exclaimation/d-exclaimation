@@ -1,20 +1,10 @@
-# Hi there 👋, d-exclaimation here 🍊.
+# Hi there 👋, d-exclaimation here
 
 ### Note to self
 ```go
-type Note struct {
-  Tldr string
-  Info string
-}
-
-func noteToSelf() *Note {
-  return &Note {
-    Tldr: "Stopping all process of learning for the sake of learning",
-    Info: `Need to stop grabbing new toys aka technologies, libraries, frameworks etc. Focus on my goals, 
-        Start committing to a decision and keep going with it and improving my proficiency`,
-  }
-}
-// yes, i am using github default indent, sorry can't be bothered changing to go's default tab 
+tldr: "Stopping all process of learning for the sake of learning",
+info: `Need to stop grabbing new toys aka technologies, libraries, frameworks etc. Focus on my goals, 
+       Start committing to a decision and keep going with it and improving my proficiency`,
 ```
 #### What am I doing right now :
 > - Improving my skills on the design aspect 
