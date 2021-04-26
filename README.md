@@ -1,10 +1,12 @@
 # Hi there 👋, d-exclaimation here
 
 ### Note to self
-```go
-tldr: "Stopping all process of learning for the sake of learning",
-info: `Need to stop grabbing new toys aka technologies, libraries, frameworks etc. Focus on my goals, 
-       Start committing to a decision and keep going with it and improving my proficiency`,
+```ex
+@tldr "Stopping all process of learning for the sake of learning"
+@info """
+  Need to stop grabbing new toys aka technologies, libraries, frameworks etc. Focus on my goals, 
+  Start committing to a decision and keep going with it and improving my proficiency
+"""
 ```
 #### What am I doing right now :
 > - Improving my skills on the design aspect 
