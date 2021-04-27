@@ -9,6 +9,7 @@
 """
 ```
 #### What am I doing right now :
+> - Adding proper testing with proper procedure instead of random test here and there
 > - Improving my skills on the design aspect 
 > - Improving my backend security and CI/CD knowledges
 > - Improving my proficiency with a language of my choice
@@ -23,5 +24,5 @@
 ```
 
 ![I have many people visit my profile, lol](https://visitor-badge.laobi.icu/badge?page_id=d-exclaimation.d-exclaimation)
-> [![d-exclaimation's GitHub stats](https://github-readme-stats.vercel.app/api?username=d-exclaimation&theme=outrun)](https://github.com/anuraghazra/github-readme-stats)
+> [![d-exclaimation's GitHub stats](https://github-readme-stats.vercel.app/api?username=d-exclaimation&theme=outrun&count_private=true&show_icons=true)](https://github.com/anuraghazra/github-readme-stats)
 > [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=d-exclaimation&langs_count=8&theme=outrun&layout=compact)](https://github.com/anuraghazra/github-readme-stats)
