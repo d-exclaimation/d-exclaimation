@@ -1,7 +1,8 @@
 # Hi there 👋, d-exclaimation here
 <img alt="twitter" src="https://img.shields.io/twitter/follow/d_exclaimation?color=1DA1F2&label=Follow%20me&logo=twitter&logoColor=white&style=for-the-badge"/>
 <img alt="stars" src="https://img.shields.io/github/stars/d-exclaimation?link=https://www.dexclaimation.com&style=for-the-badge&color=212121&logo=github"/>
-<img alt="website" src="https://img.shields.io/badge/Website-dexclaimation.com-2d3748?link=https://www.dexclaimation.com&style=for-the-badge"/>
+
+[![website](https://img.shields.io/badge/Website-dexclaimation.com-2d3748?link=https://www.dexclaimation.com/&style=for-the-badge)](https://www.dexclaimation.com)
 
 ### My current highest priority
 - 📚 University
