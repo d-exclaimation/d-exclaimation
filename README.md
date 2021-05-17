@@ -32,7 +32,7 @@ React-Elixir| Go-React| Just-Typescript | Swift-App
 Additional|
 -|
 <img alt="graphql" src="https://img.shields.io/badge/-GraphQl-E10098?&style=for-the-badge&logo=graphql&logoColor=white"/>|
-<img alt="next.js" src="https://img.shields.io/badge/-Next.js-232424?&style=for-the-badge&logo=next.js&logoColor=white"/>|
+<img alt="next.js" src="https://img.shields.io/badge/-Next.js-232424?&style=for-the-badge&logo=next-dot-js&logoColor=white"/>|
 <img alt="elixir" src="https://img.shields.io/badge/-More_Elixir-blueviolet?&style=for-the-badge&logo=elixir&logoColor=white"/>|
 <img alt="go" src="https://img.shields.io/badge/-More_Go-00ADD8?&style=for-the-badge&logo=go&logoColor=white"/>|
 <img alt="rust" src="https://img.shields.io/badge/-Rust-8c6c35?&style=for-the-badge&logo=rust&logoColor=white"/>|
