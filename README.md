@@ -1,18 +1,9 @@
 # Hi there 👋, d-exclaimation here
-<img alt="twitter" src="https://img.shields.io/twitter/follow/d_exclaimation?color=1DA1F2&label=Follow%20me&logo=twitter&logoColor=white&style=for-the-badge"/>
-<img alt="stars" src="https://img.shields.io/github/stars/d-exclaimation?link=https://www.dexclaimation.com&style=for-the-badge&color=212121&logo=github"/>
-
 [![website](https://img.shields.io/badge/Website-dexclaimation.com-2d3748?link=https://www.dexclaimation.com/&style=for-the-badge)](https://www.dexclaimation.com)
 
 ### My current highest priority
 - 📚 University
 - 📲 A **real-time** centered sofware project 
-
-### Some other long-ish term dev related goals
-- <img alt="elixir" src="https://img.shields.io/badge/-Be_proficient_with_Elixir-blueviolet?&style=for-the-badge&logo=elixir&logoColor=white"/>
-- <img alt="react" src="https://img.shields.io/badge/-Be_Better_with_React-3f4142?&style=for-the-badge&logo=react&logoColor=61DAFB"/>
-- <img alt="graphql" src="https://img.shields.io/badge/-Know_when_to_use_graphql-E10098?&style=for-the-badge&logo=graphql&logoColor=white"/>
-- <img alt="rust" src="https://img.shields.io/badge/-Actually_find_something_to_do_with_rust_that_make_sense-8c6c35?&style=for-the-badge&logo=rust&logoColor=white"/>
 
 
 ### What am I doing right now :
