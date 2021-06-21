@@ -3,13 +3,11 @@
 
 ### My current highest priority
 - 📚 University
-- 📲 A **real-time** centered sofware project 
-
+- 📲 A couple **real-time** centered sofware projects
 
 ### What am I doing right now :
 - 🎯 Improving my proficiency with a ***language*** of my choice
 - 🪛 Improving all processes of *deployment, testing, and security*
-- 🎨 Improving my skills on the *design* aspect
 - 🪞 Reflecting on my decisions and using the information accordingly
 
 
