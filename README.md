@@ -1,6 +1,6 @@
 # Hi there 👋, d-exclaimation here
 [![website](https://img.shields.io/badge/Website-dexclaimation.com-2d3748?link=https://www.dexclaimation.com/&style=for-the-badge)](https://www.dexclaimation.com)
-
+<!-- 
 ### My current highest priority
 - 📚 University
 - 📲 A couple **real-time** centered sofware projects
@@ -10,7 +10,7 @@
 - 🪛 Improving all processes of *deployment, testing, and security*
 - 🪞 Reflecting on my decisions and using the information accordingly
 
-
+ -->
 ### Why am I here?
 Not sure myself, but I like publishing my code online, getting criticisms is something I need to get used to and get more of 
 
