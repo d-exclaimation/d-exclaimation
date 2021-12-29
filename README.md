@@ -1,5 +1,5 @@
 # Hi there 👋, d-exclaimation here
-[![website](https://img.shields.io/badge/Website-dexclaimation.com-2d3748?link=https://www.dexclaimation.com/&style=for-the-badge)](https://www.dexclaimation.com)
+<!-- [![website](https://img.shields.io/badge/Website-dexclaimation.com-2d3748?link=https://www.dexclaimation.com/&style=for-the-badge)](https://www.dexclaimation.com) -->
 <!-- 
 ### My current highest priority
 - 📚 University
@@ -14,6 +14,7 @@
 ### Why am I here?
 Not sure myself, but I like publishing my code online, getting criticisms is something I need to get used to and get more of 
 
+---
 
 <!--
 ### Tech Stack
@@ -47,6 +48,7 @@ IDE|Misc|Deployment|
 <img src="https://github-readme-streak-stats.herokuapp.com/?user=d-exclaimation&theme=material-palenight&hide_border=true" alt="Streaks" height="180" />
 </p>
 
+---
 
 <p align="center">
 <img src="https://activity-graph.herokuapp.com/graph?username=d-exclaimation&theme=material-palenight&hide_border=true" alt="Graph" height="100%" />
