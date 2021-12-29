@@ -43,9 +43,15 @@ IDE|Misc|Deployment|
 <img alt="vim" src="https://img.shields.io/badge/-vim-019733?&style=for-the-badge&logo=vim&logoColor=white"/>|<img alt="git" src="https://img.shields.io/badge/-git-orange?&style=for-the-badge&logo=git&logoColor=white"/>|<img alt="self-host" src="https://img.shields.io/badge/-Self_Host_/_Didn't_deploy_it-gray?&style=for-the-badge&"/>
 -->
 <p align="center">
-<img src="https://github-readme-stats.vercel.app/api?username=d-exclaimation&theme=material-palenight&hide_border=true&count_private=true&show_icons=true" alt="d-exclaimation's GitHub stats" height="100%" />
-<img alt="Top Langs" src="https://github-readme-stats.vercel.app/api/top-langs/?username=d-exclaimation&langs_count=8&theme=material-palenight&hide_border=true&layout=compact" height="100%" />
 <img src="https://github-readme-streak-stats.herokuapp.com/?user=d-exclaimation&theme=material-palenight&hide_border=true" alt="Streaks" height="180" />
+</p>
+
+<p align="center">
+<img src="https://github-readme-stats.vercel.app/api?username=d-exclaimation&theme=material-palenight&hide_border=true&count_private=true&show_icons=true" alt="d-exclaimation's GitHub stats" height="100%" />
+</p>
+
+<p align="center">
+<img alt="Top Langs" src="https://github-readme-stats.vercel.app/api/top-langs/?username=d-exclaimation&langs_count=8&theme=material-palenight&hide_border=true&layout=compact" height="100%" />
 </p>
 
 ---
