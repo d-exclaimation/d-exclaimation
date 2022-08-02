@@ -11,9 +11,6 @@
 - 🪞 Reflecting on my decisions and using the information accordingly
 
  -->
-### Why am I here?
-Not sure myself, but I like publishing my code online, getting criticisms is something I need to get used to and get more of 
-
 ---
 
 <!--
