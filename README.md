@@ -6,6 +6,7 @@
 [![Gmail Badge](https://img.shields.io/badge/-thisoneis4business-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:thisoneis4business+github@gmail.com)](mailto:thisoneis4business+github@gmail.com)
 [![Linkedin Badge](https://img.shields.io/badge/-vincent-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/d-exclaimation/)](https://www.linkedin.com/in/d-exclaimation/)
 
+![github contribution grid snake animation](https://raw.githubusercontent.com/d-exclaimation/d-exclaimation/output/github-contribution-grid-snake-dark.svg#gh-dark-mode-only)![github contribution grid snake animation](https://raw.githubusercontent.com/d-exclaimation/d-exclaimation/output/github-contribution-grid-snake.svg#gh-light-mode-only)
 
 <!--
 ### Tech Stack
@@ -33,6 +34,7 @@ IDE|Misc|Deployment|
 <img alt="jetbrains" src="https://img.shields.io/badge/-Jetbrains_IDE-111111?&style=for-the-badge&logo=jetbrains&logoColor=white"/>|<img alt="figma" src="https://img.shields.io/badge/-Figma-F24E1E?&style=for-the-badge&logo=figma&logoColor=white"/>|<img alt="firebase" src="https://img.shields.io/badge/-Firebase-FFCA28?&style=for-the-badge&logo=firebase&logoColor=white"/>
 <img alt="vim" src="https://img.shields.io/badge/-vim-019733?&style=for-the-badge&logo=vim&logoColor=white"/>|<img alt="git" src="https://img.shields.io/badge/-git-orange?&style=for-the-badge&logo=git&logoColor=white"/>|<img alt="self-host" src="https://img.shields.io/badge/-Self_Host_/_Didn't_deploy_it-gray?&style=for-the-badge&"/>
 -->
+<div style="display: flex; flex-direction: column">
 <img src="https://github-readme-streak-stats.herokuapp.com/?user=d-exclaimation&theme=material-palenight&hide_border=true" alt="Streaks" height="180" />
-
 <img alt="Top Langs" src="https://github-readme-stats.vercel.app/api/top-langs/?username=d-exclaimation&langs_count=8&theme=material-palenight&hide_border=true&layout=compact" height="180" />
+</div>
