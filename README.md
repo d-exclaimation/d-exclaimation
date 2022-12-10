@@ -1,17 +1,11 @@
 # Hi there 👋, d-exclaimation here
-<!-- [![website](https://img.shields.io/badge/Website-dexclaimation.com-2d3748?link=https://www.dexclaimation.com/&style=for-the-badge)](https://www.dexclaimation.com) -->
-<!-- 
-### My current highest priority
-- 📚 University
-- 📲 A couple **real-time** centered sofware projects
 
-### What am I doing right now :
-- 🎯 Improving my proficiency with a ***language*** of my choice
-- 🪛 Improving all processes of *deployment, testing, and security*
-- 🪞 Reflecting on my decisions and using the information accordingly
+[![Website Badge](https://img.shields.io/badge/-dexclaimation.com-47CCCC?style=flat-square&logo=Google-Chrome&logoColor=white&link=https://dexclaimation.com)](https://dexclaimation.com)
+[![Twitter Badge](https://img.shields.io/badge/-@d__exclaimation-1ca0f1?style=flat-square&labelColor=1ca0f1&logo=twitter&logoColor=white&link=https://twitter.com/_jesslim)](https://twitter.com/d_exclaimation)
+[![Instagram Badge](https://img.shields.io/badge/-@d__exclaimation-purple?style=flat-square&logo=instagram&logoColor=white&link=https://instagram.com/_jessicaalim/)](https://instagram.com/d_exclaimation)
+[![Gmail Badge](https://img.shields.io/badge/-thisoneis4business-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:thisoneis4business+github@gmail.com)](mailto:thisoneis4business+github@gmail.com)
+[![Linkedin Badge](https://img.shields.io/badge/-vincent-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/d-exclaimation/)](https://www.linkedin.com/in/d-exclaimation/)
 
- -->
----
 
 <!--
 ### Tech Stack
@@ -39,21 +33,6 @@ IDE|Misc|Deployment|
 <img alt="jetbrains" src="https://img.shields.io/badge/-Jetbrains_IDE-111111?&style=for-the-badge&logo=jetbrains&logoColor=white"/>|<img alt="figma" src="https://img.shields.io/badge/-Figma-F24E1E?&style=for-the-badge&logo=figma&logoColor=white"/>|<img alt="firebase" src="https://img.shields.io/badge/-Firebase-FFCA28?&style=for-the-badge&logo=firebase&logoColor=white"/>
 <img alt="vim" src="https://img.shields.io/badge/-vim-019733?&style=for-the-badge&logo=vim&logoColor=white"/>|<img alt="git" src="https://img.shields.io/badge/-git-orange?&style=for-the-badge&logo=git&logoColor=white"/>|<img alt="self-host" src="https://img.shields.io/badge/-Self_Host_/_Didn't_deploy_it-gray?&style=for-the-badge&"/>
 -->
-<p align="center">
 <img src="https://github-readme-streak-stats.herokuapp.com/?user=d-exclaimation&theme=material-palenight&hide_border=true" alt="Streaks" height="180" />
-</p>
 
-<p align="center">
-<img src="https://github-readme-stats.vercel.app/api?username=d-exclaimation&theme=material-palenight&hide_border=true&count_private=true&show_icons=true" alt="d-exclaimation's GitHub stats" height="100%" />
-</p>
-
-<p align="center">
-<img alt="Top Langs" src="https://github-readme-stats.vercel.app/api/top-langs/?username=d-exclaimation&langs_count=8&theme=material-palenight&hide_border=true&layout=compact" height="100%" />
-</p>
-
----
-
-<p align="center">
-<img src="https://activity-graph.herokuapp.com/graph?username=d-exclaimation&theme=material-palenight&hide_border=true" alt="Graph" width="100%" />
-</p>
-
+<img alt="Top Langs" src="https://github-readme-stats.vercel.app/api/top-langs/?username=d-exclaimation&langs_count=8&theme=material-palenight&hide_border=true&layout=compact" height="180" />
