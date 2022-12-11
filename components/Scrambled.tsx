@@ -36,7 +36,7 @@ const Scrambled: XFC<Props> = ({
 }) => {
   const text = useScramble(phrases, speed, delay);
   return (
-    <div
+    <span
       className={`flex flex-row ${justify} ${align} ${wrap ? "flex-wrap" : ""}`}
     >
       {text.map((char, i) => (
@@ -46,13 +46,13 @@ const Scrambled: XFC<Props> = ({
               ? color?.normal ?? "text-gray-800"
               : color?.dud ?? "text-gray-300"
           } ${className}`}
-          key={i}
+          key={`${i}-${char}`}
           style={style}
         >
           {char === " " ? "_" : char}
         </motion.span>
       ))}
-    </div>
+    </span>
   );
 };
 
