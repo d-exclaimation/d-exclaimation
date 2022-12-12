@@ -15,10 +15,10 @@ const Hyperlink: XFC<Link> = ({ href, site, username, ...rest }) => (
     href={href}
   >
     <Scrambled
-      phrases={[site, username]}
+      phrases={[username, site, site]}
       align="items-center"
       justify="justify-center"
-      speed={1}
+      speed={5}
       delay={5_000}
       {...rest}
     />

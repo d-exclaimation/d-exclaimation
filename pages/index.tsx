@@ -132,13 +132,13 @@ const Home: FC = () => {
           {/* Catching up */}
           <Scrambled
             phrases={[
-              "Catching up",
+              "Progress",
+              "Progress",
               "Catching up",
               "Studies",
-              "Progress",
               "Life",
-              "Catching up",
-              "Catching up",
+              "Progress",
+              "Progress",
             ]}
             speed={2}
             delay={1_000}
