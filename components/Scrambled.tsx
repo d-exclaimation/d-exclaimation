@@ -6,8 +6,8 @@
 //
 
 import { motion, MotionStyle } from "framer-motion";
+import type { XFC } from "../common/XFC";
 import { DUDS, useScramble } from "../hooks/useScramble";
-import type { XFC } from "../types/XFC";
 
 type Props = {
   phrases: string[];

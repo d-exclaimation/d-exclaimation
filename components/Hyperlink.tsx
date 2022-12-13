@@ -5,12 +5,13 @@
 //  Created by d-exclaimation on 11 Dec 2022
 //
 
-import type { Link } from "../types/Link";
-import type { XFC } from "../types/XFC";
+import type { Link } from "../common/Link";
+import type { XFC } from "../common/XFC";
 import Scrambled from "./Scrambled";
 
 const Hyperlink: XFC<Link> = ({ href, site, username, ...rest }) => (
   <a
+    key={href + site + username}
     className="flex flex-row mx-2 md:mx-0 md:my-1 decoration-neutral-300 active:underline hover:underline cursor-pointer"
     href={href}
   >

@@ -6,7 +6,7 @@
 //
 
 import type { ReactNode } from "react";
-import type { XFC } from "../types/XFC";
+import type { XFC } from "../common/XFC";
 
 const Quote: XFC<{ children: ReactNode }> = ({ children, className }) => (
   <span className={`font-serif italic ${className ?? ""}`}>"{children}"</span>

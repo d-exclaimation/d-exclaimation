@@ -5,11 +5,11 @@ import {
   useTransform,
 } from "framer-motion";
 import type { FC } from "react";
+import { links } from "../common/Link";
 import Activity from "../components/Activity";
 import Hyperlink from "../components/Hyperlink";
 import Quote from "../components/Quote";
 import Scrambled from "../components/Scrambled";
-import { links } from "../types/Link";
 
 const socials = links(
   {
@@ -55,7 +55,7 @@ const Home: FC = () => {
   const titleSize = useMotionTemplate`${titleSpring}vw`;
 
   return (
-    <div className="w-screen h-screen">
+    <div className="w-full h-full">
       <div className="fixed inset-0">
         <div className="max-w-[1000px] my-0 mx-auto py-[14px] px-[12px]">
           <div className="flex flex-col items-start">
@@ -69,7 +69,9 @@ const Home: FC = () => {
             {/* Socials */}
             <div className="flex flex-row md:flex-col items-start text-xs md:text-base flex-wrap">
               {socials.map((social) => (
-                <Hyperlink {...social} />
+                <div key={social.href}>
+                  <Hyperlink {...social} />
+                </div>
               ))}
             </div>
           </div>
@@ -276,7 +278,7 @@ const Home: FC = () => {
         >
           This website
         </Activity>
-        <span className="font-sans font-extralight text-xs md:text-sm ">
+        <span className="font-sans font-extralight text-xs md:text-sm">
           and more on{" "}
           <a
             className="text-sky-500 decoration-cyan-500 hover:underline active:underline cursor-pointer"
