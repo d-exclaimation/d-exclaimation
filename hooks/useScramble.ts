@@ -26,8 +26,8 @@ export function useScramble(
   speed = 25,
   delay = 1000
 ): string[] {
-  const updateTimeout = useRef<NodeJS.Timeout | null>(null);
-  const recursiveTimeout = useRef<NodeJS.Timeout | null>(null);
+  const updateTimeout = useRef<number | NodeJS.Timeout | null>(null);
+  const recursiveTimeout = useRef<number | NodeJS.Timeout | null>(null);
   const index = useRef(0);
 
   // To use React change detections
