@@ -19,44 +19,12 @@ export const manifest = {
       href: "/",
     },
     {
-      name: "Some random page",
-      href: "/sandbox",
+      name: "Conway's Game of Life",
+      href: "/minigames/conway",
     },
     {
-      name: "This is not a route",
-      href: "/lol",
-    },
-    {
-      name: "This is not a route",
-      href: "/lol2",
-    },
-    {
-      name: "This is not a route",
-      href: "/lol3",
-    },
-    {
-      name: "This is not a route",
-      href: "/lol4",
-    },
-    {
-      name: "This is not a route",
-      href: "/lol5",
-    },
-    {
-      name: "This is not a route",
-      href: "/lol6",
-    },
-    {
-      name: "This is not a route",
-      href: "/lol7",
-    },
-    {
-      name: "This is not a route",
-      href: "/lol8",
-    },
-    {
-      name: "This is not a route",
-      href: "/lol9",
+      name: "Projects",
+      href: "https://github.com/d-exclaimation",
     }
   ),
 };
