@@ -7,7 +7,7 @@
 
 import { match, Union } from "@d-exclaimation/union";
 import type { ReactNode } from "react";
-import type { XFC } from "../types/XFC";
+import type { XFC } from "../common/XFC";
 
 type Props = {
   subtitle: string;
