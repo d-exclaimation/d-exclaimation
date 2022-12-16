@@ -5,9 +5,9 @@
 //  Created by d-exclaimation on 16 Dec 2022
 //
 
-import { FC } from "react";
-import { InferProps } from "../../common/XFC";
-import Head from "../Head";
+import type { FC } from "react";
+import type { InferProps } from "../common/XFC";
+import Head from "../components/Head";
 
 export function withHead<P extends object>(
   Component: FC<P>,

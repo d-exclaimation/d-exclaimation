@@ -7,10 +7,10 @@ import {
 import type { FC } from "react";
 import { links } from "../common/Link";
 import Activity from "../components/Activity";
-import { withHead } from "../components/higher-order/WithHead";
 import Hyperlink from "../components/Hyperlink";
 import Quote from "../components/Quote";
 import Scrambled from "../components/Scrambled";
+import { withHead } from "../hoc/withHead";
 
 const socials = links(
   {

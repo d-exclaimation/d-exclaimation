@@ -14,7 +14,7 @@
 
 import type { FC } from "react";
 import { FiPause, FiPlay } from "react-icons/fi";
-import { withHead } from "../../components/higher-order/WithHead";
+import { withHead } from "../../hoc/withHead";
 import { useConway } from "../../hooks/minigames/conway/useConway";
 
 const Conway: FC = () => {
