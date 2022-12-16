@@ -5,13 +5,15 @@
 //  Created by d-exclaimation on 11 Dec 2022
 //
 
+import type { Color } from "./Styling";
+
 export type Link = {
   site: string;
   username: string;
   href: string;
   color: {
-    dud: string;
-    normal: string;
+    dud: Color.Text;
+    normal: Color.Text;
   };
 };
 

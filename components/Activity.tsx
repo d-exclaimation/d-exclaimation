@@ -7,6 +7,7 @@
 
 import { match, Union } from "@d-exclaimation/union";
 import type { ReactNode } from "react";
+import type { Color } from "../common/Styling";
 import type { XFC } from "../common/XFC";
 
 type Props = {
@@ -21,9 +22,9 @@ type Props = {
   }>;
   children: ReactNode;
   color?: {
-    decoration: string;
-    border: string;
-    text: string;
+    decoration: Color.Decoration;
+    border: Color.of<"border-l">;
+    text: Color.Text;
   };
 };
 

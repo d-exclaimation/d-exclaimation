@@ -6,6 +6,7 @@
 //
 
 import { motion, MotionStyle } from "framer-motion";
+import type { Color } from "../common/Styling";
 import type { XFC } from "../common/XFC";
 import { DUDS, useScramble } from "../hooks/useScramble";
 
@@ -18,8 +19,8 @@ type Props = {
   style?: MotionStyle;
   wrap?: boolean;
   color?: {
-    dud: string;
-    normal: string;
+    dud: Color.Text;
+    normal: Color.Text;
   };
 };
 
