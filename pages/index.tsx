@@ -7,6 +7,7 @@ import {
 import type { FC } from "react";
 import { links } from "../common/Link";
 import Activity from "../components/Activity";
+import { withHead } from "../components/higher-order/WithHead";
 import Hyperlink from "../components/Hyperlink";
 import Quote from "../components/Quote";
 import Scrambled from "../components/Scrambled";
@@ -292,4 +293,7 @@ const Home: FC = () => {
   );
 };
 
-export default Home;
+export default withHead(Home, {
+  title: "d-exclaimation",
+  description: "Quick porfolio",
+});

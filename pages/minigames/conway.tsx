@@ -14,6 +14,7 @@
 
 import type { FC } from "react";
 import { FiPause, FiPlay } from "react-icons/fi";
+import { withHead } from "../../components/higher-order/WithHead";
 import { useConway } from "../../hooks/minigames/conway/useConway";
 
 const Conway: FC = () => {
@@ -59,4 +60,7 @@ const Conway: FC = () => {
   );
 };
 
-export default Conway;
+export default withHead(Conway, {
+  title: "Game of life",
+  description: "A minigame using tiles and a bit of computer science",
+});

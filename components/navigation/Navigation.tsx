@@ -46,6 +46,8 @@ const Navigation: XFC<{}> = () => {
         transition duration-400
         ${expanded ? "hidden" : "block"}
         `}
+        id="button-nav"
+        title="Navigation"
         onClick={onPressed}
       >
         <FiMenu className="fill-black w-5 md:w-6 h-5 z-50 md:h-6" />

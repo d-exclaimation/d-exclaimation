@@ -25,6 +25,10 @@ export const manifest = {
     {
       name: "Projects",
       href: "https://github.com/d-exclaimation",
+    },
+    {
+      name: "Resume",
+      href: "https://resume.dexclaimation.com",
     }
   ),
 };
