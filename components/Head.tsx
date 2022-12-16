@@ -24,7 +24,7 @@ const Head: XFC<Props> = ({ title, description }) => {
       <meta property="og:title" content={title} />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://dexclaimation.com/" />
-      <meta property="og:image" content="/me.jpeg" />
+      <meta property="og:image" content="/me.png" />
       <link rel="icon" href="/images/favicon.ico" />
       <link
         rel="icon"
