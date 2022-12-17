@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#signature {
+  stroke-dasharray: 2289;
+  stroke-dashoffset: 2289;
+  animation: sign 2s ease-in;
+  animation-fill-mode: forwards;
+}
+
+@keyframes sign {
+  to {
+    stroke-dashoffset: 0;
+  }
+}

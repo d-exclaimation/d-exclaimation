@@ -10,6 +10,7 @@ import Activity from "../components/Activity";
 import Hyperlink from "../components/Hyperlink";
 import Quote from "../components/Quote";
 import Scrambled from "../components/Scrambled";
+import Signature from "../components/Signature";
 import { withHead } from "../hoc/withHead";
 
 const Home: FC = () => {
@@ -255,6 +256,8 @@ const Home: FC = () => {
             my cv
           </a>
         </span>
+
+        <Signature className="flex justify-end items-center px-2" />
       </div>
     </div>
   );
