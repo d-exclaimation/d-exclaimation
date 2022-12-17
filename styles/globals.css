@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 #signature {
-  stroke-dasharray: 1982;
-  stroke-dashoffset: 1982;
-  animation: sign 4s ease;
+  stroke-dasharray: 2289;
+  stroke-dashoffset: 2289;
+  animation: sign 2s ease-in;
   animation-fill-mode: forwards;
 }
 
