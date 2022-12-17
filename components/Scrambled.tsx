@@ -24,6 +24,17 @@ type Props = {
   };
 };
 
+/**
+ * Create a scrambled animated text from phrases given
+ * @param param0.phrases Phrases to transition from one to another
+ * @param param0.delay The delay between transition in ms
+ * @param param0.speed The delay during each scrambling transition in ms
+ * @param param0.align The alignment of the text
+ * @param param0.justify The jusitfy of the text
+ * @param param0.style The motion styling for the text
+ * @param param0.wrap Should the text wrap around or not
+ * @param param0.color The color styling for the text and its state
+ */
 const Scrambled: XFC<Props> = ({
   phrases,
   delay,

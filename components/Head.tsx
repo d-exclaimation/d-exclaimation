@@ -13,6 +13,11 @@ type Props = {
   description?: string;
 };
 
+/**
+ * Create a Next.js head with useful meta information
+ * @param param0.title The meta title for this page
+ * @param param0.description The meta description for this page
+ */
 const Head: XFC<Props> = ({ title, description }) => {
   return (
     <NextHead>

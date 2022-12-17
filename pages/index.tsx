@@ -5,45 +5,12 @@ import {
   useTransform,
 } from "framer-motion";
 import type { FC } from "react";
-import { links } from "../common/Link";
+import { manifest } from "../common/Manifest";
 import Activity from "../components/Activity";
 import Hyperlink from "../components/Hyperlink";
 import Quote from "../components/Quote";
 import Scrambled from "../components/Scrambled";
 import { withHead } from "../hoc/withHead";
-
-const socials = links(
-  {
-    site: "Github",
-    username: "@d-exclaimation",
-    href: "https://github.com/d-exclaimation",
-    color: { dud: "text-slate-200", normal: "text-slate-500" },
-  },
-  {
-    site: "Twitter",
-    username: "@d_exclaimation",
-    href: "https://twitter.com/d_exclaimation",
-    color: { dud: "text-sky-200", normal: "text-sky-500" },
-  },
-  {
-    site: "Facebook",
-    username: "@vvincentlc",
-    href: "https://facebook.com/vvincentlc",
-    color: { dud: "text-blue-200", normal: "text-blue-500" },
-  },
-  {
-    site: "Instagram",
-    username: "@d_exclaimation",
-    href: "https://instagram.com/d_exclaimation",
-    color: { dud: "text-fuchsia-200", normal: "text-fuchsia-500" },
-  },
-  {
-    site: "Linkedin",
-    username: "@d-exclaimation",
-    href: "https://linkedin.com/in/d-exclaimation",
-    color: { dud: "text-cyan-200", normal: "text-cyan-500" },
-  }
-);
 
 const Home: FC = () => {
   const { scrollYProgress } = useScroll();
@@ -69,7 +36,7 @@ const Home: FC = () => {
             />
             {/* Socials */}
             <div className="flex flex-row md:flex-col items-start text-xs md:text-base flex-wrap">
-              {socials.map((social) => (
+              {manifest.links.map((social) => (
                 <div key={social.href}>
                   <Hyperlink {...social} />
                 </div>

@@ -28,6 +28,13 @@ type Props = {
   };
 };
 
+/**
+ * Activity component that shows an activity, its period, links, and description for it
+ * @param param0.time The time period for this activity
+ * @param param0.title The title of the activity and link for it
+ * @param param0.subtitle The subtitle for the activity
+ * @param param0.color The styling for the actitivy
+ */
 const Activity: XFC<Props> = ({
   children,
   time,

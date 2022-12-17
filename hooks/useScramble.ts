@@ -7,7 +7,14 @@
 
 import { useEffect, useRef, useState } from "react";
 
+/**
+ * Non-readable text characters
+ */
 export const DUDS = "!<>-_\\/[]{}—=+*^?#________";
+
+/**
+ * Text character transition queue message
+ */
 export type TextQueue = {
   from: string;
   to: string;
@@ -16,11 +23,21 @@ export type TextQueue = {
   char?: string;
 };
 
+/**
+ * Generate a pseudo-random dud character
+ * @returns A random dud character
+ */
 function randomChar(): string {
   return DUDS[Math.floor(Math.random() * DUDS.length)];
 }
 
-/// React Hook for srcambling Words with/without a custom speed, delay
+/**
+ * Hook to cleanly scramble one phrase to another soley using states
+ * @param phrases The phrases to transition from one to another
+ * @param speed The delay of each character transition
+ * @param delay The delay of phrases
+ * @returns An array of individual character states
+ */
 export function useScramble(
   phrases: string[],
   speed = 25,
@@ -30,10 +47,10 @@ export function useScramble(
   const recursiveTimeout = useRef<number | NodeJS.Timeout | null>(null);
   const index = useRef(0);
 
-  // To use React change detections
+  /**  To use React change detections */
   const [currText, setText] = useState(phrases[0].split(""));
 
-  // Make an update to the currText
+  /** Make an update to the currText */
   const update = (
     queue: TextQueue[],
     frame: number,
@@ -67,7 +84,7 @@ export function useScramble(
     }
   };
 
-  // setText but I named it updateText since I used setText
+  /** setText but I named it updateText since I used setText */
   const updateText = (
     currText: string[],
     newText: string
@@ -98,7 +115,7 @@ export function useScramble(
     return promise;
   };
 
-  // next function to updateText and recurse
+  /** next function to updateText and recurse */
   const next = (currText: string[]) => {
     updateText(currText, phrases[index.current]).then((value) => {
       recursiveTimeout.current = setTimeout(() => next(value), delay);

@@ -16,10 +16,18 @@ type Props = {
   close: () => void;
 };
 
+/**
+ * Navigation command palette with clear and clean transitions
+ * @param param0.isOpen State to determine whether to show the command palette or not
+ * @param param0.close Calback to close the command palette and perform cleanup
+ */
 const NavigationPalette: XFC<Props> = ({ isOpen, close }) => {
   const router = useRouter();
   const [query, setQuery] = useState("");
 
+  /**
+   * Queried routes from the search query
+   */
   const filteredRoutes = useMemo(
     () =>
       !query
@@ -32,10 +40,9 @@ const NavigationPalette: XFC<Props> = ({ isOpen, close }) => {
     [query]
   );
 
-  const cleanup = useCallback(() => {
-    setQuery("");
-  }, []);
-
+  /**
+   * Navigate to a selected route callback
+   */
   const navigate = useCallback(
     (value: unknown) => {
       if (typeof value !== "string") {
@@ -47,6 +54,9 @@ const NavigationPalette: XFC<Props> = ({ isOpen, close }) => {
     [router, close]
   );
 
+  /**
+   * Update search query callback
+   */
   const updateQuery = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
       setQuery(e.target.value);
@@ -55,7 +65,11 @@ const NavigationPalette: XFC<Props> = ({ isOpen, close }) => {
   );
 
   return (
-    <Transition.Root show={isOpen} as={Fragment} afterLeave={cleanup}>
+    <Transition.Root
+      show={isOpen}
+      as={Fragment}
+      afterLeave={() => setQuery("")}
+    >
       <Dialog
         className="fixed inset-0 p-4 pt-[30vh] overflow-y-auto z-10"
         onClose={close}

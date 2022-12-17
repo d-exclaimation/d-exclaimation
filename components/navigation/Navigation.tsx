@@ -10,13 +10,15 @@ import { FiMenu } from "react-icons/fi";
 import type { XFC } from "../../common/XFC";
 import NavigationPalette from "./NavigationPalette";
 
+/**
+ * Navigation button and the command palette
+ */
 const Navigation: XFC<{}> = () => {
   const [expanded, setExpanded] = useState(false);
 
-  const onPressed = useCallback(() => {
-    setExpanded((prev) => !prev);
-  }, [setExpanded]);
-
+  /**
+   * Callback for any key pressed for calling the command palette using `Ctrl/Command + K`
+   */
   const onKeyDown = useCallback(
     (e: globalThis.KeyboardEvent) => {
       if (e.key !== "k" || !(e.metaKey || e.ctrlKey)) return;
@@ -25,6 +27,7 @@ const Navigation: XFC<{}> = () => {
     [setExpanded]
   );
 
+  /* Appending the key down callback to the window */
   useEffect(() => {
     window?.addEventListener("keydown", onKeyDown);
     return () => window?.removeEventListener("keydown", onKeyDown);
@@ -48,7 +51,7 @@ const Navigation: XFC<{}> = () => {
         `}
         id="button-nav"
         title="Navigation"
-        onClick={onPressed}
+        onClick={() => setExpanded((prev) => !prev)}
       >
         <FiMenu className="fill-black w-5 md:w-6 h-5 z-50 md:h-6" />
       </button>

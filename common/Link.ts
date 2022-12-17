@@ -7,7 +7,10 @@
 
 import type { Color } from "./Styling";
 
-export type Link = {
+/**
+ * Off-site link
+ */
+export type OutLink = {
   site: string;
   username: string;
   href: string;
@@ -16,5 +19,3 @@ export type Link = {
     normal: Color.Text;
   };
 };
-
-export const links = (...literals: Link[]) => literals;
