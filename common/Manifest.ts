@@ -47,20 +47,20 @@ export const manifest = {
     },
     {
       site: "Twitter",
-      username: "@d_exclaimation",
-      href: "https://twitter.com/d_exclaimation",
+      username: "@dexclaimation",
+      href: "https://twitter.com/dexclaimation",
       color: { dud: "text-sky-200", normal: "text-sky-500" },
     },
     {
       site: "Facebook",
-      username: "@vvincentlc",
-      href: "https://facebook.com/vvincentlc",
+      username: "@dexclaimation",
+      href: "https://facebook.com/dexclaimation",
       color: { dud: "text-blue-200", normal: "text-blue-500" },
     },
     {
       site: "Instagram",
-      username: "@d_exclaimation",
-      href: "https://instagram.com/d_exclaimation",
+      username: "@dexclaimation",
+      href: "https://instagram.com/dexclaimation",
       color: { dud: "text-fuchsia-200", normal: "text-fuchsia-500" },
     },
     {
