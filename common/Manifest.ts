@@ -30,6 +30,10 @@ export const manifest = {
       href: "/minigames/conway",
     },
     {
+      name: "Business card",
+      href: "/business/card",
+    },
+    {
       name: "Projects",
       href: "https://github.com/d-exclaimation",
     },
