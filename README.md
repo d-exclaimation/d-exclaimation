@@ -1,9 +1,9 @@
 # Hi there 👋, d-exclaimation here
 
-[![Website Badge](https://img.shields.io/badge/-dexclaimation.com-47CCCC?style=flat-square&logo=Google-Chrome&logoColor=white&link=https://dexclaimation.com)](https://dexclaimation.com)
-[![Twitter Badge](https://img.shields.io/badge/-@d__exclaimation-1ca0f1?style=flat-square&labelColor=1ca0f1&logo=twitter&logoColor=white&link=https://twitter.com/_jesslim)](https://twitter.com/d_exclaimation)
-[![Instagram Badge](https://img.shields.io/badge/-@d__exclaimation-purple?style=flat-square&logo=instagram&logoColor=white&link=https://instagram.com/_jessicaalim/)](https://instagram.com/d_exclaimation)
-[![Gmail Badge](https://img.shields.io/badge/-thisoneis4business-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:thisoneis4business+github@gmail.com)](mailto:thisoneis4business+github@gmail.com)
+[![Website Badge](https://img.shields.io/badge/-d--exclaimation.me-47CCCC?style=flat-square&logo=Google-Chrome&logoColor=white&link=https://d-exclaimation.me)](https://d-exclaimation.me)
+[![Twitter Badge](https://img.shields.io/badge/-@dexclaimation-1ca0f1?style=flat-square&labelColor=1ca0f1&logo=twitter&logoColor=white&link=https://twitter.com/dexclaimation)](https://twitter.com/dexclaimation)
+[![Instagram Badge](https://img.shields.io/badge/-@dexclaimation-purple?style=flat-square&logo=instagram&logoColor=white&link=https://instagram.com/dexclaimation/)](https://instagram.com/dexclaimation)
+[![Gmail Badge](https://img.shields.io/badge/-vincent@d--exclaimation.me-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:thisoneis4business+github@gmail.com)](mailto:thisoneis4business+github@gmail.com)
 [![Linkedin Badge](https://img.shields.io/badge/-vincent-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/d-exclaimation/)](https://www.linkedin.com/in/d-exclaimation/)
 
 ![github contribution grid snake animation](https://raw.githubusercontent.com/d-exclaimation/d-exclaimation/output/github-contribution-grid-snake-dark.svg#gh-dark-mode-only)![github contribution grid snake animation](https://raw.githubusercontent.com/d-exclaimation/d-exclaimation/output/github-contribution-grid-snake.svg#gh-light-mode-only)
