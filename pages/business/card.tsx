@@ -7,16 +7,12 @@
 
 import { FC, useState } from "react";
 
-const Hrefs = {
-  name: "https://www.facebook.com/dexclaimation/",
-  linkedin: "https://www.linkedin.com/in/d-exclaimation/",
-  instagram: "https://www.instagram.com/dexclaimation/",
-  site: "https://d-exclaimation.me",
-  email: "mailto:vincent@d-exclaimation.me",
-} as const;
+const Hrefs = ["name", "linkedin", "instagram", "site", "email"] as const;
 
 const Card: FC = () => {
-  const [selected, setSelected] = useState<keyof typeof Hrefs | null>("email");
+  const [selected, setSelected] = useState<typeof Hrefs[number] | null>(
+    "email"
+  );
 
   return (
     <div className="w-full h-full flex items-center justify-center">
