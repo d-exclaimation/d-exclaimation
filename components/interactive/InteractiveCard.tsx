@@ -10,7 +10,7 @@ import { Manifest } from "../../common/Manifest";
 
 const InteractiveCard: FC = () => {
   const [selected, setSelected] = useState<keyof Manifest["handles"] | null>(
-    "email"
+    null
   );
 
   return (
