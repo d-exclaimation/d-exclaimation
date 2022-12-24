@@ -51,7 +51,7 @@ const InteractiveHandle: FC = () => {
       html={
         <Link
           href={href}
-          className="select-none font-mono font-medium text-base md:text-2xl opacity-25"
+          className="select-none font-mono font-medium text-xl md:text-4xl opacity-25"
         >
           {selected}
         </Link>
@@ -62,7 +62,7 @@ const InteractiveHandle: FC = () => {
     >
       <span
         id="email"
-        className="select-none font-mono font-medium text-lg md:text-3xl"
+        className="select-none font-mono font-medium text-2xl md:text-6xl"
         onMouseLeave={() => {
           timeoutRef.current = setTimeout(() => setSelected(null), DELAY);
         }}

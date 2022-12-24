@@ -34,6 +34,10 @@ export const manifest = {
       href: "/business/card",
     },
     {
+      name: "Professinal handle",
+      href: "/business/handle",
+    },
+    {
       name: "Projects",
       href: "https://github.com/d-exclaimation",
     },
