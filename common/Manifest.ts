@@ -6,7 +6,7 @@
 //
 
 import { of } from "./Array";
-import { OutLink } from "./Link";
+import type { OutLink } from "./Link";
 
 /**
  * Route within the application
@@ -74,4 +74,13 @@ export const manifest = {
       color: { dud: "text-cyan-200", normal: "text-cyan-500" },
     }
   ),
+  handles: {
+    name: "https://facebook.com/dexclaimation",
+    email: "mailto:vincent@d-exclaimation.me",
+    site: "https://d-exclaimation.me",
+    instagram: "https://instagram.com/dexclaimation",
+    linkedin: "https://linkedin.com/in/d-exclaimation",
+  },
 };
+
+export type Manifest = typeof manifest;
