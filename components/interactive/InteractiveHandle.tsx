@@ -36,6 +36,7 @@ const InteractiveHandle: FC = () => {
       if (timeoutRef.current) {
         clearTimeout(timeoutRef.current);
       }
+      timeoutRef.current = setTimeout(() => setSelected(null), DELAY);
       return setSelected(change);
     },
     [setSelected]
@@ -63,9 +64,6 @@ const InteractiveHandle: FC = () => {
       <span
         id="email"
         className="select-none font-mono font-medium text-2xl md:text-5xl lg:text-6xl"
-        onMouseLeave={() => {
-          timeoutRef.current = setTimeout(() => setSelected(null), DELAY);
-        }}
       >
         <span
           id="name"
