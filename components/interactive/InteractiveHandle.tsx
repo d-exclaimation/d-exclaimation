@@ -36,10 +36,17 @@ const InteractiveHandle: FC = () => {
       if (timeoutRef.current) {
         clearTimeout(timeoutRef.current);
       }
-      timeoutRef.current = setTimeout(() => setSelected(null), DELAY);
-      return setSelected(change);
+      setSelected(change);
     },
     [setSelected]
+  );
+
+  const click = useCallback(
+    (change: SetStateAction<keyof Manifest["handles"] | null>) => {
+      selects(change);
+      timeoutRef.current = setTimeout(() => setSelected(null), DELAY);
+    },
+    [selects]
   );
 
   const href = useMemo(
@@ -64,6 +71,12 @@ const InteractiveHandle: FC = () => {
       <span
         id="email"
         className="select-none font-mono font-medium text-2xl md:text-5xl lg:text-6xl"
+        onMouseLeave={() => {
+          if (timeoutRef.current) {
+            clearTimeout(timeoutRef.current);
+          }
+          timeoutRef.current = setTimeout(() => setSelected(null), DELAY);
+        }}
       >
         <span
           id="name"
@@ -74,7 +87,7 @@ const InteractiveHandle: FC = () => {
               ? "text-blue-600 underline"
               : ""
           }
-          onClick={() => selects((prev) => (prev === "email" ? prev : "name"))}
+          onClick={() => click((prev) => (prev === "email" ? prev : "name"))}
           onMouseEnter={() =>
             selects((prev) => (prev === "email" ? prev : "name"))
           }
@@ -89,7 +102,7 @@ const InteractiveHandle: FC = () => {
               ? "text-blue-600 underline"
               : ""
           }
-          onClick={() => selects((prev) => (prev === "name" ? prev : "email"))}
+          onClick={() => click((prev) => (prev === "name" ? prev : "email"))}
           onMouseEnter={() =>
             selects((prev) => (prev === "name" ? prev : "email"))
           }
@@ -105,7 +118,7 @@ const InteractiveHandle: FC = () => {
               ? "text-red-600 underline"
               : ""
           }
-          onClick={() => selects("instagram")}
+          onClick={() => click("instagram")}
           onMouseEnter={() => selects("instagram")}
         >
           @
@@ -210,7 +223,7 @@ const InteractiveHandle: FC = () => {
               ? "text-red-600 underline"
               : ""
           }
-          onClick={() => selects("site")}
+          onClick={() => click("site")}
           onMouseEnter={() => selects("site")}
         >
           .me
