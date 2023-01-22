@@ -96,7 +96,7 @@ const Home: FC = () => {
           <p className="text-sm md:text-base font-extralight font-sans">
             <Quote>Software engineer improving his craft</Quote>
             <br />
-            Short description of myself would be an ethutiastic and career
+            Short description of myself would be an enthusiastic and career
             driven person who enjoy the art of software development and want to
             use that to build something meaningful.
           </p>
