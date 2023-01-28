@@ -168,7 +168,7 @@ const Home: FC = () => {
           subtitle="Software Engineer Intern"
           title={{ name: "Partly", href: "https://partly.com" }}
           time={{
-            __type: "specified",
+            __t: "specified",
             start: "November 2022",
             end: "February 2023",
           }}
@@ -187,7 +187,7 @@ const Home: FC = () => {
           subtitle="Software Engineer Contract"
           title={{ name: "Zentax", href: "https://zentax.id" }}
           time={{
-            __type: "specified",
+            __t: "specified",
             start: "February 2021",
             end: "November 2021",
           }}
@@ -218,7 +218,7 @@ const Home: FC = () => {
           subtitle="GraphQL server for Swift"
           title={{ name: "Pioneer", href: "https://pioneer.dexclaimation.com" }}
           time={{
-            __type: "ongoing",
+            __t: "ongoing",
             start: "November 2022",
           }}
           color={{
@@ -236,7 +236,7 @@ const Home: FC = () => {
             href: "https://dexclaimation.com",
           }}
           time={{
-            __type: "ongoing",
+            __t: "ongoing",
             start: "February 2021",
           }}
           color={{

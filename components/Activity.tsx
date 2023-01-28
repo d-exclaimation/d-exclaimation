@@ -5,7 +5,7 @@
 //  Created by d-exclaimation on 11 Dec 2022
 //
 
-import { match, Union } from "@d-exclaimation/union";
+import { match, Union } from "@d-exclaimation/common/union";
 import type { ReactNode } from "react";
 import type { Color } from "../common/Styling";
 import type { XFC } from "../common/XFC";
@@ -59,7 +59,7 @@ const Activity: XFC<Props> = ({
         @{company.name}
       </a>
       <span className="text-xs md:text-sm font-extralight">
-        {match<Props["time"], string>(time, {
+        {match(time, {
           ongoing: ({ start }) => `Ongoing from ${start}`,
           specified: ({ start, end }) => `${start} - ${end}`,
         })}

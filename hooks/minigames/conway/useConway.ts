@@ -5,7 +5,7 @@
 //  Created by d-exclaimation on 14 Dec 2022
 //
 
-import { match, Union } from "@d-exclaimation/union";
+import { match, Union } from "@d-exclaimation/common/union";
 import { useCallback, useEffect, useMemo, useReducer, useState } from "react";
 import { fill, of } from "../../../common/Array";
 
@@ -97,7 +97,7 @@ export namespace Conway {
    * @returns The next state
    */
   function reducer({ grid }: State, action: Action): State {
-    const newGrid = match<Action, Grid>(action, {
+    const newGrid = match(action, {
       toggle: ({ x, y }) =>
         grid.map((row, i) =>
           i === y ? row.map((col, j) => (x === j ? !col : col)) : row
@@ -127,7 +127,7 @@ export namespace Conway {
      * Toggle an element in the grid given its vector position
      */
     const toggle = useCallback(
-      (pos: Vec2) => dispatch({ __type: "toggle", ...pos }),
+      (pos: Vec2) => dispatch({ __t: "toggle", ...pos }),
       [dispatch]
     );
 
@@ -139,7 +139,7 @@ export namespace Conway {
         clearInterval(id);
         setId(null);
       } else {
-        setId(setInterval(() => dispatch({ __type: "runtime" }), 250));
+        setId(setInterval(() => dispatch({ __t: "runtime" }), 250));
       }
     }, [dispatch, id]);
 
@@ -158,7 +158,7 @@ export namespace Conway {
         const res = [...parsed?.grid].map((row) =>
           [...row].map((col) => !!col)
         );
-        dispatch({ __type: "assign", grid: res });
+        dispatch({ __t: "assign", grid: res });
       } catch {
         return;
       }
