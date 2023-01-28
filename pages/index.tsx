@@ -59,7 +59,7 @@ const Home: FC = () => {
       {/* Loading  */}
       {loading && (
         <div className="flex items-center justify-center transition-transform w-screen h-screen">
-          <Progress.Root className="overflow-hidden rounded-full max-w-xl w-[75vw] h-6 [transform:translateZ(0)] bg-neutral-200">
+          <Progress.Root className="overflow-hidden rounded-full max-w-xl w-[75vw] h-6 [transform:translateZ(0)] bg-neutral-300">
             <Progress.Indicator
               className="bg-neutral-800 w-full h-full transition-transform duration-500"
               style={{ transform: `translateX(-${100 - progress}%)` }}
