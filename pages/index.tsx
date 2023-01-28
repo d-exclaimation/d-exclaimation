@@ -37,6 +37,8 @@ const Home: FC = () => {
     useSelectScrolling(StoryTitles);
 
   useEffect(() => {
+    console.log(navigator.userAgent);
+
     // Loading animation
     setProgress(30);
     const timeouts = [
@@ -70,22 +72,22 @@ const Home: FC = () => {
 
       {/* Page */}
       <div
-        className={`transition-opacity duration-700 ${
+        className={`lg:h-screen transition-opacity duration-700 ${
           loading ? "scale-0 opacity-0" : "scale-100 opacity-100"
-        }`}
+        } lg:overflow-hidden`}
       >
         <div className="opacity-0 h-[25vh]" />
 
         {/* Mobile View */}
         <nav
           id="mobile-nav"
-          className="flex md:hidden flex-col p-[clamp(1rem,5vw,6rem)] gap-10"
+          className="flex lg:hidden flex-col p-[clamp(1rem,5vw,6rem)] gap-10"
         >
           {StoryElements.map(({ title, img, ...props }, i) => (
             <Link
               className={`
               font-sans text-4xl no-underline relative
-              text-center md:text-start
+              text-center lg:text-start
               ${scrolled === title ? "text-blue-100" : "text-black/25"}
               `}
               key={i}
@@ -117,7 +119,7 @@ const Home: FC = () => {
               {img && (
                 <img
                   className={`
-                  absolute -translate-y-1/2 
+                  absolute -translate-y-1/2 left-1/2 -translate-x-1/2
                   [transition:_transform_250ms,_opacity_250ms] pointer-events-none w-[min(90vw,800px)]
                   ${
                     scrolled === title
@@ -135,7 +137,7 @@ const Home: FC = () => {
         {/* Desktop View */}
         <nav
           id="desktop-nav"
-          className="hidden md:flex flex-col gap-2 p-[clamp(1rem,5vw,6rem)]"
+          className="hidden lg:flex flex-col gap-2 p-[clamp(1rem,5vw,6rem)]"
           onMouseMove={onMouseMove}
           onMouseLeave={onClear}
         >
@@ -143,7 +145,7 @@ const Home: FC = () => {
             <a
               className={`
             font-sans text-[clamp(3rem,6vw,8rem)] font-light no-underline relative
-            text-center md:text-start
+            text-center lg:text-start
             ${selected === title ? "text-blue-100" : "text-black/25"}
             `}
               key={i}
@@ -192,7 +194,7 @@ const Home: FC = () => {
             </a>
           ))}
         </nav>
-        <div className="h-[40vh] md:h-0" />
+        <div className="h-[40vh] lg:h-0" />
       </div>
     </>
   );

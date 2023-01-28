@@ -6,12 +6,18 @@
 //
 
 import { tup } from "@d-exclaimation/common";
-import { MouseEvent as _MouseEvent, useCallback, useState } from "react";
+import {
+  MouseEvent as _MouseEvent,
+  useCallback,
+  useRef,
+  useState,
+} from "react";
 
 type NavMouseEvent = _MouseEvent<HTMLElement, MouseEvent>;
 type AnchorMouseEvent = _MouseEvent<HTMLElement, MouseEvent>;
 
 export function useSelectScrolling<T extends string[]>(keys: T) {
+  const ref = useRef<NodeJS.Timeout | number | undefined>(undefined);
   const [selected, setSelected] = useState<T[number] | undefined>(keys.at(0));
   const [mouse, setMouse] = useState<{ left: number; top: number } | undefined>(
     undefined
@@ -35,6 +41,11 @@ export function useSelectScrolling<T extends string[]>(keys: T) {
         top: e.clientY - rect.top,
       });
       setSelected(key);
+
+      ref.current = setTimeout(
+        () => window.scrollTo({ top: e.clientY, behavior: "smooth" }),
+        150
+      );
     },
     [setMouse, setSelected]
   );
