@@ -6,18 +6,12 @@
 //
 
 import { tup } from "@d-exclaimation/common";
-import {
-  MouseEvent as _MouseEvent,
-  useCallback,
-  useRef,
-  useState,
-} from "react";
+import { MouseEvent as _MouseEvent, useCallback, useState } from "react";
 
 type NavMouseEvent = _MouseEvent<HTMLElement, MouseEvent>;
 type AnchorMouseEvent = _MouseEvent<HTMLElement, MouseEvent>;
 
 export function useSelectScrolling<T extends string[]>(keys: T) {
-  const initialRef = useRef(true);
   const [selected, setSelected] = useState<T[number] | undefined>(keys.at(0));
   const [mouse, setMouse] = useState<{ left: number; top: number } | undefined>(
     undefined
