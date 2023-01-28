@@ -8,7 +8,7 @@
 import { useScroll, useTransform } from "framer-motion";
 import { useEffect, useState } from "react";
 
-const OFFZONE = 2;
+const OFFZONE = 1;
 
 export function useScrollSelection<T extends string[]>(keys: T) {
   const { scrollYProgress } = useScroll();

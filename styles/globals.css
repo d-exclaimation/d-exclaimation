@@ -9,6 +9,10 @@
   animation-fill-mode: forwards;
 }
 
+body {
+  background-image: linear-gradient(to top, #3b3b3b, #fff);
+}
+
 @keyframes sign {
   to {
     stroke-dashoffset: 0;
