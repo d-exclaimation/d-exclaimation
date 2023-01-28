@@ -17,13 +17,12 @@ export function useScrollSelection<T extends string[]>(keys: T) {
     [0, 1],
     [0, keys.length + OFFZONE]
   );
-  const [scrolled, setScrolled] = useState<T[number] | undefined>(keys.at(0));
+  const [scrolled, setScrolled] = useState<T[number]>(keys[0]);
 
   useEffect(() => {
     const unsubsribe = progress.onChange((p) => {
       const index = Math.round(p);
       if (index >= keys.length) {
-        setScrolled(undefined);
         return;
       }
       setScrolled(keys[index]);
