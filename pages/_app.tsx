@@ -5,7 +5,7 @@ import "../styles/globals.css";
 
 const App: FC<AppProps> = ({ Component, pageProps }) => {
   return (
-    <div className="w-screen h-screen bg-white text-black">
+    <div className="w-screen min-h-screen h-max bg-gradient-to-t from-neutral-600 to-white text-black">
       <Navigation />
       <Component {...pageProps} />
     </div>

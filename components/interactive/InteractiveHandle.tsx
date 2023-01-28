@@ -82,9 +82,9 @@ const InteractiveHandle: FC = () => {
           id="name"
           className={
             selected === "email"
-              ? "text-red-600 underline"
+              ? "text-red-400 underline"
               : selected === "name"
-              ? "text-blue-600 underline"
+              ? "text-blue-400 underline"
               : ""
           }
           onClick={() => click((prev) => (prev === "email" ? prev : "name"))}
@@ -97,9 +97,9 @@ const InteractiveHandle: FC = () => {
         <span
           className={
             selected === "email"
-              ? "text-red-600 underline"
+              ? "text-red-400 underline"
               : selected === "name"
-              ? "text-blue-600 underline"
+              ? "text-blue-400 underline"
               : ""
           }
           onClick={() => click((prev) => (prev === "name" ? prev : "email"))}
@@ -113,9 +113,9 @@ const InteractiveHandle: FC = () => {
           id="linkedin"
           className={
             selected === "instagram"
-              ? "text-fuchsia-500 underline"
+              ? "text-fuchsia-400 underline"
               : selected === "email"
-              ? "text-red-600 underline"
+              ? "text-red-400 underline"
               : ""
           }
           onClick={() => click("instagram")}
@@ -126,13 +126,13 @@ const InteractiveHandle: FC = () => {
         <span
           className={
             selected === "instagram"
-              ? "text-fuchsia-500 underline"
+              ? "text-fuchsia-400 underline"
               : selected === "site"
-              ? "text-indigo-500 underline"
+              ? "text-indigo-400 underline"
               : selected === "linkedin"
-              ? "text-teal-500 underline"
+              ? "text-teal-400 underline"
               : selected === "email"
-              ? "text-red-600 underline"
+              ? "text-red-400 underline"
               : ""
           }
           onClick={() =>
@@ -157,13 +157,13 @@ const InteractiveHandle: FC = () => {
         <span
           className={
             selected === "instagram"
-              ? "text-fuchsia-500 underline"
+              ? "text-fuchsia-400 underline"
               : selected === "site"
-              ? "text-indigo-500 underline"
+              ? "text-indigo-400 underline"
               : selected === "linkedin"
-              ? "text-teal-500 underline"
+              ? "text-teal-400 underline"
               : selected === "email"
-              ? "text-red-600 underline"
+              ? "text-red-400 underline"
               : ""
           }
           onMouseEnter={() =>
@@ -205,7 +205,7 @@ const InteractiveHandle: FC = () => {
               selected === "linkedin" || selected === "site"
                 ? "underline"
                 : selected === "email"
-                ? "text-red-600 underline"
+                ? "text-red-400 underline"
                 : ""
             }
             animate={selected === "instagram" ? "hidden" : "visible"}
@@ -218,9 +218,9 @@ const InteractiveHandle: FC = () => {
           id="website"
           className={
             selected === "site"
-              ? "text-indigo-500 underline"
+              ? "text-indigo-400 underline"
               : selected === "email"
-              ? "text-red-600 underline"
+              ? "text-red-400 underline"
               : ""
           }
           onClick={() => click("site")}

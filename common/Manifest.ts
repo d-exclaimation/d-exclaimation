@@ -26,6 +26,10 @@ export const manifest = {
       href: "/",
     },
     {
+      name: "About",
+      href: "/about",
+    },
+    {
       name: "Conway's Game of Life",
       href: "/minigames/conway",
     },
@@ -75,7 +79,7 @@ export const manifest = {
       site: "Linkedin",
       username: "@d-exclaimation",
       href: "https://linkedin.com/in/d-exclaimation",
-      color: { dud: "text-cyan-200", normal: "text-cyan-500" },
+      color: { dud: "text-cyan-200", normal: "text-cyan-600" },
     }
   ),
   handles: {
@@ -85,6 +89,49 @@ export const manifest = {
     instagram: "https://instagram.com/dexclaimation",
     linkedin: "https://linkedin.com/in/d-exclaimation",
   },
+
+  stories: {
+    "d-exclaimation": {
+      href: "/#",
+      img: undefined,
+    },
+
+    about: {
+      href: "/about",
+      img: undefined,
+    },
+
+    partly: {
+      href: "https://partly.com",
+      img: "/artpiece/partly.webp",
+    },
+
+    university: {
+      href: "https://www.canterbury.ac.nz/",
+      img: "/artpiece/uc.webp",
+    },
+
+    pioneer: {
+      href: "https://pioneer.dexclaimation.com",
+      img: "/artpiece/pioneer.webp",
+    },
+
+    christchurch: {
+      href: "https://www.christchurchnz.com",
+      img: "/artpiece/christchurch.webp",
+    },
+
+    github: {
+      href: "https://github.com/d-exclaimation",
+      img: "/artpiece/github.webp",
+    },
+
+    linkedin: {
+      href: "https://linkedin.com/in/d-exclaimation",
+      img: "/artpiece/linkedin.webp",
+    },
+  } as const,
 };
 
 export type Manifest = typeof manifest;
+export type Stories = Manifest["stories"];

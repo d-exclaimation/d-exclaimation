@@ -28,7 +28,7 @@ const Conway: FC = () => {
         right-3 bottom-3 md:right-4 md:bottom-4
         p-1 md:p-2 
         bg-white rounded-md select-none 
-        transform shadow-md shadow-gray-400 
+        transform shadow-md shadow-neutral-500
         active:bg-gray-100
         active:scale-95 active:shadow-md
         md:hover:scale-95 md:hover:shadow-md
@@ -42,7 +42,7 @@ const Conway: FC = () => {
           <FiPause className="fill-blue-600 text-blue-600 w-5 md:w-6 h-5 z-50 md:h-6" />
         )}
       </button>
-      <div className="p-2 overflow-y-scroll overflow-x-scroll grid gap-1 grid-cols-[repeat(100,0.75rem)]">
+      <div className="w-full h-full p-2 overflow-y-scroll overflow-x-scroll bg-neutral-100 grid gap-1 grid-cols-[repeat(100,0.75rem)]">
         {grid.map((row, y) =>
           row.map((isActive, x) => {
             const key = `${x},${y}`;
