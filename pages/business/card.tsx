@@ -10,7 +10,7 @@ import InteractiveCard from "../../components/interactive/InteractiveCard";
 
 const Card: FC = () => {
   return (
-    <div className="w-full h-full flex items-center justify-center">
+    <div className="w-full h-screen flex items-center justify-center">
       <InteractiveCard />
     </div>
   );
