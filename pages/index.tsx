@@ -13,7 +13,6 @@ import Scrambled from "../components/Scrambled";
 import { withHead } from "../hoc/withHead";
 import { useScrollSelection } from "../hooks/minigames/cinderbloc/useScrollSelection";
 import { useSelectScrolling } from "../hooks/minigames/cinderbloc/useSelectScrolling";
-import { useResetScroll } from "../hooks/useResetScroll";
 
 const StoryTitles = Object.keys(manifest.stories) as Array<keyof Stories>;
 const StoryElements = Object.entries(manifest.stories).map(
@@ -36,8 +35,6 @@ const Home: FC = () => {
   // Desktop select scrolling
   const [{ mouse, selected }, { onHover, onMouseMove, onClear }] =
     useSelectScrolling(StoryTitles);
-
-  useResetScroll();
 
   useEffect(() => {
     // Loading animation

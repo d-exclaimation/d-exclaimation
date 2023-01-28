@@ -61,25 +61,25 @@ export const manifest = {
       site: "Twitter",
       username: "@dexclaimation",
       href: "https://twitter.com/dexclaimation",
-      color: { dud: "text-sky-200", normal: "text-sky-500" },
+      color: { dud: "text-sky-300", normal: "text-sky-500" },
     },
     {
       site: "Facebook",
       username: "@dexclaimation",
       href: "https://facebook.com/dexclaimation",
-      color: { dud: "text-blue-200", normal: "text-blue-500" },
+      color: { dud: "text-blue-300", normal: "text-blue-500" },
     },
     {
       site: "Instagram",
       username: "@dexclaimation",
       href: "https://instagram.com/dexclaimation",
-      color: { dud: "text-fuchsia-200", normal: "text-fuchsia-500" },
+      color: { dud: "text-fuchsia-300", normal: "text-fuchsia-500" },
     },
     {
       site: "Linkedin",
       username: "@d-exclaimation",
       href: "https://linkedin.com/in/d-exclaimation",
-      color: { dud: "text-cyan-200", normal: "text-cyan-600" },
+      color: { dud: "text-cyan-300", normal: "text-cyan-600" },
     }
   ),
   handles: {
