@@ -15,7 +15,7 @@ import { useSelectScrolling } from "../hooks/minigames/cinderbloc/useSelectScrol
 
 const Stories = {
   "d-exclaimation": {
-    href: "",
+    href: "/",
     img: undefined,
   },
 
@@ -24,44 +24,34 @@ const Stories = {
     img: undefined,
   },
 
-  software: {
-    href: "",
-    img: "/artpiece/test.webp",
+  partly: {
+    href: "https://partly.com",
+    img: "/artpiece/partly.webp",
   },
 
   university: {
-    href: "",
-    img: "/artpiece/test.webp",
-  },
-
-  partly: {
-    href: "",
-    img: "/artpiece/test.webp",
+    href: "https://www.canterbury.ac.nz/",
+    img: "/artpiece/uc.webp",
   },
 
   pioneer: {
-    href: "",
-    img: "/artpiece/test.webp",
+    href: "https://pioneer.dexclaimation.com",
+    img: "/artpiece/pioneer.webp",
+  },
+
+  christchurch: {
+    href: "https://www.christchurchnz.com",
+    img: "/artpiece/christchurch.webp",
   },
 
   github: {
-    href: "",
-    img: "/artpiece/test.webp",
+    href: "https://github.com/d-exclaimation",
+    img: "/artpiece/github.webp",
   },
 
   linkedin: {
-    href: "",
-    img: "/artpiece/test.webp",
-  },
-
-  something1: {
-    href: "",
-    img: "/artpiece/test.webp",
-  },
-
-  something: {
-    href: "",
-    img: "/artpiece/test.webp",
+    href: "https://linkedin.com/in/d-exclaimation",
+    img: "/artpiece/linkedin.webp",
   },
 } as const;
 
@@ -84,17 +74,19 @@ const CinderBloc: FC = () => {
     useSelectScrolling(StoryTitles);
 
   useEffect(() => {
-    StoryElements.forEach(({ img }) => {
-      if (!img) return;
-      const preloader = new Image();
-      preloader.src = img;
-    });
     setProgress(30);
     const timeouts = [
       setTimeout(() => setProgress(100), 500),
       setTimeout(() => setLoading(false), 1200),
     ];
-    console.log("Hello?");
+
+    // Preload images
+    StoryElements.forEach(({ img }) => {
+      if (!img) return;
+      const preloader = new Image();
+      preloader.src = img;
+    });
+
     return () => timeouts.forEach((timeout) => clearTimeout(timeout));
   }, []);
 
@@ -111,7 +103,7 @@ const CinderBloc: FC = () => {
         </div>
       )}
       <div
-        className={`bg-gradient-to-t from-neutral-400 to-white transition-opacity duration-700 ${
+        className={`bg-gradient-to-t from-neutral-600 md:from-neutral-700 to-white transition-opacity duration-700 ${
           loading ? "scale-0 opacity-0" : "scale-100 opacity-100"
         }`}
       >
