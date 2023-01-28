@@ -5,6 +5,7 @@
 //  Created by d-exclaimation on 25 Jan 2023
 //
 
+import { macrotask } from "@d-exclaimation/common/v8";
 import * as Progress from "@radix-ui/react-progress";
 import Link from "next/link";
 import { FC, useEffect, useState } from "react";
@@ -43,6 +44,10 @@ const Home: FC = () => {
       setTimeout(() => setProgress(100), 500),
       setTimeout(() => setLoading(false), 1000),
     ];
+
+    if (typeof window !== undefined) {
+      macrotask(() => window.scrollTo({ top: 0, behavior: "smooth" }));
+    }
 
     // Preload images
     StoryElements.forEach(({ img }) => {
