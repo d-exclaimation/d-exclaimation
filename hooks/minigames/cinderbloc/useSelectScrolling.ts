@@ -6,18 +6,28 @@
 //
 
 import { tup } from "@d-exclaimation/common";
-import { MouseEvent as _MouseEvent, useCallback, useState } from "react";
+import {
+  MouseEvent as _MouseEvent,
+  useCallback,
+  useRef,
+  useState,
+} from "react";
 
 type NavMouseEvent = _MouseEvent<HTMLElement, MouseEvent>;
 type AnchorMouseEvent = _MouseEvent<HTMLElement, MouseEvent>;
 
 export function useSelectScrolling<T extends string[]>(keys: T) {
+  const initialRef = useRef(true);
   const [selected, setSelected] = useState<T[number] | undefined>(keys.at(0));
   const [mouse, setMouse] = useState<{ left: number; top: number } | undefined>(
     undefined
   );
 
   const onMouseMove = useCallback((e: NavMouseEvent) => {
+    if (initialRef.current) {
+      initialRef.current = false;
+      return;
+    }
     const percent = e.clientY / window.innerHeight;
     const y = percent * e.currentTarget.offsetHeight * -1;
     const keyframes = { transform: `translateY(${y}px)` };
