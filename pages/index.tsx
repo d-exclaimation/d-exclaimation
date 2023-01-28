@@ -5,7 +5,6 @@
 //  Created by d-exclaimation on 25 Jan 2023
 //
 
-import { macrotask } from "@d-exclaimation/common/v8";
 import * as Progress from "@radix-ui/react-progress";
 import Link from "next/link";
 import { FC, useEffect, useState } from "react";
@@ -14,6 +13,7 @@ import Scrambled from "../components/Scrambled";
 import { withHead } from "../hoc/withHead";
 import { useScrollSelection } from "../hooks/minigames/cinderbloc/useScrollSelection";
 import { useSelectScrolling } from "../hooks/minigames/cinderbloc/useSelectScrolling";
+import { useResetScroll } from "../hooks/useResetScroll";
 
 const StoryTitles = Object.keys(manifest.stories) as Array<keyof Stories>;
 const StoryElements = Object.entries(manifest.stories).map(
@@ -37,6 +37,8 @@ const Home: FC = () => {
   const [{ mouse, selected }, { onHover, onMouseMove, onClear }] =
     useSelectScrolling(StoryTitles);
 
+  useResetScroll();
+
   useEffect(() => {
     // Loading animation
     setProgress(30);
@@ -44,10 +46,6 @@ const Home: FC = () => {
       setTimeout(() => setProgress(100), 500),
       setTimeout(() => setLoading(false), 1000),
     ];
-
-    if (typeof window !== undefined) {
-      macrotask(() => window.scrollTo({ top: 0, behavior: "smooth" }));
-    }
 
     // Preload images
     StoryElements.forEach(({ img }) => {

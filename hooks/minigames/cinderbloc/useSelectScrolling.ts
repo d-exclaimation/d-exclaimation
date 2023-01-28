@@ -24,10 +24,6 @@ export function useSelectScrolling<T extends string[]>(keys: T) {
   );
 
   const onMouseMove = useCallback((e: NavMouseEvent) => {
-    if (initialRef.current) {
-      initialRef.current = false;
-      return;
-    }
     const percent = e.clientY / window.innerHeight;
     const y = percent * e.currentTarget.offsetHeight * -1;
     const keyframes = { transform: `translateY(${y}px)` };
