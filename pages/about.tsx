@@ -39,7 +39,7 @@ const About: FC = () => {
               />
             </Link>
             {/* Socials */}
-            <div className="flex flex-row md:flex-col items-start text-xs md:text-base flex-wrap">
+            <div className="flex flex-row sm:flex-col items-start text-xs sm:text-base flex-wrap">
               {manifest.links.map((social) => (
                 <div key={social.href}>
                   <Hyperlink {...social} />
@@ -53,11 +53,11 @@ const About: FC = () => {
         className="
         relative 
         my-0 mx-auto z-10 
-        p-4 md:p-16 
-        max-w-[90vw] md:max-w-[min(800px,95vw)] 
-        top-[12vh] md:top-[20vh] 
-        md:left-[8vw] 
-        text-sm md:text-lg 
+        p-4 sm:p-16 
+        max-w-[90vw] sm:max-w-[min(800px,95vw)] 
+        top-[12vh] sm:top-[20vh] 
+        sm:left-[8vw] 
+        text-sm sm:text-lg 
         bg-gradient-to-t from-neutral-200 to-white
         rounded-lg"
       >
@@ -74,7 +74,7 @@ const About: FC = () => {
             delay={5_000}
             align="items-start"
             justify="justify-start"
-            className="font-bold text-lg md:text-xl mb-2"
+            className="font-bold text-lg sm:text-xl mb-2"
           />
           {/* Brief */}
           <Scrambled
@@ -91,13 +91,13 @@ const About: FC = () => {
             delay={1_000}
             align="items-start"
             justify="justify-start"
-            className="font-semibold md:text-lg my-2"
+            className="font-semibold sm:text-lg my-2"
             color={{
               dud: "text-slate-400",
               normal: "text-indigo-500",
             }}
           />
-          <p className="text-sm md:text-base font-extralight font-sans">
+          <p className="text-sm sm:text-base font-extralight font-sans">
             <Quote>Software engineer improving his craft</Quote>
             <br />
             Short description of myself would be an enthusiastic and career
@@ -119,13 +119,13 @@ const About: FC = () => {
             delay={1_000}
             align="items-start"
             justify="justify-start"
-            className="font-semibold md:text-lg my-2"
+            className="font-semibold sm:text-lg my-2"
             color={{
               dud: "text-slate-400",
               normal: "text-violet-500",
             }}
           />
-          <p className="text-sm md:text-base font-extralight font-sans">
+          <p className="text-sm sm:text-base font-extralight font-sans">
             <Quote>Computer science student breaking into tech</Quote>
             <br />A huge portion of my life at the moment is about my studies
             and my future career. I am currently a university student studying
@@ -146,7 +146,7 @@ const About: FC = () => {
             delay={5_000}
             align="items-start"
             justify="justify-start"
-            className="font-bold text-lg md:text-xl mb-2"
+            className="font-bold text-lg sm:text-xl mb-2"
           />
         </div>
         {/* Work */}
@@ -162,7 +162,7 @@ const About: FC = () => {
           delay={1_000}
           align="items-start"
           justify="justify-start"
-          className="font-semibold md:text-lg my-2"
+          className="font-semibold sm:text-lg my-2"
           color={{
             dud: "text-slate-400",
             normal: "text-blue-500",
@@ -212,7 +212,7 @@ const About: FC = () => {
           delay={1_000}
           align="items-start"
           justify="justify-start"
-          className="font-semibold md:text-lg my-2"
+          className="font-semibold sm:text-lg my-2"
           color={{
             dud: "text-slate-400",
             normal: "text-teal-500",
@@ -251,7 +251,7 @@ const About: FC = () => {
         >
           This website
         </Activity>
-        <span className="font-sans font-extralight text-xs md:text-sm">
+        <span className="font-sans font-extralight text-xs sm:text-sm">
           and more on{" "}
           <a
             className="text-sky-500 decoration-cyan-500 hover:underline active:underline cursor-pointer"
