@@ -7,7 +7,11 @@ module.exports = {
     "./hooks/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      animation: {
+        "fade-in": "fadein 700ms ease-in-out 0s"
+      }
+    },
     screens: {
       "xs": { max: "575px" }, // Mobile (iPhone 3 - iPhone XS Max).
       "sm": { min: "576px" }, // Mobile (matches max: iPhone 11 Pro Max landscape @ 896px).
