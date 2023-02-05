@@ -23,7 +23,7 @@ const Hyperlink: XFC<OutLink> = ({ href, site, username, ...rest }) => (
     href={href}
   >
     <Scrambled
-      phrases={[username, site, site]}
+      phrases={[username, site, site, site]}
       align="items-center"
       justify="justify-center"
       speed={5}

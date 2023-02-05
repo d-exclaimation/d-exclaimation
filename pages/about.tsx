@@ -94,7 +94,7 @@ const About: FC = () => {
             className="font-semibold sm:text-lg my-2"
             color={{
               dud: "text-slate-400",
-              normal: "text-indigo-500",
+              normal: "text-indigo-800",
             }}
           />
           <p className="text-sm sm:text-base font-extralight font-sans">
@@ -122,7 +122,7 @@ const About: FC = () => {
             className="font-semibold sm:text-lg my-2"
             color={{
               dud: "text-slate-400",
-              normal: "text-violet-500",
+              normal: "text-violet-800",
             }}
           />
           <p className="text-sm sm:text-base font-extralight font-sans">
@@ -147,6 +147,10 @@ const About: FC = () => {
             align="items-start"
             justify="justify-start"
             className="font-bold text-lg sm:text-xl mb-2"
+            color={{
+              dud: "text-slate-400",
+              normal: "text-blue-800",
+            }}
           />
         </div>
         {/* Work */}
@@ -165,9 +169,31 @@ const About: FC = () => {
           className="font-semibold sm:text-lg my-2"
           color={{
             dud: "text-slate-400",
-            normal: "text-blue-500",
+            normal: "text-blue-700",
           }}
         />
+        <Activity
+          subtitle="Junior Software Engineer (Part-time)"
+          title={{ name: "Partly", href: "https://partly.com" }}
+          time={{
+            __t: "ongoing",
+            start: "February 2023",
+          }}
+          color={{
+            border: "border-l-blue-400",
+            decoration: "decoration-blue-700",
+            text: "text-blue-700",
+          }}
+        >
+          Continuining my work on{" "}
+          <a
+            className="text-sky-800 decoration-cyan-800 active:underline hover:underline cursor-pointer"
+            href="https://partspal.partly.com"
+          >
+            Partspal
+          </a>{" "}
+          and marketplace integations microservices.
+        </Activity>
         <Activity
           subtitle="Software Engineer Intern"
           title={{ name: "Partly", href: "https://partly.com" }}
@@ -176,10 +202,15 @@ const About: FC = () => {
             start: "November 2022",
             end: "February 2023",
           }}
+          color={{
+            border: "border-l-blue-400",
+            decoration: "decoration-blue-700",
+            text: "text-blue-700",
+          }}
         >
           Worked on{" "}
           <a
-            className="text-sky-500 decoration-cyan-500 active:underline hover:underline cursor-pointer"
+            className="text-sky-800 decoration-cyan-800 active:underline hover:underline cursor-pointer"
             href="https://partspal.partly.com"
           >
             Partspal
@@ -195,10 +226,15 @@ const About: FC = () => {
             start: "February 2021",
             end: "November 2021",
           }}
+          color={{
+            border: "border-l-blue-400",
+            decoration: "decoration-blue-700",
+            text: "text-blue-700",
+          }}
         >
           Worked on building{" "}
           <a
-            className="text-sky-500 decoration-cyan-500 hover:underline active:underline cursor-pointer"
+            className="text-sky-800 decoration-cyan-800 hover:underline active:underline cursor-pointer"
             href="https://att.zentax.id"
           >
             their online attendance recording system
@@ -215,7 +251,7 @@ const About: FC = () => {
           className="font-semibold sm:text-lg my-2"
           color={{
             dud: "text-slate-400",
-            normal: "text-teal-500",
+            normal: "text-emerald-800",
           }}
         />
         <Activity
@@ -226,9 +262,9 @@ const About: FC = () => {
             start: "November 2022",
           }}
           color={{
-            border: "border-l-teal-200",
-            decoration: "decoration-teal-400",
-            text: "text-teal-400",
+            border: "border-l-emerald-400",
+            decoration: "decoration-emerald-700",
+            text: "text-emerald-700",
           }}
         >
           An open source, spec-compliant GraphQL server for Swift on the server
@@ -244,9 +280,9 @@ const About: FC = () => {
             start: "February 2021",
           }}
           color={{
-            border: "border-l-teal-200",
-            decoration: "decoration-teal-400",
-            text: "text-teal-400",
+            border: "border-l-emerald-400",
+            decoration: "decoration-emerald-700",
+            text: "text-emerald-700",
           }}
         >
           This website
