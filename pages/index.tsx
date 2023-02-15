@@ -46,7 +46,7 @@ const Home: FC = () => {
       }}
     >
       <div className="lg:h-screen lg:overflow-hidden">
-        <div className="opacity-0 h-[25vh]" />
+        <div className="opacity-0 h-[40vh] lg:h-[25vh]" />
 
         {/* Mobile View */}
         <nav
@@ -168,7 +168,7 @@ const Home: FC = () => {
             </Link>
           ))}
         </nav>
-        <div className="h-[40vh] lg:h-0" />
+        <div className="h-[60vh] lg:h-0" />
       </div>
     </LoadedIn>
   );
