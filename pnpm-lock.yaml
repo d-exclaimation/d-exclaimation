@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@d-exclaimation/common': ^0.0.1
+  '@d-exclaimation/common': ^0.4.0-beta.2
   '@d-exclaimation/union': ^0.1.1
   '@headlessui/react': ^1.7.5
   '@radix-ui/react-progress': ^1.0.1
@@ -20,7 +20,7 @@ specifiers:
   typescript: ^4.9.4
 
 dependencies:
-  '@d-exclaimation/common': 0.0.1
+  '@d-exclaimation/common': 0.4.0-beta.2
   '@d-exclaimation/union': 0.1.1
   '@headlessui/react': 1.7.5_biqbaboplfbrettd7655fr4n2y
   '@radix-ui/react-progress': 1.0.1_biqbaboplfbrettd7655fr4n2y
@@ -49,8 +49,8 @@ packages:
       regenerator-runtime: 0.13.11
     dev: false
 
-  /@d-exclaimation/common/0.0.1:
-    resolution: {integrity: sha512-k+jFskIC3odWeMhXPgsvu94q2BdtbptWZuKi+XmAj2n7uT0N+X2bt6syKpxfDpQeu9WilU2KBwH+ywy2YNmDUg==}
+  /@d-exclaimation/common/0.4.0-beta.2:
+    resolution: {integrity: sha512-D4H+N2tgJEWH7fnznj+drxgz50rE2Gfg24GYdu3e/pp+b4pHla/ZJFKwcPbsu/BoO1aKdtconjCFC9g3/m/PDQ==}
     engines: {node: '>=12'}
     dev: false
 

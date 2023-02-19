@@ -5,10 +5,16 @@
 //  Created by d-exclaimation on 11 Dec 2022
 //
 
-import { match, Union } from "@d-exclaimation/common/union";
+import { match, union, Union } from "@d-exclaimation/common/union";
 import type { ReactNode } from "react";
 import type { Color } from "../common/Styling";
 import type { XFC } from "../common/XFC";
+
+export type Time = Union<{
+  ongoing: { start: string };
+  specified: { start: string; end: string };
+}>;
+export const { ongoing, specified } = union<Time>();
 
 type Props = {
   subtitle: string;
@@ -16,10 +22,7 @@ type Props = {
     name: string;
     href?: string;
   };
-  time: Union<{
-    ongoing: { start: string };
-    specified: { start: string; end: string };
-  }>;
+  time: Time;
   children: ReactNode;
   color?: {
     decoration: Color.Decoration;
