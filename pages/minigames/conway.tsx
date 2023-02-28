@@ -21,7 +21,7 @@ const Conway: FC = () => {
   const { grid, toggle, isRunning, onoff } = useConway();
 
   return (
-    <div className="w-full h-full flex items-center justify-center">
+    <div className="w-full h-full flex items-center bg-white justify-center">
       <button
         className="
         fixed z-40 

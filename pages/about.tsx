@@ -26,7 +26,7 @@ const About: FC = () => {
 
   return (
     <div className="w-full h-max">
-      <div className="fixed inset-0 bg-gradient-to-t from-neutral-700 to-white">
+      <div className="fixed inset-0 bg-white">
         <div className="max-w-[1000px] my-0 mx-auto py-[14px] px-[12px]">
           <div className="flex flex-col items-start">
             {/* Title */}
@@ -58,7 +58,7 @@ const About: FC = () => {
         top-[12vh] sm:top-[20vh] 
         sm:left-[8vw] 
         text-sm sm:text-lg 
-        bg-gradient-to-t from-neutral-200 to-white
+        bg-gradient-to-t from-neutral-50 to-white
         rounded-lg"
       >
         {/* Brief and description */}

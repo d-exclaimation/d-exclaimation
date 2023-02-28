@@ -45,7 +45,7 @@ export namespace Conway {
       glider: Vec2;
     }>;
   }>;
-  const { toggle, runtime, assign } = union<Action>();
+  const Action = union<Action>();
 
   /** Number of X (columns) */
   const X_NUMS = 100;
@@ -128,7 +128,7 @@ export namespace Conway {
      * Toggle an element in the grid given its vector position
      */
     const toggle = useCallback(
-      (pos: Vec2) => dispatch({ kind: "toggle", ...pos }),
+      (pos: Vec2) => dispatch(Action.toggle(pos)),
       [dispatch]
     );
 
@@ -140,7 +140,7 @@ export namespace Conway {
         clearInterval(id);
         setId(null);
       } else {
-        setId(setInterval(() => dispatch({ kind: "runtime" }), 250));
+        setId(setInterval(() => dispatch(Action.runtime({})), 250));
       }
     }, [dispatch, id]);
 
@@ -159,7 +159,7 @@ export namespace Conway {
         const res = [...parsed?.grid].map((row) =>
           [...row].map((col) => !!col)
         );
-        dispatch({ kind: "assign", grid: res });
+        dispatch(Action.assign({ grid: res }));
       } catch {
         return;
       }
