@@ -5,21 +5,22 @@
 //  Created by d-exclaimation on 25 Jan 2023
 //
 
+import { entries, keys } from "@d-exclaimation/common";
 import Link from "next/link";
 import { FC } from "react";
 import { preloadImage } from "../common/Image";
-import { manifest, Stories } from "../common/Manifest";
+import { manifest } from "../common/Manifest";
 import LoadedIn from "../components/LoadedIn";
 import Scrambled from "../components/Scrambled";
 import { withHead } from "../hoc/withHead";
 import { useScrollSelection } from "../hooks/minigames/cinderbloc/useScrollSelection";
 import { useSelectScrolling } from "../hooks/minigames/cinderbloc/useSelectScrolling";
 
-const StoryTitles = Object.keys(manifest.stories) as Array<keyof Stories>;
-const StoryElements = Object.entries(manifest.stories).map(
+const StoryTitles = keys(manifest.stories);
+const StoryElements = entries(manifest.stories).map(
   ([title, { img, ...other }]) => {
     return {
-      title: title as keyof Stories,
+      title,
       img,
       ...other,
     };
@@ -27,10 +28,10 @@ const StoryElements = Object.entries(manifest.stories).map(
 );
 
 const Home: FC = () => {
-  // Mobile scrolling
+  // Mobile scrolling (uses the scroll position of the window)
   const scrolled = useScrollSelection(StoryTitles);
 
-  // Desktop select scrolling
+  // Desktop select scrolling (uses the cursor position to scroll)
   const [{ mouse, selected }, { onHover, onMouseMove, onClear }] =
     useSelectScrolling(StoryTitles);
 

@@ -7,7 +7,7 @@ import {
 import Link from "next/link";
 import type { FC } from "react";
 import { manifest } from "../common/Manifest";
-import Activity from "../components/Activity";
+import Activity, { ongoing, specified } from "../components/Activity";
 import Hyperlink from "../components/Hyperlink";
 import Quote from "../components/Quote";
 import Scrambled from "../components/Scrambled";
@@ -26,7 +26,7 @@ const About: FC = () => {
 
   return (
     <div className="w-full h-max">
-      <div className="fixed inset-0 bg-gradient-to-t from-neutral-700 to-white">
+      <div className="fixed inset-0 bg-white">
         <div className="max-w-[1000px] my-0 mx-auto py-[14px] px-[12px]">
           <div className="flex flex-col items-start">
             {/* Title */}
@@ -58,7 +58,7 @@ const About: FC = () => {
         top-[12vh] sm:top-[20vh] 
         sm:left-[8vw] 
         text-sm sm:text-lg 
-        bg-gradient-to-t from-neutral-200 to-white
+        bg-gradient-to-t from-neutral-50 to-white
         rounded-lg"
       >
         {/* Brief and description */}
@@ -175,10 +175,9 @@ const About: FC = () => {
         <Activity
           subtitle="Junior Software Engineer (Part-time)"
           title={{ name: "Partly", href: "https://partly.com" }}
-          time={{
-            __t: "ongoing",
+          time={ongoing({
             start: "February 2023",
-          }}
+          })}
           color={{
             border: "border-l-blue-400",
             decoration: "decoration-blue-700",
@@ -197,11 +196,10 @@ const About: FC = () => {
         <Activity
           subtitle="Software Engineer Intern"
           title={{ name: "Partly", href: "https://partly.com" }}
-          time={{
-            __t: "specified",
+          time={specified({
             start: "November 2022",
             end: "February 2023",
-          }}
+          })}
           color={{
             border: "border-l-blue-400",
             decoration: "decoration-blue-700",
@@ -221,11 +219,10 @@ const About: FC = () => {
         <Activity
           subtitle="Software Engineer Contract"
           title={{ name: "Zentax", href: "https://zentax.id" }}
-          time={{
-            __t: "specified",
+          time={specified({
             start: "February 2021",
             end: "November 2021",
-          }}
+          })}
           color={{
             border: "border-l-blue-400",
             decoration: "decoration-blue-700",
@@ -257,10 +254,9 @@ const About: FC = () => {
         <Activity
           subtitle="GraphQL server for Swift"
           title={{ name: "Pioneer", href: "https://pioneer.dexclaimation.com" }}
-          time={{
-            __t: "ongoing",
+          time={ongoing({
             start: "November 2022",
-          }}
+          })}
           color={{
             border: "border-l-emerald-400",
             decoration: "decoration-emerald-700",
@@ -275,10 +271,9 @@ const About: FC = () => {
             name: "dexclaimation.com",
             href: "https://dexclaimation.com",
           }}
-          time={{
-            __t: "ongoing",
+          time={ongoing({
             start: "February 2021",
-          }}
+          })}
           color={{
             border: "border-l-emerald-400",
             decoration: "decoration-emerald-700",

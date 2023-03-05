@@ -5,7 +5,7 @@
 //  Created by d-exclaimation on 14 Dec 2022
 //
 
-import { match, Union } from "@d-exclaimation/common/union";
+import { match, union, Union } from "@d-exclaimation/common/union";
 import { useCallback, useEffect, useMemo, useReducer, useState } from "react";
 import { fill, of } from "../../../common/Array";
 
@@ -45,6 +45,7 @@ export namespace Conway {
       glider: Vec2;
     }>;
   }>;
+  const Action = union<Action>();
 
   /** Number of X (columns) */
   const X_NUMS = 100;
@@ -127,7 +128,7 @@ export namespace Conway {
      * Toggle an element in the grid given its vector position
      */
     const toggle = useCallback(
-      (pos: Vec2) => dispatch({ __t: "toggle", ...pos }),
+      (pos: Vec2) => dispatch(Action.toggle(pos)),
       [dispatch]
     );
 
@@ -139,7 +140,7 @@ export namespace Conway {
         clearInterval(id);
         setId(null);
       } else {
-        setId(setInterval(() => dispatch({ __t: "runtime" }), 250));
+        setId(setInterval(() => dispatch(Action.runtime({})), 250));
       }
     }, [dispatch, id]);
 
@@ -158,7 +159,7 @@ export namespace Conway {
         const res = [...parsed?.grid].map((row) =>
           [...row].map((col) => !!col)
         );
-        dispatch({ __t: "assign", grid: res });
+        dispatch(Action.assign({ grid: res }));
       } catch {
         return;
       }
