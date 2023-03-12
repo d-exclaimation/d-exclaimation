@@ -32,7 +32,7 @@ const Home: FC = () => {
   const scrolled = useScrollSelection(StoryTitles);
 
   // Desktop select scrolling (uses the cursor position to scroll)
-  const [{ mouse, selected }, { onHover, onMouseMove, onClear }] =
+  const [{ selected }, { onHover, onMouseMove, onClear }] =
     useSelectScrolling(StoryTitles);
 
   return (
@@ -58,8 +58,8 @@ const Home: FC = () => {
             <Link
               className={`
               font-sans text-4xl sm:text-6xl md:text-8xl no-underline relative
-              text-center lg:text-start
-              ${scrolled === title ? "text-blue-100" : "text-black/25"}
+              text-center lg:text-start transition-all duration-300
+              ${scrolled === title ? "text-blue-100" : "text-black/25 scale-90"}
               `}
               key={i}
               {...props}
@@ -118,17 +118,22 @@ const Home: FC = () => {
             <Link
               className={`
               font-sans text-[clamp(3rem,6vw,8rem)] font-light no-underline relative
-              text-center lg:text-start
-              ${selected === title ? "text-blue-100" : "text-black/25"}
+              text-center lg:text-start transition-all duration-300
+              ${selected === title ? "text-blue-100" : "text-black/25 scale-95"}
               `}
               key={i}
               onMouseMove={onHover(title)}
               {...props}
             >
               <div
-                className={`border-y-2 z-[2] ${
-                  selected === title ? "border-y-black" : "border-y-transparent"
-                }`}
+                className={`border-y-2 z-[2] transition-all ${
+                  selected === title
+                    ? img
+                      ? "border-y-neutral-400 bg-black/25"
+                      : "border-y-neutral-400 bg-neutral-400/10"
+                    : "border-y-transparent"
+                }
+                `}
               >
                 <Scrambled
                   className={`block relative z-[2] ${
@@ -153,8 +158,8 @@ const Home: FC = () => {
               {img && (
                 <img
                   className={`
-                  absolute -translate-y-1/2 -translate-x-1/2 z-0
-                  [transition:_transform_250ms,_opacity_250ms] pointer-events-none w-[min(90vw,900px)]
+                  absolute -translate-y-1/2 -translate-x-1/2 z-0 top-1/2 left-1/2
+                  [transition:_transform_250ms,_opacity_250ms] pointer-events-none w-[min(80vw,800px)]
                   ${
                     selected === title
                       ? "opacity-100 scale-100"
@@ -162,7 +167,6 @@ const Home: FC = () => {
                   }
                   `}
                   alt={title}
-                  style={mouse}
                   src={img}
                 />
               )}

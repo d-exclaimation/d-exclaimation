@@ -39,7 +39,7 @@ const Navigation: XFC<{}> = () => {
         fixed z-40 
         right-3 top-3 p-2 
         bg-white rounded-md select-none 
-        shadow-md md:shadow-none
+        shadow-md md:shadow-sm
         transform shadow-gray-400 
         active:bg-gray-100
         active:scale-95 active:shadow-md

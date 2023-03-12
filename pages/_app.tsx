@@ -10,7 +10,7 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
   }, []);
 
   return (
-    <div className="w-screen min-h-screen h-max bg-gradient-to-t from-neutral-600 to-white text-black">
+    <div className="w-screen min-h-screen h-max bg-white text-black">
       <Navigation />
       <Component {...pageProps} />
     </div>
