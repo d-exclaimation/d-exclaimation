@@ -32,7 +32,7 @@ const Home: FC = () => {
   const scrolled = useScrollSelection(StoryTitles);
 
   // Desktop select scrolling (uses the cursor position to scroll)
-  const [{ selected }, { onHover, onMouseMove, onClear }] =
+  const [{ selected, mouse }, { onHover, onMouseMove, onClear }] =
     useSelectScrolling(StoryTitles);
 
   return (
@@ -158,7 +158,7 @@ const Home: FC = () => {
               {img && (
                 <img
                   className={`
-                  absolute -translate-y-1/2 -translate-x-1/2 z-0 top-1/2 left-1/2
+                  absolute -translate-y-1/2 -translate-x-1/2 z-0 
                   [transition:_transform_250ms,_opacity_250ms] pointer-events-none w-[min(80vw,800px)]
                   ${
                     selected === title
@@ -168,6 +168,7 @@ const Home: FC = () => {
                   `}
                   alt={title}
                   src={img}
+                  style={mouse}
                 />
               )}
             </Link>
