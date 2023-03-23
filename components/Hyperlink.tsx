@@ -26,8 +26,8 @@ const Hyperlink: XFC<OutLink> = ({ href, site, username, ...rest }) => (
       phrases={[username, site, site, site]}
       align="items-center"
       justify="justify-center"
-      speed={5}
-      delay={5_000}
+      speed={40}
+      delay={10_000}
       {...rest}
     />
   </a>

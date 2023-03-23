@@ -106,8 +106,8 @@ export const manifest = {
       img: "/artpiece/partly.webp",
     },
 
-    university: {
-      href: "https://www.canterbury.ac.nz/",
+    study: {
+      href: "/about",
       img: "/artpiece/uc.webp",
     },
 
@@ -116,19 +116,14 @@ export const manifest = {
       img: "/artpiece/pioneer.webp",
     },
 
-    christchurch: {
-      href: "https://www.christchurchnz.com",
-      img: "/artpiece/christchurch.webp",
-    },
+    // saturday: {
+    //   href: "https://csse-s302g7.canterbury.ac.nz/prod",
+    //   img: "/artpiece/saturday.webp",
+    // },
 
     github: {
       href: "https://github.com/d-exclaimation",
       img: "/artpiece/github.webp",
-    },
-
-    linkedin: {
-      href: "https://linkedin.com/in/d-exclaimation",
-      img: "/artpiece/linkedin.webp",
     },
   } as const,
 };

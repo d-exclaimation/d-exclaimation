@@ -33,6 +33,8 @@ const About: FC = () => {
             <Link href="/">
               <Scrambled
                 phrases={["vin", "vincent", "d-exclaimation"]}
+                delay={10_000}
+                speed={40}
                 align="items-start"
                 justify="justify-center"
                 style={{ fontSize: titleSize }}
@@ -70,8 +72,8 @@ const About: FC = () => {
               "Professional memer",
               "Pineaple on pizza enjoyer",
             ]}
-            speed={24}
-            delay={5_000}
+            speed={40}
+            delay={10_000}
             align="items-start"
             justify="justify-start"
             className="font-bold text-lg sm:text-xl mb-2"
@@ -87,8 +89,8 @@ const About: FC = () => {
               "Goal",
               "Brief",
             ]}
-            speed={2}
-            delay={1_000}
+            speed={40}
+            delay={10_000}
             align="items-start"
             justify="justify-start"
             className="font-semibold sm:text-lg my-2"
@@ -115,8 +117,8 @@ const About: FC = () => {
               "Progress",
               "Progress",
             ]}
-            speed={2}
-            delay={1_000}
+            speed={40}
+            delay={10_000}
             align="items-start"
             justify="justify-start"
             className="font-semibold sm:text-lg my-2"
@@ -142,8 +144,8 @@ const About: FC = () => {
               "Projects",
               "Things I put on my resume",
             ]}
-            speed={24}
-            delay={5_000}
+            speed={40}
+            delay={10_000}
             align="items-start"
             justify="justify-start"
             className="font-bold text-lg sm:text-xl mb-2"
@@ -162,8 +164,8 @@ const About: FC = () => {
             "Roles",
             "Experiences",
           ]}
-          speed={2}
-          delay={1_000}
+          speed={40}
+          delay={10_000}
           align="items-start"
           justify="justify-start"
           className="font-semibold sm:text-lg my-2"
@@ -241,8 +243,8 @@ const About: FC = () => {
         {/* Projects */}
         <Scrambled
           phrases={["Projects", "Open source", "Creation", "Projects"]}
-          speed={2}
-          delay={1_000}
+          speed={40}
+          delay={10_000}
           align="items-start"
           justify="justify-start"
           className="font-semibold sm:text-lg my-2"

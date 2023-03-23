@@ -16,6 +16,11 @@ import { withHead } from "../hoc/withHead";
 import { useScrollSelection } from "../hooks/minigames/cinderbloc/useScrollSelection";
 import { useSelectScrolling } from "../hooks/minigames/cinderbloc/useSelectScrolling";
 
+const TEXT = {
+  delay: 10_000,
+  speed: 40,
+};
+
 const StoryTitles = keys(manifest.stories);
 const StoryElements = entries(manifest.stories).map(
   ([title, { img, ...other }]) => {
@@ -32,7 +37,7 @@ const Home: FC = () => {
   const scrolled = useScrollSelection(StoryTitles);
 
   // Desktop select scrolling (uses the cursor position to scroll)
-  const [{ selected, mouse }, { onHover, onMouseMove, onClear }] =
+  const [{ selected }, { onHover, onMouseMove, onClear }] =
     useSelectScrolling(StoryTitles);
 
   return (
@@ -73,8 +78,8 @@ const Home: FC = () => {
                   className={`block relative z-[2] ${
                     scrolled === title ? "opacity-100" : "opacity-25"
                   }`}
-                  delay={2000}
-                  speed={20}
+                  delay={TEXT.delay}
+                  speed={TEXT.speed}
                   color={{
                     dud: scrolled === title ? "text-neutral-400" : "text-black",
                     normal:
@@ -96,7 +101,7 @@ const Home: FC = () => {
                   [transition:_transform_250ms,_opacity_250ms] pointer-events-none w-[95vw] max-w-[100vw]
                   ${
                     scrolled === title
-                      ? "opacity-100 scale-100"
+                      ? "opacity-60 scale-100"
                       : "opacity-0 scale-50"
                   }`}
                   alt={title}
@@ -137,10 +142,10 @@ const Home: FC = () => {
               >
                 <Scrambled
                   className={`block relative z-[2] ${
-                    selected === title ? "opacity-100" : "opacity-25"
+                    selected === title ? "opacity-100" : "opacity-30"
                   }`}
-                  delay={2000}
-                  speed={20}
+                  delay={TEXT.delay}
+                  speed={TEXT.speed}
                   color={{
                     dud: selected === title ? "text-neutral-400" : "text-black",
                     normal:
@@ -158,17 +163,16 @@ const Home: FC = () => {
               {img && (
                 <img
                   className={`
-                  absolute -translate-y-1/2 -translate-x-1/2 z-0 
-                  [transition:_transform_250ms,_opacity_250ms] pointer-events-none w-[min(80vw,800px)]
+                  absolute -translate-y-1/2 -translate-x-1/2 z-0 top-2/3 left-2/3
+                  [transition:_transform_250ms,_opacity_250ms] pointer-events-none w-[min(80vw,900px)]
                   ${
                     selected === title
-                      ? "opacity-100 scale-100"
+                      ? "opacity-60 scale-100"
                       : "opacity-0 scale-50"
                   }
                   `}
                   alt={title}
                   src={img}
-                  style={mouse}
                 />
               )}
             </Link>
