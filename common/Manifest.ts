@@ -116,6 +116,11 @@ export const manifest = {
       img: "/artpiece/pioneer.webp",
     },
 
+    seraph: {
+      href: "https://seraph.dexclaimation.com",
+      img: "/artpiece/seraph.webp",
+    },
+
     // saturday: {
     //   href: "https://csse-s302g7.canterbury.ac.nz/prod",
     //   img: "/artpiece/saturday.webp",

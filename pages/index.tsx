@@ -97,7 +97,7 @@ const Home: FC = () => {
               {img && (
                 <img
                   className={`
-                  absolute -translate-y-1/2 left-1/2 -translate-x-1/2
+                  absolute -translate-y-1/2 left-1/2 -translate-x-1/2 brightness-50 saturate-150
                   [transition:_transform_250ms,_opacity_250ms] pointer-events-none w-[95vw] max-w-[100vw]
                   ${
                     scrolled === title
@@ -163,7 +163,7 @@ const Home: FC = () => {
               {img && (
                 <img
                   className={`
-                  absolute -translate-y-1/2 -translate-x-1/2 z-0 top-2/3 left-2/3
+                  absolute -translate-y-1/2 -translate-x-1/2 z-0 top-2/3 left-2/3 brightness-50 saturate-150
                   [transition:_transform_250ms,_opacity_250ms] pointer-events-none w-[min(80vw,900px)]
                   ${
                     selected === title
