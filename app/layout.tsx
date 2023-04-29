@@ -34,7 +34,35 @@ const RootLayout = rc<RootLayoutProps>(({ children }) => {
 
 export const metadata = head({
   title: "d-exclaimation",
-  description: "d-exclaimation",
+  description: "My work, my art, my life",
+  twitter: {
+    images: "/me.gif",
+    title: "d-exclaimation",
+    description: "My work, my art, my life",
+    card: "summary_large_image",
+    creator: "@dexclaimation",
+  },
+  openGraph: {
+    images: "/me.gif",
+    title: "d-exclaimation",
+    description: "My work, my art, my life",
+    url: "https://d-exclaimation.me",
+    type: "article",
+    siteName: "d-exclaimation",
+  },
+  icons: {
+    icon: [
+      "/favicon.ico",
+      { sizes: "16x16", url: "/favicon-16x16.png" },
+      { sizes: "32x32", url: "/favicon-32x32.png" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
+  viewport: {
+    initialScale: 1,
+    width: "device-width",
+    viewportFit: "cover",
+  },
 });
 
 export default RootLayout;
