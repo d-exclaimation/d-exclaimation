@@ -35,11 +35,6 @@ export const manifest = {
       img: "/artpiece/partly.webp",
     },
 
-    study: {
-      href: "/about",
-      img: "/artpiece/uc.webp",
-    },
-
     pioneer: {
       href: "https://pioneer.dexclaimation.com",
       img: "/artpiece/pioneer.webp",
@@ -48,6 +43,11 @@ export const manifest = {
     seraph: {
       href: "https://seraph.dexclaimation.com",
       img: "/artpiece/seraph.webp",
+    },
+
+    "business card": {
+      href: "/card",
+      img: "/artpiece/card.webp",
     },
 
     github: {

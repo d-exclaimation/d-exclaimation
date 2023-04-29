@@ -38,7 +38,7 @@ const Navigation = rc(() => {
     useSelectScrolling(titles);
 
   return (
-    <div className="animate-fade-in w-screen">
+    <div className="animate-fade-in w-screen bg-transparent">
       <div className="lg:h-screen lg:overflow-hidden">
         <div className="opacity-0 h-[40vh] lg:h-[25vh]" />
 

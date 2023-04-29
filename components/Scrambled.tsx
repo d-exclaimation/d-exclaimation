@@ -58,7 +58,7 @@ const Scrambled = rc<Props>(
       >
         {text.map((char, i) => (
           <span
-            className={`font-mono !data-[space=true]:opacity-0 
+            className={`font-mono data-[space=true]:!opacity-0 
             ${color?.normal ?? "text-gray-800"}
             ${color?.dud ?? "data-[dud=true]:text-gray-300"}
             ${className}`}

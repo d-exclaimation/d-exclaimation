@@ -9,6 +9,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
+        platform: "linear-gradient(180deg,hsla(0,0%,100%,0) 0, #fff 300px), fixed 0 0 /20px 20px radial-gradient(#d1d1d1 1px, transparent 0),fixed 10px 10px /20px 20px radial-gradient(#d1d1d1 1px, transparent 0)",
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
