@@ -48,47 +48,48 @@ const Navigation = rc(() => {
           className="flex lg:hidden flex-col px-[clamp(3rem,6vw,8rem)] py-[clamp(1rem,5vw,6rem)] gap-10"
         >
           {elements.map(({ title, img, ...props }) => (
-            <Link
-              className="font-sans text-4xl sm:text-6xl md:text-8xl no-underline relative
-              text-center lg:text-start transition-all duration-300 text-black/25 scale-90 
-              data-active:text-blue-100 data-active:scale-100 z-30"
-              key={`mobile-nav-${title}`}
-              data-active={scrolled === title}
-              {...props}
-            >
-              <div
-                className="border-y-2 z-30 py-2 border-y-transparent 
-                data-active:border-y-neutral-400 data-active:bg-neutral-300/20"
+            <Fragment key={`mobile-nav-${title}`}>
+              <Link
+                className="font-sans text-4xl sm:text-6xl md:text-8xl no-underline relative
+                text-center lg:text-start transition-all duration-300 text-black/25 scale-90 
+                data-active:text-blue-100 data-active:scale-100 z-10 data-active:z-30"
                 data-active={scrolled === title}
+                {...props}
               >
-                <Scrambled
-                  className="block relative z-30 opacity-25 data-active:opacity-100"
-                  delay={TEXT.delay}
-                  speed={TEXT.speed}
-                  color={{
-                    dud:
-                      scrolled === title
-                        ? "data-[dud=true]:text-neutral-400"
-                        : "data-[dud=true]:text-black",
-                    normal: scrolled === title ? "text-black" : "text-black",
-                  }}
-                  align="items-start"
-                  justify="justify-start"
-                  phrases={[title, title]}
-                  active={scrolled === title}
-                />
-              </div>
+                <div
+                  className="border-y-2 py-2 border-y-transparent data-active:border-y-neutral-400 data-active:bg-neutral-300/20"
+                  data-active={scrolled === title}
+                >
+                  <Scrambled
+                    className="block relative opacity-25 data-active:opacity-100"
+                    delay={TEXT.delay}
+                    speed={TEXT.speed}
+                    color={{
+                      dud:
+                        scrolled === title
+                          ? "data-[dud=true]:text-neutral-400"
+                          : "data-[dud=true]:text-black",
+                      normal: scrolled === title ? "text-black" : "text-black",
+                    }}
+                    align="items-start"
+                    justify="justify-start"
+                    phrases={[title, title]}
+                    active={scrolled === title}
+                  />
+                </div>
+              </Link>
               {img && (
                 <img
-                  className="absolute -translate-y-1/2 left-1/2 -translate-x-1/2 object-cover
-                  [transition:_transform_250ms,_opacity_250ms] pointer-events-none w-[95vw]
-                  opacity-0 scale-50 data-active:opacity-60 data-active:scale-100 z-20 blur-[2px]"
+                  className="fixed -translate-y-1/2 left-1/2 -translate-x-1/2 blur-[2px]
+                  z-20 transition-all pointer-events-none w-[min(800px,80vw)] duration-300 
+                  delay-200 data-active:delay-[0s] object-cover aspect-auto
+                  opacity-0 scale-50 data-active:opacity-100 data-active:scale-100"
                   alt={title}
                   src={img}
                   data-active={scrolled === title}
                 />
               )}
-            </Link>
+            </Fragment>
           ))}
         </nav>
 
@@ -97,13 +98,12 @@ const Navigation = rc(() => {
           id="desktop-nav"
           className="hidden lg:flex flex-col gap-2 p-[clamp(1rem,5vw,6rem)]"
         >
-          {elements.map(({ title, img, ...props }, i) => (
-            <Fragment key={i}>
+          {elements.map(({ title, img, ...props }) => (
+            <Fragment key={`desktop-nav-${title}`}>
               <Link
                 className="font-sans text-[clamp(3rem,4vw,6rem)] font-light no-underline
                 text-center lg:text-start transition-all duration-300 text-black/25 scale-95
               data-active:text-blue-100 data-active:scale-100 data-active:z-30"
-                key={i}
                 data-active={selected === title}
                 onMouseMove={onHover(title)}
                 {...props}
@@ -134,9 +134,10 @@ const Navigation = rc(() => {
               </Link>
               {img && (
                 <img
-                  className="fixed -translate-y-1/2 -translate-x-1/2 top-1/2 left-[60%] object-cover
-                  [transition:_transform_250ms,_opacity_250ms] pointer-events-none w-[min(800px,80vw)] 
-                  opacity-0 scale-50 data-active:opacity-100 data-active:scale-100 aspect-auto z-20"
+                  className="fixed -translate-y-1/2 -translate-x-1/2 top-1/2 left-[60%]
+                  z-20 transition-all pointer-events-none w-[min(800px,80vw)] duration-300 
+                  delay-200 data-active:delay-[0s] object-cover aspect-auto
+                  opacity-0 scale-50 data-active:opacity-100 data-active:scale-100"
                   alt={title}
                   src={img}
                   data-active={selected === title}
