@@ -18,7 +18,7 @@ import {
   useState,
 } from "react";
 import { Tooltip as BaseTooltip, TooltipProps } from "react-tippy";
-import { manifest, Manifest } from "../../common/Manifest";
+import { manifest, Manifest } from "../../common/manifest";
 import { rc } from "../../next/rc";
 
 const Tooltip = (props: TooltipProps & { children: ReactNode }) =>

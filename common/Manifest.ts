@@ -1,14 +1,6 @@
 //
 
 /**
- * Route within the application
- */
-type Route = {
-  name: string;
-  href: string;
-};
-
-/**
  * Web application source of truth for metadata i.e. (routes, links, etc)
  */
 export const manifest = {
@@ -43,6 +35,11 @@ export const manifest = {
     seraph: {
       href: "https://seraph.dexclaimation.com",
       img: "/artpiece/seraph.webp",
+    },
+
+    omdb: {
+      href: "https://o-mdb.vercel.app",
+      img: "/artpiece/omdb.webp",
     },
 
     "business card": {
