@@ -5,12 +5,13 @@
 //  Created by d-exclaimation on 29 Apr 2023
 //
 
+import { type ReactNode } from "react";
 import { head } from "../next/metadata";
 import { rc } from "../next/rc";
 import "./globals.css";
 
 type RootLayoutProps = {
-  children: React.ReactNode;
+  children: ReactNode;
 };
 
 const RootLayout = rc<RootLayoutProps>(({ children }) => {
