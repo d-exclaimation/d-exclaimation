@@ -20,7 +20,7 @@ const Navicon = rc(() => {
       hover:scale-95 active:scale-95 data-[home='true']:backdrop-blur-0
       lg:shadow-none lg:bg-transparent lg:backdrop-blur-0 bg-white/50 
       data-[home='true']:bg-transparent data-[home='true']:shadow-none"
-      href="/"
+      href="/#"
       data-home={pathname === "/"}
     >
       <img
