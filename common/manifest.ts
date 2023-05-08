@@ -13,7 +13,7 @@ export const manifest = {
 
   stories: {
     "d-exclaimation": {
-      href: "/#",
+      href: "/",
       img: undefined,
     },
 
