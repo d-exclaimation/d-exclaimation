@@ -26,7 +26,7 @@ const experiences = entries(timeline).map(([key, value]) => {
 
 const Page = rc(() => {
   return (
-    <div className="w-screen min-h-screen h-max py-12 max-w-2xl bg-transparent flex flex-col items-start justify-start gap-4">
+    <div className="w-[90vw] min-h-screen h-max py-12 max-w-2xl bg-transparent flex flex-col items-start justify-start gap-4">
       <section className="w-full flex flex-col animate-fade-in">
         <Scrambled
           align="items-start"
@@ -37,7 +37,7 @@ const Page = rc(() => {
           delay={scramble.delay}
         />
         <div className="w-full flex flex-col gap-4 my-4">
-          <div className="w-full flex flex-row gap-4 items-center">
+          <div className="w-full flex flex-col-reverse md:flex-row gap-4 items-center">
             <div className="flex flex-col gap-4">
               <p>
                 I’m a computer science student and junior software engineer at
