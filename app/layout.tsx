@@ -6,6 +6,7 @@
 //
 
 import { type ReactNode } from "react";
+import Navicon from "~/components/NavIcon";
 import { head } from "../next/metadata";
 import { rc } from "../next/rc";
 import "./globals.css";
@@ -18,6 +19,7 @@ const RootLayout = rc<RootLayoutProps>(({ children }) => {
   return (
     <html lang="en">
       <body className="min-w-screen min-h-screen grid place-items-center bg-gradient-to-t from-neutral-300">
+        <Navicon />
         <div
           className="z-0 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex place-items-center 
           before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full 
