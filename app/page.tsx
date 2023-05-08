@@ -22,6 +22,4 @@ const Page = rc(() => {
   );
 });
 
-export const runtime = "edge";
-
 export default Page;
