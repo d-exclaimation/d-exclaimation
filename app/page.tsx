@@ -6,10 +6,20 @@
 //
 
 import { rc } from "~/next/rc";
-import Navigation from "./navigation";
+import DesktopNavigation from "./desktop-nav";
+import MobileNavigation from "./mobile-nav";
 
 const Page = rc(() => {
-  return <Navigation />;
+  return (
+    <div className="animate-fade-in w-screen bg-transparent">
+      <div className="lg:h-screen lg:overflow-auto">
+        <div className="opacity-0 h-[40vh] lg:h-[15vh]" />
+        <DesktopNavigation />
+        <MobileNavigation />
+        <div className="opacity-0 h-[60vh] lg:h-[25vh]" />
+      </div>
+    </div>
+  );
 });
 
 export default Page;
