@@ -51,6 +51,11 @@ export const manifest = {
       href: "https://github.com/d-exclaimation",
       img: "/artpiece/github.webp",
     },
+
+    resume: {
+      href: "https://resume.dexclaimation.com",
+      img: "/artpiece/resume.webp",
+    },
   } as const,
 };
 

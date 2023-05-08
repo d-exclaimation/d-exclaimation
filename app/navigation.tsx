@@ -81,8 +81,8 @@ const Navigation = rc(() => {
               {img && (
                 <img
                   className="fixed -translate-y-1/2 left-1/2 -translate-x-1/2 blur-[2px]
-                  z-20 transition-all pointer-events-none w-[min(800px,80vw)] duration-300 
-                  delay-200 data-active:delay-[0s] object-cover aspect-auto
+                  z-20 transition-all pointer-events-none max-w-[min(800px,80vw)] duration-300 
+                  delay-200 data-active:delay-[0s] object-cover aspect-auto max-h-[min(600px,80vh)]
                   opacity-0 scale-50 data-active:opacity-100 data-active:scale-100"
                   alt={title}
                   src={img}
@@ -135,8 +135,8 @@ const Navigation = rc(() => {
               {img && (
                 <img
                   className="fixed -translate-y-1/2 -translate-x-1/2 top-1/2 left-[60%]
-                  z-20 transition-all pointer-events-none w-[min(800px,80vw)] duration-300 
-                  delay-200 data-active:delay-[0s] object-cover aspect-auto
+                  z-20 transition-all pointer-events-none max-w-[min(800px,80vw)] duration-300 
+                  delay-200 data-active:delay-[0s] object-cover aspect-auto max-h-[min(600px,80vh)]
                   opacity-0 scale-50 data-active:opacity-100 data-active:scale-100"
                   alt={title}
                   src={img}
