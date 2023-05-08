@@ -52,6 +52,11 @@ export const manifest = {
       img: "/artpiece/github.webp",
     },
 
+    linkedin: {
+      href: "https://linkedin.com/in/d-exclaimation",
+      img: "/artpiece/linkedin.webp",
+    },
+
     resume: {
       href: "https://resume.dexclaimation.com",
       img: "/artpiece/resume.webp",
