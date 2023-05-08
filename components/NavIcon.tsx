@@ -16,7 +16,7 @@ const Navicon = rc(() => {
 
   return (
     <Link
-      className="z-40 flex fixed top-4 right-4 p-2 hover:scale-95 active:scale-95"
+      className="z-40 flex fixed top-4 right-4 p-2 rounded shadow bg-white/50 lg:shadow-none lg:bg-transparent hover:scale-95 active:scale-95"
       href="/"
     >
       <img
