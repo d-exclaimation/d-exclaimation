@@ -1,9 +1,5 @@
-//
-//  Signature.tsx
-//  d-exclaimation
-//
-//  Created by d-exclaimation on 17 Dec 2022
-//
+"use client";
+
 //
 //  Signature.tsx
 //  d-exclaimation

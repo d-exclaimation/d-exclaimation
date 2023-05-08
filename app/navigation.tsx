@@ -16,7 +16,7 @@ import { useScrollSelection } from "~/hooks/useScrollSelection";
 import { useSelectScrolling } from "~/hooks/useSelectScrolling";
 import { rc } from "~/next/rc";
 
-const TEXT = {
+const scramble = {
   delay: 10_000,
   speed: 40,
 };
@@ -62,8 +62,8 @@ const Navigation = rc(() => {
                 >
                   <Scrambled
                     className="block relative opacity-25 data-active:opacity-100"
-                    delay={TEXT.delay}
-                    speed={TEXT.speed}
+                    delay={scramble.delay}
+                    speed={scramble.speed}
                     color={{
                       dud:
                         scrolled === title
@@ -116,8 +116,8 @@ const Navigation = rc(() => {
                   <Scrambled
                     className="block relative opacity-30
                     data-active:opacity-100 data-active:z-30"
-                    delay={TEXT.delay}
-                    speed={TEXT.speed}
+                    delay={scramble.delay}
+                    speed={scramble.speed}
                     color={{
                       dud:
                         selected === title

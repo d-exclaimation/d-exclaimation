@@ -14,8 +14,8 @@ const Layout = rc<{ children: ReactNode }>(({ children }) => {
 });
 
 export const metadata = head({
-  title: "Business card | d-exclaimation",
-  description: "Email, domain, and socials",
+  title: "About | d-exclaimation",
+  description: "About myself and my work",
 });
 
 export default Layout;
