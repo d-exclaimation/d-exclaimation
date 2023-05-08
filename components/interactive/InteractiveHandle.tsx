@@ -1,3 +1,5 @@
+"use client";
+
 //
 //  InteractiveHandle.tsx
 //  d-exclaimation
@@ -5,11 +7,9 @@
 //  Created by d-exclaimation on 24 Dec 2022
 //
 
-import { motion } from "framer-motion";
 import Link from "next/link";
 import {
   cloneElement,
-  FC,
   ReactNode,
   SetStateAction,
   useCallback,
@@ -18,14 +18,15 @@ import {
   useState,
 } from "react";
 import { Tooltip as BaseTooltip, TooltipProps } from "react-tippy";
-import { manifest, Manifest } from "../../common/Manifest";
+import { manifest, Manifest } from "../../common/manifest";
+import { rc } from "../../next/rc";
 
 const Tooltip = (props: TooltipProps & { children: ReactNode }) =>
   cloneElement(<BaseTooltip />, { ...props });
 
 const DELAY = 750;
 
-const InteractiveHandle: FC = () => {
+const InteractiveHandle = rc(() => {
   const timeoutRef = useRef<number | NodeJS.Timer | null>(null);
   const [selected, setSelected] = useState<keyof Manifest["handles"] | null>(
     null
@@ -111,23 +112,13 @@ const InteractiveHandle: FC = () => {
         </span>
         <span
           id="linkedin"
-          className={
-            selected === "instagram"
-              ? "text-fuchsia-400 underline"
-              : selected === "email"
-              ? "text-red-400 underline"
-              : ""
-          }
-          onClick={() => click("instagram")}
-          onMouseEnter={() => selects("instagram")}
+          className={selected === "email" ? "text-red-400 underline" : ""}
         >
           @
         </span>
         <span
           className={
-            selected === "instagram"
-              ? "text-fuchsia-400 underline"
-              : selected === "site"
+            selected === "site"
               ? "text-indigo-400 underline"
               : selected === "linkedin"
               ? "text-teal-400 underline"
@@ -137,18 +128,18 @@ const InteractiveHandle: FC = () => {
           }
           onClick={() =>
             selects((prev) => {
-              if (prev === "linkedin" || prev === "site") {
+              if (prev === "site") {
                 return prev;
               }
-              return "instagram";
+              return "linkedin";
             })
           }
           onMouseEnter={() =>
             selects((prev) => {
-              if (prev === "linkedin" || prev === "site") {
+              if (prev === "site") {
                 return prev;
               }
-              return "instagram";
+              return "linkedin";
             })
           }
         >
@@ -156,9 +147,7 @@ const InteractiveHandle: FC = () => {
         </span>
         <span
           className={
-            selected === "instagram"
-              ? "text-fuchsia-400 underline"
-              : selected === "site"
+            selected === "site"
               ? "text-indigo-400 underline"
               : selected === "linkedin"
               ? "text-teal-400 underline"
@@ -168,7 +157,7 @@ const InteractiveHandle: FC = () => {
           }
           onMouseEnter={() =>
             selects((prev) => {
-              if (prev === "instagram" || prev === "site") {
+              if (prev === "site") {
                 return prev;
               }
               return "linkedin";
@@ -176,43 +165,14 @@ const InteractiveHandle: FC = () => {
           }
           onClick={() =>
             selects((prev) => {
-              if (prev === "instagram" || prev === "site") {
+              if (prev === "site") {
                 return prev;
               }
               return "linkedin";
             })
           }
         >
-          <motion.span
-            initial={false}
-            variants={{
-              visible: {
-                opacity: 1,
-                transition: {
-                  duration: 0.25,
-                },
-              },
-              hidden: {
-                opacity: 0,
-                width: "0.01rem",
-                transition: {
-                  duration: 0.5,
-                },
-              },
-            }}
-            style={{ display: "inline-block" }}
-            className={
-              selected === "linkedin" || selected === "site"
-                ? "underline"
-                : selected === "email"
-                ? "text-red-400 underline"
-                : ""
-            }
-            animate={selected === "instagram" ? "hidden" : "visible"}
-          >
-            -
-          </motion.span>
-          exclaimation
+          -exclaimation
         </span>
         <span
           id="website"
@@ -231,6 +191,6 @@ const InteractiveHandle: FC = () => {
       </span>
     </Tooltip>
   );
-};
+});
 
 export default InteractiveHandle;

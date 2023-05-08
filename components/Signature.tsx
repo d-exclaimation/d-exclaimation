@@ -1,9 +1,5 @@
-//
-//  Signature.tsx
-//  d-exclaimation
-//
-//  Created by d-exclaimation on 17 Dec 2022
-//
+"use client";
+
 //
 //  Signature.tsx
 //  d-exclaimation
@@ -12,12 +8,12 @@
 //
 
 import { useState } from "react";
-import type { XFC } from "../common/XFC";
+import { rc } from "~/next/rc";
 
 /**
  * Clickable signature that plays a writing animation
  */
-const Signature: XFC = ({ className }) => {
+const Signature = rc<{ className?: string }>(({ className }) => {
   const [isPaused, setPause] = useState(false);
 
   return (
@@ -46,6 +42,6 @@ const Signature: XFC = ({ className }) => {
       </svg>
     </div>
   );
-};
+});
 
 export default Signature;
