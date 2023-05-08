@@ -9,7 +9,6 @@ import { type ReactNode } from "react";
 import { rc } from "~/next/rc";
 
 type Props = {
-  key?: string | number;
   date: {
     month: string;
     year: string;
@@ -17,9 +16,9 @@ type Props = {
   children: ReactNode;
 };
 
-const Timeline = rc<Props>(({ key, date, children }) => {
+const Timeline = rc<Props>(({ date, children }) => {
   return (
-    <div className="w-full flex flex-row gap-4 items-start" key={key}>
+    <div className="w-full flex flex-row gap-4 items-start">
       <div className="flex-shrink-0 flex flex-row items-center text-sm font-light py-2">
         <div className="mr-2 text-black/40 text-center">o</div>
         {date.month} {date.year}{" "}
