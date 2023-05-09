@@ -38,7 +38,8 @@ module.exports = {
       }
     },
     data: {
-      active: "active=true"
+      active: "active=true",
+      "in-view": "in-view=true"
     },
     screens: {
       "xs": { max: "575px" }, // Mobile (iPhone 3 - iPhone XS Max).

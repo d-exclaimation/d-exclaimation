@@ -13,7 +13,7 @@ const Page = rc(() => {
   return (
     <div className="animate-fade-in w-screen bg-transparent">
       <div className="lg:h-screen lg:overflow-auto">
-        <div className="opacity-0 h-[40vh] lg:h-[15vh]" />
+        <div className="opacity-0 h-[30vh] lg:h-[15vh]" />
         <DesktopNavigation />
         <MobileNavigation />
         <div className="opacity-0 h-[60vh] lg:h-[25vh]" />
