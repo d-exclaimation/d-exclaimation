@@ -38,7 +38,7 @@ export const manifest = {
     },
 
     omdb: {
-      href: "https://o-mdb.vercel.app",
+      href: "https://omdb.d-exclaimation.me",
       img: "/artpiece/omdb.webp",
     },
 
