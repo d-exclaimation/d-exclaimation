@@ -16,12 +16,20 @@ const scramble = {
   speed: 40,
 };
 
-const experiences = entries(timeline).map(([key, value]) => {
+const experiences = entries(timeline).flatMap(([key, value]) => {
   const [month, year] = key.split(" ");
-  return {
-    date: { month, year },
-    children: value,
-  };
+  if (Array.isArray(value)) {
+    return value.map((v) => ({
+      date: { month, year },
+      children: v,
+    }));
+  }
+  return [
+    {
+      date: { month, year },
+      children: value,
+    },
+  ];
 });
 
 const Page = rc(() => {
@@ -96,5 +104,7 @@ const Page = rc(() => {
     </div>
   );
 });
+
+export const runtime = "edge";
 
 export default Page;
