@@ -4,6 +4,9 @@ dependencies:
   '@d-exclaimation/common':
     specifier: ^0.4.0-beta.2
     version: 0.4.0-beta.2
+  '@d-exclaimation/next':
+    specifier: ^0.3.0
+    version: 0.3.0(react@18.2.0)
   '@d-exclaimation/union':
     specifier: ^0.1.1
     version: 0.1.1
@@ -48,6 +51,15 @@ packages:
   /@d-exclaimation/common@0.4.0-beta.2:
     resolution: {integrity: sha512-D4H+N2tgJEWH7fnznj+drxgz50rE2Gfg24GYdu3e/pp+b4pHla/ZJFKwcPbsu/BoO1aKdtconjCFC9g3/m/PDQ==}
     engines: {node: '>=12'}
+    dev: false
+
+  /@d-exclaimation/next@0.3.0(react@18.2.0):
+    resolution: {integrity: sha512-H6PFL5DhPOQDrGlKKQGl6bEb+tk5PSp5NCHklJ9BS4U0fK1VyFwnWEBm3qAq56hG6dFImFc49YEPLFWS14o8yg==}
+    engines: {node: '>=16'}
+    peerDependencies:
+      react: ^18.2.0
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /@d-exclaimation/union@0.1.1:

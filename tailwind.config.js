@@ -22,9 +22,15 @@ module.exports = {
         screen: "100vh",
       },
       animation: {
+        "handdrawn": "1s ease-in-out 0s 1 normal forwards running handdrawn",
         "fade-in": "fade-in 1s ease-in-out 1",
       },
       keyframes: {
+        handdrawn: {
+          to: {
+            strokeDashoffset: 0,
+          }
+        },
         "fade-in": {
           "0%": {
             opacity: 0,
