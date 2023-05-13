@@ -8,8 +8,8 @@
 //
 
 import { type Palette } from "@d-exclaimation/common/tailwind";
+import { rc } from "@d-exclaimation/next";
 import { DUDS, useScramble } from "../hooks/useScramble";
-import { rc } from "../next/rc";
 
 type Props = {
   className?: string;

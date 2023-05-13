@@ -7,9 +7,9 @@
 //  Created by d-exclaimation on 08 May 2023
 //
 
+import { rc } from "@d-exclaimation/next";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { rc } from "~/next/rc";
 
 const Navicon = rc(() => {
   const pathname = usePathname();

@@ -5,18 +5,19 @@
 //  Created by d-exclaimation on 29 Apr 2023
 //
 
-import { rc } from "~/next/rc";
+import { page } from "@d-exclaimation/next";
 import DesktopNavigation from "./desktop-nav";
 import MobileNavigation from "./mobile-nav";
+import Signature from "./signature";
 
-const Page = rc(() => {
+const Page = page(async () => {
   return (
     <div className="animate-fade-in w-screen bg-transparent">
       <div className="lg:h-screen lg:overflow-auto">
         <div className="opacity-0 h-[30vh] lg:h-[15vh]" />
         <DesktopNavigation />
         <MobileNavigation />
-        <div className="opacity-0 h-[60vh] lg:h-[25vh]" />
+        <Signature />
       </div>
     </div>
   );

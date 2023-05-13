@@ -5,15 +5,14 @@
 //  Created by d-exclaimation on 08 May 2023
 //
 
-import { Fragment, type ReactNode } from "react";
-import { head } from "~/next/metadata";
-import { rc } from "~/next/rc";
+import { layout, meta } from "@d-exclaimation/next";
+import { Fragment } from "react";
 
-const Layout = rc<{ children: ReactNode }>(({ children }) => {
+const Layout = layout(({ children }) => {
   return <Fragment>{children}</Fragment>;
 });
 
-export const metadata = head({
+export const metadata = meta({
   title: "About | d-exclaimation",
   description: "About myself and my work",
 });

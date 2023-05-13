@@ -7,6 +7,7 @@
 //  Created by d-exclaimation on 24 Dec 2022
 //
 
+import { rc } from "@d-exclaimation/next";
 import Link from "next/link";
 import {
   cloneElement,
@@ -19,7 +20,6 @@ import {
 } from "react";
 import { Tooltip as BaseTooltip, TooltipProps } from "react-tippy";
 import { manifest, Manifest } from "../../common/manifest";
-import { rc } from "../../next/rc";
 
 const Tooltip = (props: TooltipProps & { children: ReactNode }) =>
   cloneElement(<BaseTooltip />, { ...props });
