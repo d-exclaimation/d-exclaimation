@@ -5,17 +5,11 @@
 //  Created by d-exclaimation on 29 Apr 2023
 //
 
-import { type ReactNode } from "react";
+import { layout, meta } from "@d-exclaimation/next";
 import Navicon from "~/components/NavIcon";
-import { head } from "../next/metadata";
-import { rc } from "../next/rc";
 import "./globals.css";
 
-type RootLayoutProps = {
-  children: ReactNode;
-};
-
-const RootLayout = rc<RootLayoutProps>(({ children }) => {
+const RootLayout = layout(({ children }) => {
   return (
     <html lang="en">
       <body className="min-w-screen min-h-screen grid place-items-center bg-gradient-to-t from-neutral-300">
@@ -27,7 +21,7 @@ const RootLayout = rc<RootLayoutProps>(({ children }) => {
           after:absolute after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic 
           after:from-indigo-100 after:via-blue-100 after:blur-2xl after:content-[''] before:lg:h-[360px]"
         />
-        <main className="z-10 relative min-w-screen min-h-screen flex items-center justify-center">
+        <main className="z-10 relative min-w-screen min-h-screen flex  items-center justify-center">
           {children}
         </main>
       </body>
@@ -35,7 +29,7 @@ const RootLayout = rc<RootLayoutProps>(({ children }) => {
   );
 });
 
-export const metadata = head({
+export const metadata = meta({
   title: "d-exclaimation",
   description: "My work, my art, my life",
   twitter: {

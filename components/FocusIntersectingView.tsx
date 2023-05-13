@@ -1,7 +1,7 @@
 "use client";
 
 //
-//  IntersectingView.tsx
+//  FocusIntersectingView.tsx
 //  d-exclaimation
 //
 //  Created by d-exclaimation on 09 May 2023
@@ -12,13 +12,12 @@ import { type ReactNode } from "react";
 import { useWithinView } from "~/hooks/useWithinView";
 
 type Props = {
-  rootMargin: `${number}% ${number}px ${number}% ${number}px`;
   children: ReactNode;
 };
 
-const IntersectingView = rc<Props>(({ children, rootMargin }) => {
+const FocusIntersectingView = rc<Props>(({ children }) => {
   const { ref, inView } = useWithinView({
-    rootMargin,
+    rootMargin: "-38% 0px -58% 0px",
     threshold: 0,
   });
 
@@ -29,4 +28,4 @@ const IntersectingView = rc<Props>(({ children, rootMargin }) => {
   );
 });
 
-export default IntersectingView;
+export default FocusIntersectingView;

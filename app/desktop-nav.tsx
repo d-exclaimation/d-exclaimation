@@ -6,10 +6,10 @@
 //
 
 import { entries } from "@d-exclaimation/common";
+import { rc } from "@d-exclaimation/next";
 import Link from "next/link";
 import { manifest } from "~/common/manifest";
 import Scrambled from "~/components/Scrambled";
-import { rc } from "~/next/rc";
 
 const scramble = {
   delay: 10_000,
@@ -39,9 +39,12 @@ const DesktopNavigation = rc(() => {
             {...props}
           >
             <div
-              className="border-y-2 border-y-transparent transition-all
-              group-hover:border-y-neutral-400 group-hover:bg-neutral-300/10
-              scale-95 group-hover:scale-100 z-30 py-2"
+              className="transition-all group-hover:bg-neutral-300/10
+              scale-95 group-hover:scale-100 z-30 py-2 before:content-['']
+              before:absolute before:left-0 before:top-0 before:h-full
+              before:w-0 before:border-y-2 before:border-y-neutral-400
+              before:transition-all group-hover:before:w-full
+              before:duration-200 group-hover:before:duration-500"
             >
               <Scrambled
                 className="block relative opacity-30
