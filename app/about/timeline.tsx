@@ -5,8 +5,8 @@
 //  Created by d-exclaimation on 08 May 2023
 //
 
+import { rc } from "@d-exclaimation/next";
 import { type ReactNode } from "react";
-import { rc } from "~/next/rc";
 
 type Props = {
   date: {

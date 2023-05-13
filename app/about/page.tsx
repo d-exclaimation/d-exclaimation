@@ -6,9 +6,9 @@
 //
 
 import { entries } from "@d-exclaimation/common";
+import { page } from "@d-exclaimation/next";
 import { timeline } from "~/common/manifest";
 import Scrambled from "~/components/Scrambled";
-import { rc } from "~/next/rc";
 import Timeline from "./timeline";
 
 const scramble = {
@@ -32,7 +32,7 @@ const experiences = entries(timeline).flatMap(([key, value]) => {
   ];
 });
 
-const Page = rc(() => {
+const Page = page(() => {
   return (
     <div className="w-[90vw] min-h-screen h-max py-12 max-w-2xl bg-transparent flex flex-col items-start justify-start gap-4">
       <section className="w-full flex flex-col animate-fade-in">
