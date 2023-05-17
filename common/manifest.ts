@@ -15,51 +15,61 @@ export const manifest = {
     "d-exclaimation": {
       href: "/",
       img: undefined,
+      external: false,
     },
 
     about: {
       href: "/about",
       img: undefined,
+      external: false,
     },
 
     partly: {
       href: "https://partly.com",
       img: "/artpiece/partly.webp",
+      external: true,
     },
 
     pioneer: {
       href: "https://pioneer.dexclaimation.com",
       img: "/artpiece/pioneer.webp",
+      external: true,
     },
 
     seraph: {
       href: "https://seraph.dexclaimation.com",
       img: "/artpiece/seraph.webp",
+      external: true,
     },
 
     omdb: {
       href: "https://omdb.d-exclaimation.me",
       img: "/artpiece/omdb.webp",
+      external: true,
     },
 
     "business card": {
       href: "/card",
       img: "/artpiece/card.webp",
+      external: false,
     },
 
     github: {
       href: "https://github.com/d-exclaimation",
       img: "/artpiece/github.webp",
+      external: true,
     },
 
     linkedin: {
       href: "https://linkedin.com/in/d-exclaimation",
       img: "/artpiece/linkedin.webp",
+      external: true,
     },
 
     resume: {
       href: "https://resume.dexclaimation.com",
       img: "/artpiece/resume.webp",
+      external: true,
     },
   } as const,
 };
