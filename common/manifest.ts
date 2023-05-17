@@ -59,6 +59,11 @@ export const manifest = {
       external: false,
     },
 
+    snake: {
+      href: "/games/snake",
+      external: false,
+    },
+
     github: {
       href: "https://github.com/d-exclaimation",
       img: "/artpiece/github.webp",
