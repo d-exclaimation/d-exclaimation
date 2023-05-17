@@ -1,4 +1,9 @@
 //
+//  manifest.ts
+//  d-exclaimation
+//
+//  Created by d-exclaimation on 17 May 2023
+//
 
 /**
  * Web application source of truth for metadata i.e. (routes, links, etc)

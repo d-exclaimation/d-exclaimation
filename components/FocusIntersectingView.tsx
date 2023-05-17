@@ -17,7 +17,7 @@ type Props = {
 
 const FocusIntersectingView = rc<Props>(({ children }) => {
   const { ref, inView } = useWithinView({
-    rootMargin: "-38% 0px -58% 0px",
+    rootMargin: "-39% 0px -59% 0px",
     threshold: 0,
   });
 

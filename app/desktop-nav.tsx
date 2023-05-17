@@ -7,9 +7,9 @@
 
 import { entries } from "@d-exclaimation/common";
 import { rc } from "@d-exclaimation/next";
-import Link from "next/link";
 import { manifest } from "~/common/manifest";
 import Scrambled from "~/components/Scrambled";
+import Link from "./link";
 
 const scramble = {
   delay: 10_000,
@@ -31,9 +31,9 @@ const DesktopNavigation = rc(() => {
       className="hidden lg:flex flex-col gap-2 p-[clamp(1rem,5vw,6rem)]"
     >
       {elements.map(({ title, img, ...props }) => (
-        <div key={`desktop-nav-${title}`}>
+        <div className="my-1" key={`desktop-nav-${title}`}>
           <Link
-            className="font-sans text-[clamp(3rem,4vw,6rem)] font-light no-underline
+            className="font-sans text-6xl font-light no-underline
             text-center lg:text-start transition-all duration-300 text-black/25
             hover:text-blue-100 hover:z-30 group peer relative"
             {...props}
@@ -42,12 +42,12 @@ const DesktopNavigation = rc(() => {
               className="transition-all group-hover:bg-neutral-300/10
               scale-95 group-hover:scale-100 z-30 py-2 before:content-['']
               before:absolute before:left-0 before:top-0 before:h-full
-              before:w-0 before:border-y-2 before:border-y-neutral-400
+              before:w-0 before:border-y-2 before:border-y-neutral-900
               before:transition-all group-hover:before:w-full
               before:duration-200 group-hover:before:duration-500"
             >
               <Scrambled
-                className="block relative opacity-30
+                className="block relative opacity-30 my-1
                 group-hover:data-[dud=true]:text-neutral-400
                 group-hover:opacity-100 group-hover:z-30"
                 delay={scramble.delay}

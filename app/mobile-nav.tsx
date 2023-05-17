@@ -7,10 +7,10 @@
 
 import { entries } from "@d-exclaimation/common";
 import { rc } from "@d-exclaimation/next";
-import Link from "next/link";
 import { manifest } from "~/common/manifest";
 import FocusIntersectingView from "~/components/FocusIntersectingView";
 import Scrambled from "~/components/Scrambled";
+import Link from "./link";
 
 const scramble = {
   delay: 10_000,
@@ -29,7 +29,7 @@ const MobileNavigation = rc(() => {
   return (
     <nav
       id="mobile-nav"
-      className="flex lg:hidden flex-col px-5 py-[clamp(1rem,5vw,6rem)] gap-8"
+      className="flex lg:hidden flex-col px-5 py-[clamp(1rem,5vw,6rem)] gap-4"
     >
       {elements.map(({ title, img, ...props }) => (
         <FocusIntersectingView key={`mobile-nav-${title}`}>
@@ -43,10 +43,10 @@ const MobileNavigation = rc(() => {
               className="transition-all group-data-in-view:bg-neutral-300/20
               scale-95 group-data-in-view:scale-100 before:content-['']
               before:absolute before:left-0 before:top-0 before:h-full
-              before:w-0 before:border-y-2 before:border-y-neutral-400
+              before:w-0 before:border-y-2 before:border-y-neutral-900
               before:transition-all group-data-in-view:before:w-full
               before:duration-200 group-data-in-view:before:duration-500
-              group-data-in-view:z-30 relative z-10 py-3 px-2"
+              group-data-in-view:z-30 relative z-10 py-2 px-2"
             >
               <Scrambled
                 className="block relative opacity-25 group-data-in-view:opacity-100 transition-all
@@ -65,7 +65,7 @@ const MobileNavigation = rc(() => {
           </Link>
           {img && (
             <img
-              className="fixed -translate-y-1/2 left-1/2 top-[40%] -translate-x-1/2 blur-[1px]
+              className="fixed -translate-y-1/2 left-1/2 top-[40%] -translate-x-1/2
               z-20 transition-all pointer-events-none max-w-[min(800px,90vw)] duration-300 
               delay-200 group-data-in-view:delay-[0s] object-cover aspect-auto max-h-[min(600px,80vh)]
               opacity-0 scale-50 group-data-in-view:opacity-100 group-data-in-view:scale-100"
