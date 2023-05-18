@@ -61,6 +61,7 @@ export const manifest = {
 
     snake: {
       href: "/games/snake",
+      img: undefined,
       external: false,
     },
 
