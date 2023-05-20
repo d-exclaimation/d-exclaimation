@@ -40,7 +40,7 @@ const DesktopNavigation = rc(() => {
           >
             <div
               className="transition-all group-hover:bg-neutral-300/10
-              scale-95 group-hover:scale-100 z-30 py-2 before:content-['']
+              scale-95 group-hover:scale-100 z-30 py-3 before:content-['']
               before:absolute before:left-0 before:top-0 before:h-full
               before:w-0 before:border-y-2 before:border-y-neutral-900
               before:transition-all group-hover:before:w-full

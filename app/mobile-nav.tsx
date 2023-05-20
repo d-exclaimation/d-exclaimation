@@ -41,12 +41,10 @@ const MobileNavigation = rc(() => {
           >
             <div
               className="transition-all group-data-in-view:bg-neutral-300/20
-              scale-95 group-data-in-view:scale-100 before:content-['']
-              before:absolute before:left-0 before:top-0 before:h-full
-              before:w-0 before:border-y-2 before:border-y-neutral-900
-              before:transition-all group-data-in-view:before:w-full
-              before:duration-200 group-data-in-view:before:duration-500
-              group-data-in-view:z-30 relative z-10 py-2 px-2"
+              scale-95 group-data-in-view:scale-100 px-2
+              border-y-0 border-y-neutral-900 z-10
+              group-data-in-view:border-y-2 py-3 
+              group-data-in-view:z-30 relative"
             >
               <Scrambled
                 className="block relative opacity-25 group-data-in-view:opacity-100 transition-all
