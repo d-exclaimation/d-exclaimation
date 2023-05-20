@@ -58,10 +58,20 @@ const Page = page(() => {
                 programming and web development.
               </p>
             </div>
-            <img
-              className="w-24 h-24 lg:w-36 lg:h-36 object-cover rounded-full hover:grayscale-0 grayscale"
-              src="https://avatars.githubusercontent.com/u/70748917?v=4"
-            />
+            <div className="relative w-24 h-24 lg:w-36 lg:h-36 flex-shrink-0 flex items-center justify-center group">
+              <span
+                className="w-24 h-24 lg:w-36 lg:h-36 absolute rounded-full transition-all duration-1000
+                bg-blue-400/75 group-hover:blur-md md:group-hover:blur-lg group-hover:-translate-x-2"
+              />
+              <span
+                className="w-24 h-24 lg:w-36 lg:h-36 absolute rounded-full transition-all duration-1000
+                bg-red-400/75 group-hover:blur-md md:group-hover:blur-lg group-hover:translate-x-2"
+              />
+              <img
+                className="relative w-24 h-24 lg:w-36 lg:h-36 object-cover aspect-square transition-all duration-700 rounded-full group-hover:grayscale-0 grayscale"
+                src="https://avatars.githubusercontent.com/u/70748917?v=4"
+              />
+            </div>
           </div>
           <p>
             After realising that I enjoy software engineering, I decided to
