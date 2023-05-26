@@ -10,7 +10,7 @@ import Snake from "./snake";
 
 const Page = page(() => {
   return (
-    <div>
+    <div className="flex flex-col items-center justify-center min-w-screen min-h-screen">
       <Snake />
     </div>
   );
