@@ -61,16 +61,6 @@ const MobileNavigation = rc(() => {
               />
             </div>
           </Link>
-          {img && (
-            <img
-              className="fixed -translate-y-1/2 left-1/2 top-[40%] -translate-x-1/2
-              z-20 transition-all pointer-events-none max-w-[min(800px,90vw)] duration-300 
-              delay-200 group-data-in-view:delay-[0s] object-cover aspect-auto max-h-[min(600px,80vh)]
-              opacity-0 scale-50 group-data-in-view:opacity-100 group-data-in-view:scale-100"
-              alt={title}
-              src={img}
-            />
-          )}
         </FocusIntersectingView>
       ))}
     </nav>
