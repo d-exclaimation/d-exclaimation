@@ -108,8 +108,8 @@ const Match = rc(() => {
               if (props.flipped) return;
               dispatch({ kind: "flip", index: i });
 
-              const flipped = cards.filter((card) => card.flipped);
-              if (flipped.length < 1) {
+              const actives = cards.filter((card) => card.active);
+              if (actives.length !== 1) {
                 return;
               }
               if (timeoutRef.current) {
