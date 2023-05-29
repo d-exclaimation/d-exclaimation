@@ -79,10 +79,10 @@ function shuffle() {
     { value: "🏓", flipped: false, active: false },
     { value: "🏓", flipped: false, active: false },
     { value: "🎳", flipped: false, active: false },
-    { value: "🏋️‍♀️", flipped: false, active: false },
-    { value: "🤼‍♂️", flipped: false, active: false },
-    { value: "🤼‍♀️", flipped: false, active: false },
-    { value: "🏋️‍♂️", flipped: false, active: false },
+    { value: "🥏", flipped: false, active: false },
+    { value: "🥋", flipped: false, active: false },
+    { value: "🥋", flipped: false, active: false },
+    { value: "🥏", flipped: false, active: false },
   ];
   for (let i = current.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -108,7 +108,8 @@ const Match = rc(() => {
               if (props.flipped) return;
               dispatch({ kind: "flip", index: i });
 
-              if (cards.filter((card) => card.active).length < 1) {
+              const flipped = cards.filter((card) => card.flipped);
+              if (flipped.length !== 1) {
                 return;
               }
               if (timeoutRef.current) {
