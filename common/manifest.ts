@@ -65,6 +65,12 @@ export const manifest = {
       external: false,
     },
 
+    memory: {
+      href: "/games/match",
+      img: undefined,
+      external: false,
+    },
+
     github: {
       href: "https://github.com/d-exclaimation",
       img: "/artpiece/github.webp",
