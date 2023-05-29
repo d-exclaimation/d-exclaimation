@@ -109,7 +109,7 @@ const Match = rc(() => {
               dispatch({ kind: "flip", index: i });
 
               const flipped = cards.filter((card) => card.flipped);
-              if (flipped.length !== 1) {
+              if (flipped.length < 1) {
                 return;
               }
               if (timeoutRef.current) {
