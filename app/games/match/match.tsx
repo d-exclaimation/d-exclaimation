@@ -67,22 +67,22 @@ function matchReducer(cards: Card[], action: MatchAction): Card[] {
 
 function shuffle() {
   const current = [
-    { value: "🍎", flipped: false, active: false },
-    { value: "🍌", flipped: false, active: false },
-    { value: "🍇", flipped: false, active: false },
-    { value: "🍓", flipped: false, active: false },
-    { value: "🍎", flipped: false, active: false },
-    { value: "🍌", flipped: false, active: false },
-    { value: "🍇", flipped: false, active: false },
-    { value: "🍓", flipped: false, active: false },
-    { value: "🥕", flipped: false, active: false },
-    { value: "🍑", flipped: false, active: false },
-    { value: "🍑", flipped: false, active: false },
-    { value: "🥕", flipped: false, active: false },
-    { value: "🍆", flipped: false, active: false },
-    { value: "🌽", flipped: false, active: false },
-    { value: "🍆", flipped: false, active: false },
-    { value: "🌽", flipped: false, active: false },
+    { value: "⚽", flipped: false, active: false },
+    { value: "🎾", flipped: false, active: false },
+    { value: "🏀", flipped: false, active: false },
+    { value: "🏈", flipped: false, active: false },
+    { value: "⚽", flipped: false, active: false },
+    { value: "🎾", flipped: false, active: false },
+    { value: "🏀", flipped: false, active: false },
+    { value: "🏈", flipped: false, active: false },
+    { value: "🎳", flipped: false, active: false },
+    { value: "🏓", flipped: false, active: false },
+    { value: "🏓", flipped: false, active: false },
+    { value: "🎳", flipped: false, active: false },
+    { value: "🏋️‍♀️", flipped: false, active: false },
+    { value: "🤼‍♂️", flipped: false, active: false },
+    { value: "🤼‍♀️", flipped: false, active: false },
+    { value: "🏋️‍♂️", flipped: false, active: false },
   ];
   for (let i = current.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
