@@ -73,13 +73,13 @@ export const manifest = {
 
     linkedin: {
       href: "https://linkedin.com/in/d-exclaimation",
-      img: "/artpiece/linkedin.webp",
+      img: undefined,
       external: true,
     },
 
     resume: {
       href: "https://resume.dexclaimation.com",
-      img: "/artpiece/resume.webp",
+      img: undefined,
       external: true,
     },
   } as const,
