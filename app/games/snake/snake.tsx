@@ -144,7 +144,8 @@ const Snake: FC = () => {
               key={`${x}-${y}`}
               className="w-4 h-4 border transition-all duration-100 border-gray-500/20 
               data-[snake=false]:data-[food=true]:bg-lime-400 data-[dead=true]:duration-500
-              data-[snake=true]:bg-zinc-900 data-[snake=true]:data-[dead=true]:!bg-red-500"
+              data-[snake=true]:bg-zinc-900 data-[snake=true]:data-[dead=true]:!bg-red-500
+              dark:data-[snake=true]:bg-zinc-100"
               data-snake={snake.snake.some((vec) => vec.x === x && vec.y === y)}
               data-food={snake.food.x === x && snake.food.y === y}
               data-dead={snake.dead}

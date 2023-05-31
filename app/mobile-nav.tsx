@@ -36,7 +36,8 @@ const MobileNavigation = rc(() => {
           <Link
             className="font-sans text-4xl sm:text-6xl md:text-8xl no-underline relative z-10
             text-center lg:text-start transition-all duration-300 text-black/25 scale-90
-            group-data-in-view:text-blue-100 group-data-in-view:scale-100 group-data-in-view:z-30"
+            group-data-in-view:text-blue-100 group-data-in-view:scale-100 group-data-in-view:z-30
+            dark:text-white/25 dark:group-data-in-view:text-blue-900"
             {...props}
           >
             <div
@@ -44,11 +45,15 @@ const MobileNavigation = rc(() => {
               scale-95 group-data-in-view:scale-100 px-2
               border-y-0 border-y-neutral-900 z-10
               group-data-in-view:border-y-2 py-3 
-              group-data-in-view:z-30 relative"
+              group-data-in-view:z-30 relative
+              dark:group-data-in-view:bg-neutral-700/20
+              dark:border-y-neutral-100"
             >
               <Scrambled
                 className="block relative opacity-25 group-data-in-view:opacity-100 transition-all
-                group-data-in-view:data-[dud=true]:text-neutral-400 group-data-in-view:z-30"
+                group-data-in-view:data-[dud=true]:text-neutral-400 group-data-in-view:z-30
+                dark:text-white dark:data-[dud=true]:text-white
+                dark:group-data-in-view:data-[dud=true]:text-neutral-600"
                 delay={scramble.delay}
                 speed={scramble.speed}
                 color={{

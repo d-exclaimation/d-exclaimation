@@ -4,7 +4,16 @@
 
 body {
   background:
-  linear-gradient(180deg, hsla(0,0%,100%,0) 0, #fff 500px),
+  linear-gradient(180deg, rgba(255, 255, 255, 0) 0, #fff 500px),
   fixed 0 0 /20px 20px radial-gradient(#d1d1d1 1px, transparent 0),
   fixed 10px 10px /20px 20px radial-gradient(#d1d1d1 1px, transparent 0);
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0) 0, black 500px),
+    fixed 0 0 /20px 20px radial-gradient(#bfbfbf 1px, transparent 0),
+    fixed 10px 10px /20px 20px radial-gradient(#bfbfbf 1px, transparent 0);
+  }
 }

@@ -60,7 +60,8 @@ const InteractiveHandle = rc(() => {
       html={
         <Link
           href={href}
-          className="select-none font-mono font-medium text-xl md:text-4xl opacity-25"
+          className="select-none font-mono font-medium text-xl 
+          md:text-4xl opacity-25 dark:text-white"
         >
           {selected}
         </Link>
@@ -71,7 +72,7 @@ const InteractiveHandle = rc(() => {
     >
       <span
         id="email"
-        className="select-none font-mono font-medium text-2xl md:text-5xl lg:text-6xl"
+        className="select-none font-mono font-medium text-2xl md:text-5xl lg:text-6xl dark:text-white"
         onMouseLeave={() => {
           if (timeoutRef.current) {
             clearTimeout(timeoutRef.current);
@@ -86,7 +87,7 @@ const InteractiveHandle = rc(() => {
               ? "text-red-400 underline"
               : selected === "name"
               ? "text-blue-400 underline"
-              : ""
+              : "dark:text-white"
           }
           onClick={() => click((prev) => (prev === "email" ? prev : "name"))}
           onMouseEnter={() =>
@@ -101,7 +102,7 @@ const InteractiveHandle = rc(() => {
               ? "text-red-400 underline"
               : selected === "name"
               ? "text-blue-400 underline"
-              : ""
+              : "dark:text-white"
           }
           onClick={() => click((prev) => (prev === "name" ? prev : "email"))}
           onMouseEnter={() =>
@@ -112,7 +113,9 @@ const InteractiveHandle = rc(() => {
         </span>
         <span
           id="linkedin"
-          className={selected === "email" ? "text-red-400 underline" : ""}
+          className={
+            selected === "email" ? "text-red-400 underline" : "dark:text-white"
+          }
         >
           @
         </span>
@@ -124,7 +127,7 @@ const InteractiveHandle = rc(() => {
               ? "text-teal-400 underline"
               : selected === "email"
               ? "text-red-400 underline"
-              : ""
+              : "dark:text-white"
           }
           onClick={() =>
             selects((prev) => {
@@ -153,7 +156,7 @@ const InteractiveHandle = rc(() => {
               ? "text-teal-400 underline"
               : selected === "email"
               ? "text-red-400 underline"
-              : ""
+              : "dark:text-white"
           }
           onMouseEnter={() =>
             selects((prev) => {
@@ -181,7 +184,7 @@ const InteractiveHandle = rc(() => {
               ? "text-indigo-400 underline"
               : selected === "email"
               ? "text-red-400 underline"
-              : ""
+              : "dark:text-white"
           }
           onClick={() => click("site")}
           onMouseEnter={() => selects("site")}

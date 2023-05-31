@@ -24,7 +24,8 @@ const Navicon = rc(() => {
       data-home={pathname === "/"}
     >
       <img
-        className="w-8 h-8 data-[home='true']:opacity-0 data-[home='true']:translate-x-1/2 transition-all duration-700"
+        className="w-8 h-8 data-[home='true']:opacity-0 data-[home='true']:translate-x-1/2 
+        transition-all duration-700 dark:content-[url('/icon/mix-dark.svg')]"
         src="/icon/mix.svg"
         data-home={pathname === "/"}
       />

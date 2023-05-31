@@ -35,7 +35,8 @@ const DesktopNavigation = rc(() => {
           <Link
             className="font-sans text-6xl font-light no-underline
             text-center lg:text-start transition-all duration-300 text-black/25
-            hover:text-blue-100 hover:z-30 group peer relative"
+            hover:text-blue-100 hover:z-30 group peer relative
+            dark:text-white/25 dark:hover:text-blue-900"
             {...props}
           >
             <div
@@ -44,12 +45,16 @@ const DesktopNavigation = rc(() => {
               before:absolute before:left-0 before:top-0 before:h-full
               before:w-0 before:border-y-2 before:border-y-neutral-900
               before:transition-all group-hover:before:w-full
-              before:duration-200 group-hover:before:duration-500"
+              before:duration-200 group-hover:before:duration-500
+              dark:group-hover:bg-neutral-700/10
+              dark:before:border-y-neutral-100"
             >
               <Scrambled
                 className="block relative opacity-30 my-1
                 group-hover:data-[dud=true]:text-neutral-400
-                group-hover:opacity-100 group-hover:z-30"
+                group-hover:opacity-100 group-hover:z-30
+                dark:text-white dark:data-[dud=true]:text-white
+                dark:group-hover:data-[dud=true]:text-neutral-600"
                 delay={scramble.delay}
                 speed={scramble.speed}
                 color={{

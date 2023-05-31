@@ -40,13 +40,13 @@ const Page = page(() => {
           align="items-start"
           justify="justify-start"
           phrases={["About", "About"]}
-          className="text-3xl font-bold"
+          className="text-3xl font-bold dark:text-white dark:data-[dud=true]:text-white/50"
           speed={scramble.speed}
           delay={scramble.delay}
         />
         <div className="w-full flex flex-col gap-4 my-4">
           <div className="w-full flex flex-col-reverse md:flex-row gap-4 items-center">
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-4 dark:text-white">
               <p>
                 I’m a computer science student and junior software engineer at
                 Partly. I’m originally from Surabaya, East Java, Indonesia. I
@@ -73,18 +73,18 @@ const Page = page(() => {
               />
             </div>
           </div>
-          <p>
+          <p className="dark:text-white">
             After realising that I enjoy software engineering, I decided to
             study computer science at University of Canterbury and relocated to
             Christchurch, NZ.
           </p>
-          <p>
+          <p className="dark:text-white">
             On the side, I started contributing to open source projects like
             GraphQL, GraphQLSwift, and even made some of my own like Pioneer,
             Seraph and more. Those projects helped me learn a lot about many
             aspect of programming and be a overall better engineer.
           </p>
-          <p>
+          <p className="dark:text-white">
             I’m currently working at Partly, New Zealand's fastest growing
             startup. My role is to help build and maintain the core seller
             experience, PartsPal, which is built with React, TypeScript,
@@ -98,7 +98,7 @@ const Page = page(() => {
           align="items-start"
           justify="justify-start"
           phrases={["Experiences", "Timeline"]}
-          className="text-2xl font-bold"
+          className="text-2xl font-bold dark:text-white dark:data-[dud=true]:text-white/50"
           speed={scramble.speed}
           delay={scramble.delay}
         />

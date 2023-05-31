@@ -11,7 +11,7 @@ import "./globals.css";
 
 const RootLayout = layout(({ children }) => {
   return (
-    <html lang="en" className="bg-gradient-to-t from-white to-transparent">
+    <html lang="en" className="bg-white dark:bg-black">
       <body className="min-w-screen min-h-screen grid place-items-center">
         <Navicon />
         <main className="z-10 relative min-w-screen min-h-screen flex items-center justify-center">
