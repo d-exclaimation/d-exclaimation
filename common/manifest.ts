@@ -35,6 +35,18 @@ export const manifest = {
       external: true,
     },
 
+    spotlight: {
+      href: "https://spotlight.d-exclaimation.me",
+      img: "/artpiece/spotlight.webp",
+      external: true,
+    },
+
+    omdb: {
+      href: "https://omdb.d-exclaimation.me",
+      img: "/artpiece/omdb.webp",
+      external: true,
+    },
+
     pioneer: {
       href: "https://pioneer.dexclaimation.com",
       img: "/artpiece/pioneer.webp",
@@ -44,12 +56,6 @@ export const manifest = {
     seraph: {
       href: "https://seraph.dexclaimation.com",
       img: "/artpiece/seraph.webp",
-      external: true,
-    },
-
-    omdb: {
-      href: "https://omdb.d-exclaimation.me",
-      img: "/artpiece/omdb.webp",
       external: true,
     },
 

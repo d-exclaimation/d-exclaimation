@@ -71,7 +71,7 @@ const DesktopNavigation = rc(() => {
             <img
               className="fixed -translate-y-1/2 -translate-x-1/2 top-1/2 left-[60%]
               z-20 transition-all pointer-events-none max-w-[min(800px,80vw)] duration-300 
-              delay-200 peer-hover:delay-[0s] object-cover aspect-auto max-h-[min(600px,80vh)]
+              delay-200 peer-hover:delay-[0s] object-cover aspect-auto max-h-[min(800px,80vh)]
               opacity-0 scale-50 peer-hover:opacity-100 peer-hover:scale-100"
               alt={title}
               src={img}
