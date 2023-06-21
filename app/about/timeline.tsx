@@ -19,7 +19,7 @@ type Props = {
 const Timeline = rc<Props>(({ date, children }) => {
   return (
     <div className="w-full flex flex-row gap-4 items-start">
-      <div className="flex-shrink-0 flex flex-row items-center text-sm font-light py-2 dark:text-white">
+      <div className="flex-shrink-0 flex flex-row items-center justify-between text-sm font-light py-2 min-w-[6rem] dark:text-white">
         <div className="mr-2 text-black/40 dark:text-white/40 text-center">
           o
         </div>

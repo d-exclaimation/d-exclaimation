@@ -59,9 +59,15 @@ export const manifest = {
       external: true,
     },
 
+    saturday: {
+      href: "https://csse-s302g7.canterbury.ac.nz/prod/",
+      img: "/artpiece/saturday.webp",
+      external: true,
+    },
+
     "business card": {
       href: "/card",
-      img: "/artpiece/card.webp",
+      img: "/artpiece/business-card.webp",
       external: false,
     },
 
@@ -119,4 +125,8 @@ export const timeline = {
     "Continue at Partly as a Junior Software Engineer part-time while I am finishing my degree.",
   "Apr 2023":
     "Authored Seraph, a minimal UI library built on top of plain Web APIs that is inspired by React, Astro, and Solid.",
+  "May 2023":
+    "Built OMDb, a web movie application designed to be simple and intuitive to use.",
+  "Jul 2023":
+    "Building Spotlight, a modern retake of how we should stay informed about the world around us.",
 } as const;
