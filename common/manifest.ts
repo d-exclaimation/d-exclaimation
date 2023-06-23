@@ -96,7 +96,7 @@ export const manifest = {
     },
 
     resume: {
-      href: "https://resume.dexclaimation.com",
+      href: "https://d-exclaimation.notion.site",
       img: undefined,
       external: true,
     },
