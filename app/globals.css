@@ -20,7 +20,7 @@ body {
   body {
     background:
     linear-gradient(180deg, rgba(0, 0, 0, 0) 0, black 500px),
-    fixed 0 0 /20px 20px radial-gradient(#bfbfbf 1px, transparent 0),
-    fixed 10px 10px /20px 20px radial-gradient(#bfbfbf 1px, transparent 0);
+    fixed 0 0 /20px 20px radial-gradient(#2f2f2f 1px, transparent 0),
+    fixed 10px 10px /20px 20px radial-gradient(#2f2f2f 1px, transparent 0);
   }
 }
