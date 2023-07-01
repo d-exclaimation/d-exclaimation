@@ -30,7 +30,7 @@
       media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
     />
     <img
-      src="https://raw.githubusercontent.com/d-exclaimation/d-exclaimation/output/github-contribution-grid-snake.svg"
+      src="https://raw.githubusercontent.com/d-exclaimation/d-exclaimation/main/assets/header-light.svg"
     >
   </picture>
 
