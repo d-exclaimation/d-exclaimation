@@ -22,11 +22,11 @@
 
   <picture>
     <source
-      srcset="https://github.com/d-exclaimation/d-exclaimation/blob/main/assets/header-dark.png"
+      srcset="https://raw.githubusercontent.com/d-exclaimation/d-exclaimation/main/assets/header-dark.png"
       media="(prefers-color-scheme: dark)"
     />
     <source
-      srcset="https://github.com/d-exclaimation/d-exclaimation/blob/main/assets/header-light.png"
+      srcset="https://raw.githubusercontent.com/d-exclaimation/d-exclaimation/main/assets/header-light.png"
       media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
     />
     <img
