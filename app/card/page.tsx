@@ -6,10 +6,12 @@
 //
 
 import { page } from "@d-exclaimation/next";
-import InteractiveHandle from "~/components/interactive/InteractiveHandle";
+import InteractiveHandle from "./interactive-handle";
 
 const Page = page(() => {
   return <InteractiveHandle />;
 });
+
+export const runtime = "edge";
 
 export default Page;

@@ -16,8 +16,8 @@ module.exports = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       fontFamily: {
-        sans: ["DM Sans", "sans-serif"],
-        mono: ["DM Mono", "monospace"],
+        sans: ["var(--dm-sans)", "sans-serif"],
+        mono: ["var(--dm-mono)", "monospace"],
       },
       minWidth: {
         screen: "100vw",
@@ -28,6 +28,7 @@ module.exports = {
       animation: {
         handdrawn: "1s ease-in-out 0s 1 normal forwards running handdrawn",
         "fade-in": "fade-in 1s ease-in-out 1",
+        "up-down": "up-down 1s infinite",
       },
       keyframes: {
         handdrawn: {
@@ -43,6 +44,16 @@ module.exports = {
           "100%": {
             opacity: 1,
             transform: "translateY(0)",
+          },
+        },
+        "up-down": {
+          "0%, 100%": {
+            transform: "translateY(-0.125rem)",
+            "animation-timing-function": "cubic-bezier(0.8, 0, 1, 1)",
+          },
+          "50%": {
+            transform: "translateY(0.125rem)",
+            "animation-timing-function": "cubic-bezier(0, 0, 0.2, 1)",
           },
         },
       },

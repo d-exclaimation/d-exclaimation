@@ -2,7 +2,7 @@
 //  layout.tsx
 //  d-exclaimation
 //
-//  Created by d-exclaimation on 08 May 2023
+//  Created by d-exclaimation on 07 Jul 2023
 //
 
 import { layout, meta } from "@d-exclaimation/next";
@@ -13,8 +13,8 @@ const Layout = layout(({ children }) => {
 });
 
 export const metadata = meta({
-  title: "About | d-exclaimation",
-  description: "About myself and my work",
+  title: "Projects | d-exclaimation",
+  description: "Things I proud of",
 });
 
 export default Layout;

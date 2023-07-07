@@ -18,7 +18,7 @@ const Navicon = rc(() => {
     <Link
       className="z-40 flex fixed top-4 right-4 p-2 rounded shadow backdrop-blur-sm
       hover:scale-95 active:scale-95 data-[home='true']:backdrop-blur-0
-      lg:shadow-none lg:bg-transparent lg:backdrop-blur-0 bg-white/50 
+      lg:shadow-none lg:bg-transparent lg:backdrop-blur-0 bg-white/50 dark:bg-white/10
       data-[home='true']:bg-transparent data-[home='true']:shadow-none"
       href="/"
       data-home={pathname === "/"}

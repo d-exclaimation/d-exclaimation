@@ -16,4 +16,6 @@ const Page = page(() => {
   );
 });
 
+export const runtime = "edge";
+
 export default Page;

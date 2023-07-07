@@ -6,13 +6,32 @@
 //
 
 import { layout, meta } from "@d-exclaimation/next";
-import Navicon from "~/components/NavIcon";
+import { DM_Mono, DM_Sans } from "next/font/google";
+import Navicon from "~/app/(components)/nav-icon";
+import { tw } from "~/common/utils/tailwind";
 import "./globals.css";
+
+const sans = DM_Sans({
+  weight: ["400", "500", "700"],
+  subsets: ["latin", "latin-ext"],
+  variable: "--dm-sans",
+});
+
+const mono = DM_Mono({
+  weight: ["400", "500", "300"],
+  subsets: ["latin", "latin-ext"],
+  variable: "--dm-mono",
+});
 
 const RootLayout = layout(({ children }) => {
   return (
     <html lang="en" className="bg-white dark:bg-black">
-      <body className="min-w-screen min-h-screen grid place-items-center">
+      <body
+        className={tw(
+          `${sans.variable} ${mono.variable}`,
+          "min-w-screen min-h-screen grid place-items-center"
+        )}
+      >
         <Navicon />
         <main className="z-10 relative min-w-screen min-h-screen flex items-center justify-center">
           {children}
