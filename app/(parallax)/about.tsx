@@ -76,7 +76,7 @@ const About = rc<Props>(({ onNext }) => {
         >
           <span className="text-xs text-black/40 dark:text-white/40 mb-1">
             <span className="text-black/50 dark:text-white/50">Scroll</span> to
-            continue
+            view my work
           </span>
           <div
             className="bg-neutral-300/50 backdrop-blur-lg rounded-full p-2 flex items-center justify-center

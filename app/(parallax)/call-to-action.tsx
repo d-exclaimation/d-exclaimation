@@ -52,10 +52,15 @@ const CallToAction = rc<Props>(({ offset, options }) => {
       offset={offset}
       speed={0.2}
     >
-      <div className="flex flex-col items-center justify-center gap-3 md:gap-5">
-        {options.map((option, i) => (
-          <Option key={option.href} {...option} />
-        ))}
+      <div className="flex flex-col items-center justify-center w-full">
+        <span className="text-black dark:text-white text md:text-xl font-medium mb-4">
+          So, that's all. What's next?
+        </span>
+        <div className="flex flex-col items-center justify-center gap-3 md:gap-5">
+          {options.map((option, i) => (
+            <Option key={option.href} {...option} />
+          ))}
+        </div>
       </div>
     </ParallaxLayer>
   );

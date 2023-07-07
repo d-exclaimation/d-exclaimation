@@ -23,12 +23,6 @@ export const manifest = {
       external: false,
     },
 
-    about: {
-      href: "/about",
-      img: undefined,
-      external: false,
-    },
-
     partly: {
       href: "https://partly.com",
       img: "/artpiece/partly.webp",

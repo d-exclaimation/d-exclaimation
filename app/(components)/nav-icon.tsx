@@ -20,14 +20,14 @@ const Navicon = rc(() => {
       hover:scale-95 active:scale-95 data-[home='true']:backdrop-blur-0
       lg:shadow-none lg:bg-transparent lg:backdrop-blur-0 bg-white/50 dark:bg-white/10
       data-[home='true']:bg-transparent data-[home='true']:shadow-none"
-      href="/"
-      data-home={pathname === "/"}
+      href="/nav"
+      data-home={pathname === "/nav"}
     >
       <img
         className="w-8 h-8 data-[home='true']:opacity-0 data-[home='true']:translate-x-1/2 
         transition-all duration-700 dark:content-[url('/icon/mix-dark.svg')]"
         src="/icon/mix.svg"
-        data-home={pathname === "/"}
+        data-home={pathname === "/nav"}
       />
     </Link>
   );
