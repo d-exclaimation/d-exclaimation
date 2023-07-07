@@ -85,10 +85,10 @@ const Page = page(() => {
             aspect of programming and be a overall better engineer.
           </p>
           <p className="dark:text-white">
-            I’m currently working at Partly, New Zealand's fastest growing
-            startup. My role is to help build and maintain the core seller
-            experience, PartsPal, which is built with React, TypeScript,
-            Node.js, and GraphQL.
+            During my second year. I spent some time working at Partly, New
+            Zealand's fastest growing startup. My role is to help build and
+            maintain the core seller experience, PartsPal, which is built with
+            React, TypeScript, Node.js, and GraphQL.
           </p>
         </div>
       </section>
