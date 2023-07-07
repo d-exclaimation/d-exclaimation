@@ -25,10 +25,10 @@ import Work from "./work";
 const layers = {
   experiences: [
     {
-      name: "software engineer (junior & intern)",
-      description: "Worked on Partly's core seller experience, PartsPal",
+      name: "partly (job)",
+      description: "Work on Partly's core seller experience, PartsPal",
       href: "https://partly.com",
-      year: "Partly",
+      year: "2023",
       images: {
         md: partly_md,
         base: partly,
