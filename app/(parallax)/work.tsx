@@ -53,9 +53,9 @@ const Work = rc<Props>(
           <div className="absolute bottom-[5vh] left-0 md:left-[5vw] z-30">
             <Image
               alt={name}
-              className="hidden md:block h-[75vh] aspect-auto z-30"
+              className="hidden md:block w-[75vw] max-w-[905px] aspect-auto z-30"
               src={images.md}
-              sizes="75vh"
+              sizes="75vw"
               placeholder="blur"
               priority
             />
