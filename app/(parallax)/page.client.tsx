@@ -26,7 +26,7 @@ const layers = {
   experiences: [
     {
       name: "partly (job)",
-      description: "Work on Partly's core seller experience, PartsPal",
+      description: "Worked on Partly's core seller experience, PartsPal",
       href: "https://partly.com",
       year: "2023",
       images: {
