@@ -43,7 +43,7 @@ const About = rc<Props>(({ onNext }) => {
           onTouchStart={() => setLoaded(true)}
         >
           <span
-            className="w-24 h-24 lg:w-32 lg:h-32 absolute rounded-full transition-all duration-1000
+            className="w-24 h-24 lg:w-32 lg:h-32 absolute rounded-full transition-all duration-1000 
           bg-blue-400/75 group-data-active:blur-md md:group-data-active:blur-lg group-data-active:-translate-x-2"
           />
           <span

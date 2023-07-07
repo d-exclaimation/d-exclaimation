@@ -28,7 +28,7 @@ const layers = {
       name: "partly (job)",
       description: "Worked on Partly's core seller experience, PartsPal",
       href: "https://partly.com",
-      year: "2022/3",
+      year: "2022",
       images: {
         md: partly_md,
         base: partly,
