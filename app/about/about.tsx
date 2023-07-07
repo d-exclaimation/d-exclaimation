@@ -7,10 +7,10 @@
 //  Created by d-exclaimation on 08 Jul 2023
 //
 
+import Scrambled from "@/(components)/scrambled";
 import { rc } from "@d-exclaimation/next";
 import { ParallaxLayer } from "@react-spring/parallax";
 import { useEffect, useState } from "react";
-import Scrambled from "~/components/Scrambled";
 
 const scramble = {
   delay: 10_000,

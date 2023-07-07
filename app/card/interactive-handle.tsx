@@ -19,7 +19,7 @@ import {
   useState,
 } from "react";
 import { Tooltip as BaseTooltip, TooltipProps } from "react-tippy";
-import { manifest, Manifest } from "../../common/manifest";
+import { manifest, Manifest } from "../(common)/manifest";
 
 const Tooltip = (props: TooltipProps & { children: ReactNode }) =>
   cloneElement(<BaseTooltip />, { ...props });

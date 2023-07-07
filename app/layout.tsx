@@ -5,10 +5,10 @@
 //  Created by d-exclaimation on 29 Apr 2023
 //
 
+import { tw } from "@/(common)/tailwind";
+import Navicon from "@/(components)/nav-icon";
 import { layout, meta } from "@d-exclaimation/next";
 import { DM_Mono, DM_Sans } from "next/font/google";
-import Navicon from "~/app/(components)/nav-icon";
-import { tw } from "~/common/utils/tailwind";
 import "./globals.css";
 
 const sans = DM_Sans({

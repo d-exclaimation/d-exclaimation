@@ -25,13 +25,46 @@ import Work from "./work";
 const layers = {
   experiences: [
     {
-      name: "Software Engineer (Junior & Intern)",
+      name: "software engineer (junior & intern)",
       description: "Worked on Partly's core seller experience, PartsPal",
       href: "https://partly.com",
       year: "Partly",
       images: {
         md: partly_md,
         base: partly,
+      },
+    },
+  ],
+
+  projects: [
+    {
+      name: "spotlight",
+      description: "Browsing news streamlined, supercharged, and simplified",
+      href: "https://spotlight.d-exclaimation.me",
+      year: "2023",
+      images: {
+        md: spotlight_md,
+        base: spotlight,
+      },
+    },
+    {
+      name: "d-exclaimation.me",
+      description: "My life, my work, my passion",
+      href: "https://d-exclaimation.me",
+      year: "2021",
+      images: {
+        md: personal_md,
+        base: personal,
+      },
+    },
+    {
+      name: "omdb",
+      description: "Web movies made simple",
+      href: "https://omdb.d-exclaimation.me",
+      year: "2023",
+      images: {
+        md: omdb_md,
+        base: omdb,
       },
     },
   ],
@@ -73,40 +106,7 @@ const layers = {
   ],
 };
 
-const projects = [
-  {
-    name: "Spotlight",
-    description: "Browsing news streamlined, supercharged, and simplified",
-    href: "https://spotlight.d-exclaimation.me",
-    year: "2023",
-    images: {
-      md: spotlight_md,
-      base: spotlight,
-    },
-  },
-  {
-    name: "d-exclaimation.me",
-    description: "My life, my work, my passion",
-    href: "https://d-exclaimation.me",
-    year: "2021",
-    images: {
-      md: personal_md,
-      base: personal,
-    },
-  },
-  {
-    name: "OMDb",
-    description: "Web movies made simple",
-    href: "https://omdb.d-exclaimation.me",
-    year: "2023",
-    images: {
-      md: omdb_md,
-      base: omdb,
-    },
-  },
-] as const;
-
-const pages = projects.length + layers.experiences.length + 2;
+const pages = layers.projects.length + layers.experiences.length + 2;
 
 const Projects = rc(() => {
   const panel = useRef<IParallax | null>(null);
@@ -136,7 +136,7 @@ const Projects = rc(() => {
     <>
       <Parallax pages={pages} ref={panel}>
         <About onNext={() => panel?.current?.scrollTo(1)} />
-        {projects.map((project, i) => (
+        {layers.projects.map((project, i) => (
           <Work
             key={project.name}
             {...project}
@@ -149,7 +149,7 @@ const Projects = rc(() => {
           <Work
             key={experience.name}
             {...experience}
-            offset={i + 1 + projects.length}
+            offset={i + 1 + layers.projects.length}
             maxOffset={pages - 1}
             onClick={(offset) => panel?.current?.scrollTo(offset)}
           />

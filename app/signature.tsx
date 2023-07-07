@@ -5,8 +5,8 @@
 //  Created by d-exclaimation on 14 May 2023
 //
 
+import IntersectingView from "@/(components)/intersecting-view";
 import { rc } from "@d-exclaimation/next";
-import IntersectingView from "~/components/IntersectingView";
 
 const Signature = rc(() => {
   return (

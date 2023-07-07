@@ -5,12 +5,12 @@
 //  Created by d-exclaimation on 09 May 2023
 //
 
+import { manifest } from "@/(common)/manifest";
+import FocusIntersectingView from "@/(components)/focus-intersecting-view";
+import Link from "@/(components)/link";
+import Scrambled from "@/(components)/scrambled";
 import { entries } from "@d-exclaimation/common";
 import { rc } from "@d-exclaimation/next";
-import { manifest } from "~/common/manifest";
-import FocusIntersectingView from "~/components/FocusIntersectingView";
-import Scrambled from "~/components/Scrambled";
-import Link from "./link";
 
 const scramble = {
   delay: 10_000,

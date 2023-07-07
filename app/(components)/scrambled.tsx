@@ -1,15 +1,15 @@
 "use client";
 
 //
-//  Scrambled.tsx
+//  scrambled.tsx
 //  dexclaimation
 //
 //  Created by d-exclaimation on 11 Dec 2022
 //
 
+import { DUDS, useScramble } from "@/(hooks)/useScramble";
 import { type Palette } from "@d-exclaimation/common/tailwind";
 import { rc } from "@d-exclaimation/next";
-import { DUDS, useScramble } from "~/hooks/useScramble";
 
 type Props = {
   className?: string;

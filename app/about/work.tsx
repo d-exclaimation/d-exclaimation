@@ -8,10 +8,16 @@
 //
 
 import Link from "@/(components)/link";
+import Scrambled from "@/(components)/scrambled";
 import { rc } from "@d-exclaimation/next";
 import { ParallaxLayer } from "@react-spring/parallax";
 import type { StaticImageData } from "next/image";
 import Image from "next/image";
+
+const scramble = {
+  delay: 10_000,
+  speed: 40,
+} as const;
 
 type Props = {
   name: string;
@@ -38,7 +44,7 @@ const Work = rc<Props>(
         </ParallaxLayer>
         <ParallaxLayer className="z-0" offset={offset} speed={0.4}>
           <div className="absolute top-[calc(10dvh+2.25rem)] md:top-[calc(10dvh+3.5rem)] left-[5vw] z-20 flex items-start justify-center flex-col">
-            <p className="font-mono max-w-[90vw] md:max-w-xl dark:text-white">
+            <p className="max-w-[90vw] md:max-w-xl dark:text-white">
               {description}
             </p>
           </div>
@@ -117,9 +123,14 @@ const Work = rc<Props>(
             href={href}
             external
           >
-            <span className="font-bold text-3xl md:text-5xl dark:text-white group-hover:underline">
-              {name}
-            </span>
+            <Scrambled
+              className="font-bold text-3xl md:text-5xl dark:text-white group-hover:underline dark:data-[dud=true]:text-white/50"
+              align="items-start"
+              justify="justify-start"
+              phrases={[name, name]}
+              speed={scramble.speed}
+              delay={scramble.delay}
+            />
           </Link>
         </ParallaxLayer>
       </>

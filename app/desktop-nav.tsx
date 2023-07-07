@@ -5,11 +5,11 @@
 //  Created by d-exclaimation on 08 May 2023
 //
 
+import { manifest } from "@/(common)/manifest";
+import Link from "@/(components)/link";
+import Scrambled from "@/(components)/scrambled";
 import { entries } from "@d-exclaimation/common";
 import { rc } from "@d-exclaimation/next";
-import { manifest } from "~/common/manifest";
-import Scrambled from "~/components/Scrambled";
-import Link from "./link";
 
 const scramble = {
   delay: 10_000,

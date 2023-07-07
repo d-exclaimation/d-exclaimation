@@ -1,7 +1,7 @@
 "use client";
 
 //
-//  NavIcon.tsx
+//  nav-icon.tsx
 //  d-exclaimation
 //
 //  Created by d-exclaimation on 08 May 2023

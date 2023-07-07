@@ -1,15 +1,15 @@
 "use client";
 
 //
-//  IntersectingView.tsx
+//  intersecting-view.tsx
 //  d-exclaimation
 //
 //  Created by d-exclaimation on 09 May 2023
 //
 
+import { useWithinView } from "@/(hooks)/useWithinView";
 import { rc } from "@d-exclaimation/next";
 import { type ReactNode } from "react";
-import { useWithinView } from "~/hooks/useWithinView";
 
 type Props = {
   rootMargin: `${number}% ${number}px ${number}% ${number}px`;
