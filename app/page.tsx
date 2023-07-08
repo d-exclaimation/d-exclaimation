@@ -6,7 +6,7 @@
 //
 
 import { page } from "@d-exclaimation/next";
-import PageClient from "./(parallax)/page.client";
+import PageClient from "./page.client";
 
 const Page = page(() => {
   return (

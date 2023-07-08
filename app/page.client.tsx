@@ -7,36 +7,28 @@
 //  Created by d-exclaimation on 08 Jul 2023
 //
 
+import personal_md from "@/(parallax)/(assets)/d-exclaimation-md.webp";
+import personal from "@/(parallax)/(assets)/d-exclaimation.webp";
+import omdb_md from "@/(parallax)/(assets)/omdb-md.webp";
+import omdb from "@/(parallax)/(assets)/omdb.webp";
+import partly_md from "@/(parallax)/(assets)/partly-md.webp";
+import partly from "@/(parallax)/(assets)/partly.webp";
+import pioneer_md from "@/(parallax)/(assets)/pioneer-md.webp";
+import pioneer from "@/(parallax)/(assets)/pioneer.webp";
+import seraph_md from "@/(parallax)/(assets)/seraph-md.webp";
+import seraph from "@/(parallax)/(assets)/seraph.webp";
+import spotlight_md from "@/(parallax)/(assets)/spotlight-md.webp";
+import spotlight from "@/(parallax)/(assets)/spotlight.webp";
+
+import About from "@/(parallax)/about";
+import CallToAction from "@/(parallax)/call-to-action";
+import Work from "@/(parallax)/work";
 import { rc } from "@d-exclaimation/next";
 import { Parallax, type IParallax } from "@react-spring/parallax";
 import { useCallback, useEffect, useRef } from "react";
-import personal_md from "./(assets)/d-exclaimation-md.webp";
-import personal from "./(assets)/d-exclaimation.webp";
-import omdb_md from "./(assets)/omdb-md.webp";
-import omdb from "./(assets)/omdb.webp";
-import partly_md from "./(assets)/partly-md.webp";
-import partly from "./(assets)/partly.webp";
-import spotlight_md from "./(assets)/spotlight-md.webp";
-import spotlight from "./(assets)/spotlight.webp";
-import About from "./about";
-import CallToAction from "./call-to-action";
-import Work from "./work";
 
 const layers = {
-  experiences: [
-    {
-      name: "partly (job)",
-      description: "Worked on Partly's core seller experience, PartsPal",
-      href: "https://partly.com",
-      year: "2022",
-      images: {
-        md: partly_md,
-        base: partly,
-      },
-    },
-  ],
-
-  projects: [
+  works: [
     {
       name: "spotlight",
       description: "Browsing news streamlined, supercharged, and simplified",
@@ -67,6 +59,36 @@ const layers = {
         base: omdb,
       },
     },
+    {
+      name: "partly (job)",
+      description: "Worked on Partly's core seller experience, PartsPal",
+      href: "https://partly.com",
+      year: "2022",
+      images: {
+        md: partly_md,
+        base: partly,
+      },
+    },
+    {
+      name: "pioneer",
+      description: "GraphQL server for Swift",
+      href: "https://pioneer.dexclaimation.com",
+      year: "2022",
+      images: {
+        md: pioneer_md,
+        base: pioneer,
+      },
+    },
+    {
+      name: "seraph",
+      description: "Hassle-free web apps in an instant",
+      href: "https://seraph.dexclaimation.com",
+      year: "2023",
+      images: {
+        md: seraph_md,
+        base: seraph,
+      },
+    },
   ],
 
   cta: [
@@ -93,7 +115,7 @@ const layers = {
     {
       action: "Test your memory with",
       title: "Match",
-      href: "/games/maach",
+      href: "/games/match",
       icon: "/icon/brain.svg",
     },
     {
@@ -106,7 +128,7 @@ const layers = {
   ],
 };
 
-const pages = layers.projects.length + layers.experiences.length + 2;
+const pages = layers.works.length + 2;
 
 const Projects = rc(() => {
   const panel = useRef<IParallax | null>(null);
@@ -136,20 +158,11 @@ const Projects = rc(() => {
     <>
       <Parallax pages={pages} ref={panel}>
         <About onNext={() => panel?.current?.scrollTo(1)} />
-        {layers.projects.map((project, i) => (
+        {layers.works.map((work, i) => (
           <Work
-            key={project.name}
-            {...project}
+            key={work.name}
+            {...work}
             offset={i + 1}
-            maxOffset={pages - 1}
-            onClick={(offset) => panel?.current?.scrollTo(offset)}
-          />
-        ))}
-        {layers.experiences.map((experience, i) => (
-          <Work
-            key={experience.name}
-            {...experience}
-            offset={i + 1 + layers.projects.length}
             maxOffset={pages - 1}
             onClick={(offset) => panel?.current?.scrollTo(offset)}
           />

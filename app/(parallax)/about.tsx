@@ -43,12 +43,12 @@ const About = rc<Props>(({ onNext }) => {
           onTouchStart={() => setLoaded(true)}
         >
           <span
-            className="w-24 h-24 lg:w-32 lg:h-32 absolute rounded-full transition-all duration-1000 
-          bg-blue-400/75 group-data-active:blur-md md:group-data-active:blur-lg group-data-active:-translate-x-2"
+            className="w-24 h-24 lg:w-32 lg:h-32 absolute rounded-full transition-all duration-1000 bg-orange-400/75 
+            dark:bg-orange-400/30 group-data-active:blur-md md:group-data-active:blur-lg group-data-active:-translate-x-2"
           />
           <span
-            className="w-24 h-24 lg:w-32 lg:h-32 absolute rounded-full transition-all duration-1000
-          bg-red-400/75 group-data-active:blur-md md:group-data-active:blur-lg group-data-active:translate-x-2"
+            className="w-24 h-24 lg:w-32 lg:h-32 absolute rounded-full transition-all duration-1000 bg-lime-400/75 
+            dark:bg-lime-400/30 group-data-active:blur-md md:group-data-active:blur-lg group-data-active:translate-x-2"
           />
           <img
             className="relative w-24 h-24 lg:w-32 lg:h-32 object-cover aspect-square transition-all duration-700 rounded-full group-data-active:grayscale-0 grayscale"

@@ -19,7 +19,7 @@ const Option = rc<OptionsProps>(({ href, action, title, icon, external }) => {
       focus:outline-none group bg-neutral-100 w-[20rem] md:w-[28rem]
       hover:bg-neutral-200 dark:hover:bg-neutral-800 dark:bg-neutral-900"
       href={href}
-      external
+      external={external}
     >
       <div className="flex w-full items-center justify-between">
         <div className="flex items-center">
