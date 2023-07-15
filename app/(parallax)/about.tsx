@@ -9,8 +9,8 @@
 
 import Scrambled from "@/(components)/scrambled";
 import { rc } from "@d-exclaimation/next";
-import { ParallaxLayer } from "@react-spring/parallax";
 import { useEffect, useState } from "react";
+import ResponsiveParallaxLayer from "../(components)/responsive-parallax-layer";
 
 const scramble = {
   delay: 10_000,
@@ -30,8 +30,8 @@ const About = rc<Props>(({ onNext }) => {
   }, [setLoaded]);
 
   return (
-    <ParallaxLayer
-      className="z-10 w-full h-full py-12 flex flex-col items-center justify-center gap-4"
+    <ResponsiveParallaxLayer
+      className="z-10 w-full py-12 flex flex-col items-center justify-center gap-4"
       offset={0}
       speed={0.2}
     >
@@ -87,7 +87,7 @@ const About = rc<Props>(({ onNext }) => {
           </div>
         </button>
       </section>
-    </ParallaxLayer>
+    </ResponsiveParallaxLayer>
   );
 });
 

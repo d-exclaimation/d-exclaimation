@@ -13,6 +13,7 @@ import { rc } from "@d-exclaimation/next";
 import { ParallaxLayer } from "@react-spring/parallax";
 import type { StaticImageData } from "next/image";
 import Image from "next/image";
+import ResponsiveParallaxLayer from "../(components)/responsive-parallax-layer";
 
 const scramble = {
   delay: 10_000,
@@ -37,11 +38,11 @@ const Work = rc<Props>(
   ({ name, description, href, images, year, offset, maxOffset, onClick }) => {
     return (
       <>
-        <ParallaxLayer offset={offset} speed={0.6}>
-          <span className="absolute top-[20dvh] md:top-[10dvh] right-[5vw] text-[18vh] md:text-[30vh] leading-none font-semibold text-neutral-200 md:text-neutral-300 dark:text-neutral-800 md:dark:text-neutral-700 z-10">
+        <ResponsiveParallaxLayer offset={offset} speed={0.6}>
+          <span className="absolute top-[17.5dvh] md:top-[10dvh] right-[5vw] text-[18vh] md:text-[30vh] leading-none font-semibold text-neutral-200 md:text-neutral-300 dark:text-neutral-800 md:dark:text-neutral-700 z-10">
             {year}
           </span>
-        </ParallaxLayer>
+        </ResponsiveParallaxLayer>
         <ParallaxLayer className="z-0" offset={offset} speed={0.4}>
           <div className="absolute top-[calc(10dvh+2.25rem)] md:top-[calc(10dvh+3.5rem)] left-[5vw] z-20 flex items-start justify-center flex-col">
             <p className="max-w-[90vw] md:max-w-xl dark:text-white">
@@ -49,7 +50,7 @@ const Work = rc<Props>(
             </p>
           </div>
         </ParallaxLayer>
-        <ParallaxLayer className="z-0" offset={offset} speed={0.2}>
+        <ResponsiveParallaxLayer className="z-0" offset={offset} speed={0.2}>
           <div className="absolute bottom-[5vh] left-0 md:left-[5vw] z-30">
             <Image
               alt={name}
@@ -67,8 +68,8 @@ const Work = rc<Props>(
               placeholder="blur"
             />
           </div>
-        </ParallaxLayer>
-        <ParallaxLayer offset={offset} speed={0.4}>
+        </ResponsiveParallaxLayer>
+        <ResponsiveParallaxLayer offset={offset} speed={0.4}>
           <div className="absolute z-50 bottom-8 right-5 p-1 flex flex-col items-center gap-2 rounded-full">
             {offset !== 1 && (
               <button
@@ -132,7 +133,7 @@ const Work = rc<Props>(
               delay={scramble.delay}
             />
           </Link>
-        </ParallaxLayer>
+        </ResponsiveParallaxLayer>
       </>
     );
   }

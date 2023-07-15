@@ -2,7 +2,7 @@
 
 import Link from "@/(components)/link";
 import { rc } from "@d-exclaimation/next";
-import { ParallaxLayer } from "@react-spring/parallax";
+import ResponsiveParallaxLayer from "../(components)/responsive-parallax-layer";
 
 type OptionsProps = {
   action: string;
@@ -47,8 +47,8 @@ type Props = {
 
 const CallToAction = rc<Props>(({ offset, options }) => {
   return (
-    <ParallaxLayer
-      className="z-10 w-full h-full py-12 flex flex-col items-center justify-center gap-4"
+    <ResponsiveParallaxLayer
+      className="z-10 w-full !h-[100dvh] py-12 flex flex-col items-center justify-center gap-4"
       offset={offset}
       speed={0.2}
     >
@@ -62,7 +62,7 @@ const CallToAction = rc<Props>(({ offset, options }) => {
           ))}
         </div>
       </div>
-    </ParallaxLayer>
+    </ResponsiveParallaxLayer>
   );
 });
 

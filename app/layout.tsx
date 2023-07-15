@@ -42,20 +42,21 @@ const RootLayout = layout(({ children }) => {
 });
 
 export const metadata = meta({
+  metadataBase: new URL("https://d-exclaimation.me"),
   title: "d-exclaimation",
   description: "My work, my art, my life",
   twitter: {
     images: "/me.gif",
     title: "d-exclaimation",
-    description: "My work, my art, my life",
+    description: "My work, my art, my passion",
     card: "summary_large_image",
     creator: "@dexclaimation",
   },
   openGraph: {
     images: "/me.gif",
     title: "d-exclaimation",
-    description: "My work, my art, my life",
     url: "https://d-exclaimation.me",
+    description: "My work, my art, my passion",
     type: "article",
     siteName: "d-exclaimation",
   },
