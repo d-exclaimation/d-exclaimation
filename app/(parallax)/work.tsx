@@ -103,21 +103,6 @@ const Work = rc<Props>(
               </button>
             )}
           </div>
-          <Link
-            className="absolute bottom-8 left-[5vw] z-40 py-2 px-3 flex items-center gap-1 
-            bg-neutral-300/50 dark:bg-neutral-700/50 backdrop-blur-lg rounded-full 
-            hover:bg-neutral-300/75 active:bg-neutral-300/75 transition-all duration-300
-            dark:hover:bg-neutral-700/75 dark:active:bg-neutral-700/75"
-            href={href}
-            external
-          >
-            <span className="dark:text-white">View</span>
-            <img
-              className="w-5 h-5 rotate-45 dark:invert"
-              src="/icon/arrow-up.svg"
-              alt="open"
-            />
-          </Link>
 
           <Link
             className="absolute top-[10dvh] left-[5vw] z-20 flex items-start justify-center flex-col group"

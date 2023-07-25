@@ -44,7 +44,7 @@ const RootLayout = layout(({ children }) => {
 export const metadata = meta({
   metadataBase: new URL("https://d-exclaimation.me"),
   title: "d-exclaimation",
-  description: "My work, my art, my life",
+  description: "My work, my art, my passion",
   twitter: {
     images: "/me.gif",
     title: "d-exclaimation",

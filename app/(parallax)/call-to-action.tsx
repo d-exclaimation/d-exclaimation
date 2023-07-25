@@ -24,9 +24,7 @@ const Option = rc<OptionsProps>(({ href, action, title, icon, external }) => {
       <div className="flex w-full items-center justify-between">
         <div className="flex items-center">
           <div className="text-base">
-            <p className="font-medium dark:text-white group-hover:underline">
-              {action}
-            </p>
+            <p className="font-medium dark:text-white">{action}</p>
             <span className="inline text-black/50 dark:text-white/50">
               <span>{title}</span>
             </span>
