@@ -73,7 +73,7 @@ export const metadata = meta({
     width: "device-width",
     viewportFit: "cover",
   },
-  manifest: "/site.webmanifest",
+  manifest: "/manifest.json",
 });
 
 export default RootLayout;
