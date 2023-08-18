@@ -39,3 +39,7 @@ next-env.d.ts
 # Local Netlify folder
 .netlify
 .vscode
+
+# Service Worker files
+public/sw.js
+public/workbox-*.js
