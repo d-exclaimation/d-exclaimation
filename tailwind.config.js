@@ -29,11 +29,33 @@ module.exports = {
         handdrawn: "1s ease-in-out 0s 1 normal forwards running handdrawn",
         "fade-in": "fade-in 1s ease-in-out 1",
         "up-down": "up-down 1s infinite",
+        "cannon-right": "cannon-right 2100ms linear infinite",
+        "cannon-left": "cannon-left 2100ms linear infinite",
       },
       keyframes: {
         handdrawn: {
           to: {
             strokeDashoffset: 0,
+          },
+        },
+        "cannon-right": {
+          from: {
+            transform: "scale(0.95) translateX(0)",
+            opacity: 0.8,
+          },
+          to: {
+            transform: "scale(0.75) translateX(22.5%)",
+            opacity: 0,
+          },
+        },
+        "cannon-left": {
+          from: {
+            transform: "scale(0.95) translateX(0)",
+            opacity: 0.8,
+          },
+          to: {
+            transform: "scale(0.75) translateX(-22.5%)",
+            opacity: 0,
           },
         },
         "fade-in": {

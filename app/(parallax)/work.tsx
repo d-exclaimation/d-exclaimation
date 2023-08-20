@@ -13,6 +13,7 @@ import { rc } from "@d-exclaimation/next";
 import { ParallaxLayer } from "@react-spring/parallax";
 import type { StaticImageData } from "next/image";
 import Image from "next/image";
+import ImageCannon from "../(components)/image-cannon";
 import ResponsiveParallaxLayer from "../(components)/responsive-parallax-layer";
 
 const scramble = {
@@ -39,12 +40,12 @@ const Work = rc<Props>(
     return (
       <>
         <ResponsiveParallaxLayer offset={offset} speed={0.6}>
-          <span className="absolute top-[17.5dvh] md:top-[10dvh] right-[5vw] text-[18vh] md:text-[30vh] leading-none font-semibold text-neutral-200 md:text-neutral-300 dark:text-neutral-800 md:dark:text-neutral-700 z-10">
+          <span className="absolute top-[17.5dvh] md:top-[10dvh] lg:top-[6dvh] right-[5vw] text-[18vh] md:text-[30vh] leading-none font-semibold text-neutral-200 md:text-neutral-300 dark:text-neutral-800 md:dark:text-neutral-700 z-10">
             {year}
           </span>
         </ResponsiveParallaxLayer>
         <ParallaxLayer className="z-0" offset={offset} speed={0.4}>
-          <div className="absolute top-[calc(10dvh+2.25rem)] md:top-[calc(10dvh+3.5rem)] left-[5vw] z-20 flex items-start justify-center flex-col">
+          <div className="absolute top-[calc(10dvh+2.25rem)] md:top-[calc(10dvh+3.5rem)] lg:top-[10dvh] left-[5vw] z-20 flex items-start justify-center flex-col">
             <p className="max-w-[90vw] md:max-w-xl dark:text-white">
               {description}
             </p>
@@ -52,7 +53,7 @@ const Work = rc<Props>(
         </ParallaxLayer>
         <ResponsiveParallaxLayer className="z-0" offset={offset} speed={0.2}>
           <div className="absolute bottom-[5vh] left-0 md:left-[5vw] z-30">
-            <Image
+            <ImageCannon
               alt={name}
               className="hidden md:block w-[75vw] max-w-[1050px] aspect-auto z-30"
               src={images.md}
@@ -105,7 +106,7 @@ const Work = rc<Props>(
           </div>
 
           <Link
-            className="absolute top-[10dvh] left-[5vw] z-20 flex items-start justify-center flex-col group"
+            className="absolute top-[10dvh] lg:top-[4dvh] left-[5vw] z-20 flex items-start justify-center flex-col group"
             href={href}
             external
           >

@@ -1,10 +1,12 @@
 const path = require("path");
 
+const dev = process.env.NODE_ENV === "development";
+
 const withPWA = require("next-pwa")({
   dest: "public",
   register: true,
   skipWaiting: true,
-  disable: process.env.NODE_ENV === "development",
+  disable: dev,
   buildExcludes: ["app-build-manifest.json"],
 });
 
@@ -31,6 +33,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   webpack: (config) => {
+    if (dev) return config;
     const entry = generateAppDirEntry(config.entry);
     config.entry = () => entry;
 

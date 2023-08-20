@@ -15,6 +15,8 @@ import partly_md from "@/(parallax)/(assets)/partly-md.webp";
 import partly from "@/(parallax)/(assets)/partly.webp";
 import pioneer_md from "@/(parallax)/(assets)/pioneer-md.webp";
 import pioneer from "@/(parallax)/(assets)/pioneer.webp";
+import relax_md from "@/(parallax)/(assets)/relax-md.webp";
+import relax from "@/(parallax)/(assets)/relax.webp";
 import seraph_md from "@/(parallax)/(assets)/seraph-md.webp";
 import seraph from "@/(parallax)/(assets)/seraph.webp";
 import spotlight_md from "@/(parallax)/(assets)/spotlight-md.webp";
@@ -77,6 +79,17 @@ const layers = {
       images: {
         md: pioneer_md,
         base: pioneer,
+      },
+    },
+
+    {
+      name: "relax",
+      description: "AI powered Slack assistant for agile teams",
+      href: "https://github.com/d-exclaimation/relax",
+      year: "2023",
+      images: {
+        md: relax_md,
+        base: relax,
       },
     },
     {
