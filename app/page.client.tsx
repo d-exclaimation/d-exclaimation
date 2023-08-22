@@ -85,7 +85,7 @@ const layers = {
     {
       name: "relax",
       description: "AI powered Slack assistant for agile teams",
-      href: "https://github.com/d-exclaimation/relax",
+      href: "https://relax.d-exclaimation.me",
       year: "2023",
       images: {
         md: relax_md,
