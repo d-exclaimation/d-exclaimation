@@ -74,6 +74,10 @@ export const metadata = meta({
     viewportFit: "cover",
   },
   manifest: "/manifest.json",
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#000000" },
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+  ],
 });
 
 export default RootLayout;

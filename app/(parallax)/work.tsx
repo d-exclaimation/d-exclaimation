@@ -40,13 +40,13 @@ const Work = rc<Props>(
     return (
       <>
         <ResponsiveParallaxLayer offset={offset} speed={0.6}>
-          <span className="absolute top-[17.5dvh] md:top-[10dvh] lg:top-[6dvh] right-[5vw] text-[18vh] md:text-[30vh] leading-none font-semibold text-neutral-200 md:text-neutral-300 dark:text-neutral-800 md:dark:text-neutral-700 z-10">
+          <span className="absolute top-[17.5dvh] md:top-[10dvh] lg:top-[6dvh] right-[5vw] text-[16vh] md:text-[30vh] leading-none font-semibold text-neutral-200 md:text-neutral-300 dark:text-neutral-800 md:dark:text-neutral-700 z-10">
             {year}
           </span>
         </ResponsiveParallaxLayer>
         <ParallaxLayer className="z-0" offset={offset} speed={0.4}>
-          <div className="absolute top-[calc(10dvh+2.25rem)] md:top-[calc(10dvh+3.5rem)] lg:top-[10dvh] left-[5vw] z-20 flex items-start justify-center flex-col">
-            <p className="max-w-[90vw] md:max-w-xl dark:text-white">
+          <div className="absolute top-[calc(10dvh+2.25rem)] md:top-[calc(10dvh+3.5rem)] lg:top-[10dvh] xl:top-[10.5dvh] left-[5vw] z-20 flex items-start justify-center flex-col">
+            <p className="max-w-[90vw] md:max-w-xl text-black/50 dark:text-white/50">
               {description}
             </p>
           </div>
@@ -55,7 +55,7 @@ const Work = rc<Props>(
           <div className="absolute bottom-[5vh] left-0 md:left-[5vw] z-30">
             <ImageCannon
               alt={name}
-              className="hidden md:block w-[75vw] max-w-[1050px] aspect-auto z-30"
+              className="hidden md:block w-[65vw] max-w-[1050px] aspect-auto z-30"
               src={images.md}
               sizes="75vw"
               placeholder="blur"

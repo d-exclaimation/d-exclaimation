@@ -15,9 +15,9 @@ type OptionsProps = {
 const Option = rc<OptionsProps>(({ href, action, title, icon, external }) => {
   return (
     <Link
-      className="relative flex cursor-pointer rounded-lg px-5 py-4 shadow-md
-      focus:outline-none group bg-neutral-100 w-[20rem] md:w-[28rem]
-      hover:bg-neutral-200 dark:hover:bg-neutral-800 dark:bg-neutral-900"
+      className="relative flex cursor-pointer rounded-lg px-5 py-4
+      focus:outline-none group bg-neutral-50 w-[20rem] md:w-[28rem]
+      hover:bg-neutral-100 dark:hover:bg-neutral-800 dark:bg-neutral-900"
       href={href}
       external={external}
     >

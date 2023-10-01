@@ -15,6 +15,8 @@ import partly_md from "@/(parallax)/(assets)/partly-md.webp";
 import partly from "@/(parallax)/(assets)/partly.webp";
 import pioneer_md from "@/(parallax)/(assets)/pioneer-md.webp";
 import pioneer from "@/(parallax)/(assets)/pioneer.webp";
+import pixle_md from "@/(parallax)/(assets)/pixle-md.webp";
+import pixle from "@/(parallax)/(assets)/pixle.webp";
 import relax_md from "@/(parallax)/(assets)/relax-md.webp";
 import relax from "@/(parallax)/(assets)/relax.webp";
 import seraph_md from "@/(parallax)/(assets)/seraph-md.webp";
@@ -49,6 +51,16 @@ const layers = {
       images: {
         md: personal_md,
         base: personal,
+      },
+    },
+    {
+      name: "pixle",
+      description: "Time to start making memories, 1 photo at a time",
+      href: "https://experimental.pixle.app",
+      year: "2023",
+      images: {
+        md: pixle_md,
+        base: pixle,
       },
     },
     {
