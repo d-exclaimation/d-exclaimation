@@ -35,6 +35,12 @@ export const manifest = {
       external: true,
     },
 
+    pixle: {
+      href: "https://experimental.pixle.app",
+      img: "/artpiece/pixle.webp",
+      external: true,
+    },
+
     omdb: {
       href: "https://omdb.d-exclaimation.me",
       img: "/artpiece/omdb.webp",
