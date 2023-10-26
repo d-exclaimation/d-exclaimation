@@ -28,6 +28,7 @@ module.exports = {
       animation: {
         handdrawn: "1s ease-in-out 0s 1 normal forwards running handdrawn",
         "fade-in": "fade-in 1s ease-in-out 1",
+        appear: "appear 0.6s ease-in-out 1",
         "up-down": "up-down 1s infinite",
         "cannon-right": "cannon-right 2100ms linear infinite",
         "cannon-left": "cannon-left 2100ms linear infinite",
@@ -56,6 +57,14 @@ module.exports = {
           to: {
             transform: "scale(0.75) translateX(-22.5%)",
             opacity: 0,
+          },
+        },
+        appear: {
+          "0%": {
+            opacity: 0,
+          },
+          "100%": {
+            opacity: 1,
           },
         },
         "fade-in": {

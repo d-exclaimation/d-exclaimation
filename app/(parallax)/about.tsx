@@ -35,7 +35,7 @@ const About = rc<Props>(({ onNext }) => {
       offset={0}
       speed={0.2}
     >
-      <section className="w-[90vw] max-w-2xl flex flex-col items-center animate-fade-in">
+      <section className="w-[80vw] max-w-2xl flex flex-col items-center animate-fade-in">
         <div
           className="relative w-24 h-24 lg:w-32 lg:h-32 flex-shrink-0 flex items-center justify-center group mb-5"
           data-active={loaded}

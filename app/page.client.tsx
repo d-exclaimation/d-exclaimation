@@ -26,10 +26,10 @@ import spotlight from "@/(parallax)/(assets)/spotlight.webp";
 
 import About from "@/(parallax)/about";
 import CallToAction from "@/(parallax)/call-to-action";
-import Work from "@/(parallax)/work";
 import { rc } from "@d-exclaimation/next";
 import { Parallax, type IParallax } from "@react-spring/parallax";
 import { useCallback, useEffect, useRef } from "react";
+import Poker from "./(parallax)/poker";
 
 const layers = {
   works: [
@@ -153,8 +153,6 @@ const layers = {
   ],
 };
 
-const pages = layers.works.length + 2;
-
 const Projects = rc(() => {
   const panel = useRef<IParallax | null>(null);
 
@@ -181,18 +179,10 @@ const Projects = rc(() => {
   }, [nextLayer, prevLayer]);
   return (
     <>
-      <Parallax pages={pages} ref={panel}>
+      <Parallax pages={3} ref={panel}>
         <About onNext={() => panel?.current?.scrollTo(1)} />
-        {layers.works.map((work, i) => (
-          <Work
-            key={work.name}
-            {...work}
-            offset={i + 1}
-            maxOffset={pages - 1}
-            onClick={(offset) => panel?.current?.scrollTo(offset)}
-          />
-        ))}
-        <CallToAction offset={pages - 1} options={layers.cta} />
+        <Poker />
+        <CallToAction offset={2} options={layers.cta} />
       </Parallax>
     </>
   );
