@@ -71,6 +71,14 @@ const projects = [
     year: "2023",
     image: "/artpiece/projects/spotlight.webp",
   },
+  {
+    name: "mirage-ai",
+    description:
+      "Embracing the future, crafting today with the most advanced content creation AI in the world",
+    href: "https://mirageai.xyz",
+    year: "2023",
+    image: "/artpiece/projects/mirageai.webp",
+  },
 ];
 
 const cta = [
