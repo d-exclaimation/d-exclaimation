@@ -8,6 +8,7 @@
 //
 
 import Scrambled from "@/(components)/scrambled";
+import type { Palette } from "@d-exclaimation/common/tailwind";
 import { rc } from "@d-exclaimation/next";
 import { useEffect, useState } from "react";
 import ResponsiveParallaxLayer from "../(components)/responsive-parallax-layer";
@@ -22,7 +23,35 @@ type Props = {
 };
 
 const About = rc<Props>(({ onNext }) => {
+  const [colors, setColors] = useState({
+    left: "bg-fuchsia-400/75" as `${Palette["bg"]}/75`,
+    right: "bg-blue-400/75" as `${Palette["bg"]}/75`,
+  });
   const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    const date = new Date();
+    switch (date.getDay() % 3) {
+      case 0:
+        setColors({
+          left: "bg-fuchsia-400/75",
+          right: "bg-blue-400/75",
+        });
+        break;
+      case 1:
+        setColors({
+          left: "bg-orange-400/75",
+          right: "bg-lime-400/75",
+        });
+        break;
+      case 2:
+        setColors({
+          left: "bg-purple-400/75",
+          right: "bg-emerald-400/75",
+        });
+        break;
+    }
+  }, [setColors]);
 
   useEffect(() => {
     const timeout = setTimeout(() => setLoaded(true), 1000);
@@ -43,12 +72,12 @@ const About = rc<Props>(({ onNext }) => {
           onTouchStart={() => setLoaded(true)}
         >
           <span
-            className="w-24 h-24 lg:w-32 lg:h-32 absolute rounded-full transition-all duration-1000 bg-orange-400/75 [will-change:filter]
-            dark:bg-orange-400/30 group-data-active:blur-md md:group-data-active:blur-lg group-data-active:-translate-x-2"
+            className={`w-24 h-24 lg:w-32 lg:h-32 absolute rounded-full transition-all duration-1000 ${colors.left} [will-change:filter]
+            dark:bg-orange-400/30 group-data-active:blur-md md:group-data-active:blur-lg group-data-active:-translate-x-2`}
           />
           <span
-            className="w-24 h-24 lg:w-32 lg:h-32 absolute rounded-full transition-all duration-1000 bg-lime-400/75 [will-change:filter]
-            dark:bg-lime-400/30 group-data-active:blur-md md:group-data-active:blur-lg group-data-active:translate-x-2"
+            className={`w-24 h-24 lg:w-32 lg:h-32 absolute rounded-full transition-all duration-1000 ${colors.right} [will-change:filter]
+            dark:bg-lime-400/30 group-data-active:blur-md md:group-data-active:blur-lg group-data-active:translate-x-2`}
           />
           <img
             className="relative w-24 h-24 lg:w-32 lg:h-32 object-cover aspect-square transition-all duration-700 rounded-full group-data-active:grayscale-0 grayscale"

@@ -29,6 +29,12 @@ export const manifest = {
       external: true,
     },
 
+    mirageai: {
+      href: "https://mirageai.xyz",
+      img: "/artpiece/mirageai.webp",
+      external: true,
+    },
+
     spotlight: {
       href: "https://spotlight.d-exclaimation.me",
       img: "/artpiece/spotlight.webp",
