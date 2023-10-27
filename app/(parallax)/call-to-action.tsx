@@ -56,7 +56,7 @@ const CallToAction = rc<Props>(({ offset, options }) => {
         </span>
         <div className="flex flex-col items-center justify-center gap-3 md:gap-5">
           {options.map((option, i) => (
-            <Option key={option.href} {...option} />
+            <Option key={`${option.href}-${i}`} {...option} />
           ))}
         </div>
       </div>

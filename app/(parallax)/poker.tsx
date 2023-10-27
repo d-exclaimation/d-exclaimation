@@ -20,78 +20,36 @@ const scramble = {
   speed: 25,
 } as const;
 
-const cards = [
-  {
-    name: "spotlight",
-    description: "Browsing news streamlined, supercharged, and simplified",
-    href: "https://spotlight.d-exclaimation.me",
-    year: "2023",
-    image: "/artpiece/projects/spotlight.webp",
-  },
-  {
-    name: "d-exclaimation.me",
-    description: "My life, my work, my passion",
-    href: "https://d-exclaimation.me",
-    year: "2021",
-    image: "/artpiece/projects/website.webp",
-  },
-  {
-    name: "pixle",
-    description: "Time to start making memories, 1 photo at a time",
-    href: "https://experimental.pixle.app",
-    year: "2023",
-    image: "/artpiece/projects/pixle.webp",
-  },
-  {
-    name: "omdb",
-    description: "Web movies made simple",
-    href: "https://omdb.d-exclaimation.me",
-    year: "2023",
-    image: "/artpiece/projects/omdb.webp",
-  },
-  {
-    name: "partly",
-    description: "Worked on Partly's core seller experience, PartsPal",
-    href: "https://partly.com",
-    year: "2022",
-    image: "/artpiece/projects/partly.webp",
-  },
-  {
-    name: "pioneer",
-    description: "GraphQL server for Swift",
-    href: "https://pioneer.dexclaimation.com",
-    year: "2022",
-    image: "/artpiece/projects/pioneer.webp",
-  },
-  {
-    name: "relax",
-    description: "AI powered Slack assistant for agile teams",
-    href: "https://relax.d-exclaimation.me",
-    year: "2023",
-    image: "/artpiece/projects/relax.webp",
-  },
-  {
-    name: "seraph",
-    description: "Hassle-free web apps in an instant",
-    href: "https://seraph.dexclaimation.com",
-    year: "2023",
-    image: "/artpiece/projects/seraph.webp",
-  },
-].reverse();
-
 const springTo = (i: number) => ({
   x: 0,
   y: i * -4,
   scale: 1,
   rot: -10 + Math.random() * 20,
   delay: i * 100,
+  opacity: 1,
 });
-const springFrom = (_i: number) => ({ x: 0, rot: 0, scale: 1.5, y: -1000 });
+const springFrom = (_i: number) => ({
+  x: 0,
+  rot: 0,
+  scale: 1.5,
+  y: -1000,
+  opacity: 0.2,
+});
 
 const trans = (r: number, s: number) =>
   `rotateX(10deg) rotateY(${r / 20}deg) rotateZ(${r}deg) scale(${s})`;
 
-const Poker = rc(() => {
+type Props = {
+  cards: {
+    name: string;
+    description: string;
+    href: string;
+    year: string;
+    image: string;
+  }[];
+};
+
+const Poker = rc<Props>(({ cards }) => {
   const [index, setIndex] = useState(-1);
   const [isLoaded, setIsLoaded] = useState(false);
   const [ref, isInView] = useInView({
@@ -121,11 +79,13 @@ const Poker = rc(() => {
         const x = isGone || down ? mx : 0;
         const rot = my / 100 + (isGone ? dir * 10 * velocity[0] : 0);
         const scale = down ? 1.1 : 1;
+        const opacity = isGone ? 0.2 : 1;
         return {
           x,
           y,
           rot,
           scale,
+          opacity,
           delay: undefined,
           config: { friction: 50, tension: isGone ? 200 : down ? 800 : 500 },
         };
@@ -144,47 +104,6 @@ const Poker = rc(() => {
     if (!isInView) return;
     setIsLoaded(true);
   }, [isInView]);
-
-  useEffect(() => {
-    if (typeof window === "undefined" || !isLoaded) {
-      return;
-    }
-
-    console.log("Hello");
-
-    function keyListener(ev: KeyboardEvent) {
-      const index = cards.length - 1 - gone.current.size;
-      if (ev.key === "Enter" || index < 0) return;
-      const dir = -1;
-      gone.current.add(index);
-      setIndex(index - 1);
-      api.start((i) => {
-        if (index !== i) return;
-        const isGone = gone.current.has(index);
-        const y = isGone ? (200 + window.innerHeight) * dir : 0;
-        const rot = 0;
-        const scale = 1;
-        return {
-          y,
-          rot,
-          scale,
-          delay: undefined,
-          config: { friction: 50, tension: isGone ? 200 : 500 },
-        };
-      });
-      if (gone.current.size === cards.length) {
-        setTimeout(() => {
-          gone.current.clear();
-          setIndex(cards.length - 1);
-          api.start((i) => springTo(i));
-        }, 600);
-      }
-    }
-
-    window.addEventListener("keydown", keyListener);
-
-    return () => window.removeEventListener("keydown", keyListener);
-  }, [isLoaded]);
 
   useEffect(() => {
     if (typeof window === "undefined" || !isLoaded) {
@@ -216,7 +135,7 @@ const Poker = rc(() => {
           >
             {/* This is the card itself, we're binding our gesture to it (and inject its index so we know which is which) */}
             <animated.div
-              className="p-1.5 bg-white/80 backdrop-blur-lg shadow-md will-change-transform rounded-lg"
+              className="p-1.5 bg-white/80 dark:bg-neutral-700/50 backdrop-blur-lg shadow-md will-change-transform rounded-lg"
               {...bind(i)}
               style={{
                 transform: to([rot, scale], trans),
@@ -235,7 +154,7 @@ const Poker = rc(() => {
       {card ? (
         <div
           key={card.name}
-          className="hidden md:flex flex-col w-[400px] animate-appear gap-2"
+          className="hidden relative md:flex flex-col w-[400px] animate-appear gap-2"
         >
           <Link href={card.href} external>
             <Scrambled
@@ -247,7 +166,7 @@ const Poker = rc(() => {
               delay={scramble.delay}
             />
           </Link>
-          <span>{card.description}</span>
+          <span className="text-black dark:text-white">{card.description}</span>
         </div>
       ) : (
         <div
@@ -269,7 +188,7 @@ const Poker = rc(() => {
       {card && (
         <div
           key={`${card.name}-mobile`}
-          className="fixed z-20 bottom-12 flex md:hidden flex-col items-center justify-center w-[60vw] animate-appear gap-1.5"
+          className="fixed bottom-12 flex md:hidden flex-col items-center justify-center w-[60vw] animate-appear gap-1.5"
         >
           <Link href={card.href} external>
             <Scrambled
@@ -281,7 +200,7 @@ const Poker = rc(() => {
               delay={scramble.delay}
             />
           </Link>
-          <span className="text-sm text-center [text-wrap:balance]">
+          <span className="text-sm text-center [text-wrap:balance] text-black dark:text-white">
             {card.description}
           </span>
         </div>
