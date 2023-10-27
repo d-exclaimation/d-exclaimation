@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  font-family: var(--dm-sans);
+  font-family: var(--font-geist-sans);
   background:
   linear-gradient(180deg, rgba(255, 255, 255, 0) 0, #fff 500px),
   fixed 0 0 /20px 20px radial-gradient(#d1d1d1 1px, transparent 0),

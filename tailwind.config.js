@@ -16,8 +16,8 @@ module.exports = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       fontFamily: {
-        sans: ["var(--dm-sans)", "sans-serif"],
-        mono: ["var(--dm-mono)", "monospace"],
+        sans: ["var(--font-geist-sans)", "sans-serif"],
+        mono: ["var(--font-geist-mono)", "monospace"],
       },
       minWidth: {
         screen: "100vw",

@@ -8,27 +8,15 @@
 import { tw } from "@/(common)/tailwind";
 import Navicon from "@/(components)/nav-icon";
 import { layout, meta } from "@d-exclaimation/next";
-import { DM_Mono, DM_Sans } from "next/font/google";
+import { GeistMono, GeistSans } from "geist/font";
 import "./globals.css";
-
-const sans = DM_Sans({
-  weight: ["400", "500", "700"],
-  subsets: ["latin", "latin-ext"],
-  variable: "--dm-sans",
-});
-
-const mono = DM_Mono({
-  weight: ["400", "500", "300"],
-  subsets: ["latin", "latin-ext"],
-  variable: "--dm-mono",
-});
 
 const RootLayout = layout(({ children }) => {
   return (
     <html lang="en" className="bg-white dark:bg-black">
       <body
         className={tw(
-          `${sans.variable} ${mono.variable}`,
+          `${GeistSans.variable} ${GeistMono.variable}`,
           "min-w-screen min-h-screen grid place-items-center"
         )}
       >
