@@ -72,6 +72,7 @@ const projects = [
     image: "/artpiece/projects/spotlight.webp",
   },
 ];
+
 const cta = [
   {
     action: "See more of my work at",
@@ -136,7 +137,7 @@ const Projects = rc(() => {
     <>
       <Parallax pages={3} ref={panel}>
         <About onNext={() => panel?.current?.scrollTo(1)} />
-        <Poker cards={projects.reverse()} />
+        <Poker cards={projects} />
         <CallToAction offset={2} options={cta} />
       </Parallax>
     </>
