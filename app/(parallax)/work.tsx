@@ -37,7 +37,7 @@ const works = [
   {
     name: "spotlight",
     description: "Browsing news streamlined, supercharged, and simplified",
-    href: "https://spotlight.d-exclaimation.me",
+    href: "https://spotlight.talker.dev",
     year: "2023",
     images: {
       md: spotlight_md,
@@ -47,7 +47,7 @@ const works = [
   {
     name: "d-exclaimation.me",
     description: "My life, my work, my passion",
-    href: "https://d-exclaimation.me",
+    href: "https://talker.dev",
     year: "2021",
     images: {
       md: personal_md,
@@ -57,7 +57,7 @@ const works = [
   {
     name: "pixle",
     description: "Time to start making memories, 1 photo at a time",
-    href: "https://experimental.pixle.app",
+    href: "https://pixle.talker.dev",
     year: "2023",
     images: {
       md: pixle_md,
@@ -67,7 +67,7 @@ const works = [
   {
     name: "omdb",
     description: "Web movies made simple",
-    href: "https://omdb.d-exclaimation.me",
+    href: "https://omdb.talker.dev",
     year: "2023",
     images: {
       md: omdb_md,
@@ -87,7 +87,7 @@ const works = [
   {
     name: "pioneer",
     description: "GraphQL server for Swift",
-    href: "https://pioneer.dexclaimation.com",
+    href: "https://pioneer.talker.dev",
     year: "2022",
     images: {
       md: pioneer_md,
@@ -98,7 +98,7 @@ const works = [
   {
     name: "relax",
     description: "AI powered Slack assistant for agile teams",
-    href: "https://relax.d-exclaimation.me",
+    href: "https://relax.talker.dev",
     year: "2023",
     images: {
       md: relax_md,
@@ -108,7 +108,7 @@ const works = [
   {
     name: "seraph",
     description: "Hassle-free web apps in an instant",
-    href: "https://seraph.dexclaimation.com",
+    href: "https://seraph.talker.dev",
     year: "2023",
     images: {
       md: seraph_md,
