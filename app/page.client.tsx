@@ -18,7 +18,7 @@ const projects = [
   {
     name: "seraph",
     description: "Hassle-free web apps in an instant",
-    href: "https://seraph.dexclaimation.com",
+    href: "https://seraph.talker.dev",
     year: "2023",
     image: "/artpiece/projects/seraph.webp",
   },
@@ -32,7 +32,7 @@ const projects = [
   {
     name: "pioneer",
     description: "GraphQL server for Swift",
-    href: "https://pioneer.dexclaimation.com",
+    href: "https://pioneer.talker.dev",
     year: "2022",
     image: "/artpiece/projects/pioneer.webp",
   },

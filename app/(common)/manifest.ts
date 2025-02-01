@@ -54,13 +54,13 @@ export const manifest = {
     },
 
     pioneer: {
-      href: "https://pioneer.dexclaimation.com",
+      href: "https://pioneer.talker.dev",
       img: "/artpiece/pioneer.webp",
       external: true,
     },
 
     seraph: {
-      href: "https://seraph.dexclaimation.com",
+      href: "https://seraph.talker.dev",
       img: "/artpiece/seraph.webp",
       external: true,
     },
