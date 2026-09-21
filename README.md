@@ -1,4 +1,8 @@
-<div align="center">
+<div align="start">
+  <div align="start">
+  I make products now for a living, and yaps a lot.
+  </div>
+  
   <br />
   <div align="start">
   <a href="https://d-exclaimation.me">
@@ -20,19 +24,7 @@
 
   <br />
 
-  <picture>
-    <source
-      srcset="https://raw.githubusercontent.com/d-exclaimation/d-exclaimation/main/assets/header-dark.png"
-      media="(prefers-color-scheme: dark)"
-    />
-    <source
-      srcset="https://raw.githubusercontent.com/d-exclaimation/d-exclaimation/main/assets/header-light.png"
-      media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
-    />
-    <img
-      src="https://raw.githubusercontent.com/d-exclaimation/d-exclaimation/main/assets/header-light.svg"
-    >
-  </picture>
+ 
 
   <picture>
     <source
