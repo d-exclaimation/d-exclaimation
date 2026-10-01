@@ -21,6 +21,38 @@ export const PHONE: Geo = { gap: 7, step: 3, extra: 0.6, fan: 0.84, lift: 12, pi
 /** Resting tilt of each card in the squared pile before the fan opens, in degrees. */
 export const JITTER = [0, -2, 1.5, -1, 2.5, -1.5, 1, -2.5, 2];
 
+/**
+ * Where cards land when tossed onto the table before the shuffle: `x` in % of card width,
+ * `y` in % of card height, `r` in degrees. Hand placed so the mess covers the table without
+ * hinting at the fan; fixed so server and client render the same.
+ */
+export const SCATTER = [
+  { x: -20, y: -6, r: -14 },
+  { x: 95, y: -18, r: 22 },
+  { x: -120, y: 12, r: -28 },
+  { x: 40, y: 16, r: 9 },
+  { x: -165, y: -14, r: 18 },
+  { x: 150, y: 10, r: -16 },
+  { x: -60, y: -22, r: 31 },
+  { x: 120, y: -24, r: -7 },
+  { x: -95, y: 20, r: 6 },
+  { x: 10, y: 22, r: -24 },
+  { x: 165, y: -4, r: 27 },
+  { x: -140, y: -2, r: -9 },
+];
+
+/** How much of the table the scatter uses; phones keep it on screen. */
+export const SCATTER_SPAN = { wide: { x: 1, y: 1, r: 1 }, narrow: { x: 0.32, y: 0.7, r: 0.8 } };
+
+export const scatterOf = (i: number, g: Geo) => {
+  const { x, y, r } = SCATTER[i % SCATTER.length];
+  const span = g === PHONE ? SCATTER_SPAN.narrow : SCATTER_SPAN.wide;
+  return { x: x * span.x, y: y * span.y, r: r * span.r };
+};
+
+/** Order cards are tossed in, so they don't land left to right. */
+export const tossRank = (i: number, n: number) => (i * 7 + 3) % n;
+
 /** Projects fill slots centre-out: 0, +1, -1, +2, -2, ... */
 export const slotOf = (i: number) => (i === 0 ? 0 : i % 2 ? (i + 1) / 2 : -i / 2);
 export const indexAt = (s: number) => (s === 0 ? 0 : s > 0 ? s * 2 - 1 : -s * 2);

@@ -86,6 +86,14 @@
   --box-h: calc(var(--card-h) * 1.18);
 }
 
+/* Card back: disco tiles over today's glow colours */
+.card-back {
+  background:
+    linear-gradient(to right, rgb(0 0 0 / 0.22) 2px, transparent 2px) 0 0 / 12px 12px,
+    linear-gradient(to bottom, rgb(0 0 0 / 0.22) 2px, transparent 2px) 0 0 / 12px 12px,
+    linear-gradient(135deg, var(--back-from, #fb923c), var(--back-to, #a3e635));
+}
+
 body {
   font-family: var(--font-geist-sans);
   overflow-y: auto;

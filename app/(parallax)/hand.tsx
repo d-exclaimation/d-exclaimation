@@ -7,7 +7,7 @@
 //  Projects dealt as a hand of cards that turns like a dial
 //
 
-import { glowOf } from "@/(common)/glow";
+import { currentGlowRamps, glowOf } from "@/(common)/glow";
 import Link from "@/(components)/link";
 import ResponsiveParallaxLayer from "@/(components)/responsive-parallax-layer";
 import Scrambled from "@/(components)/scrambled";
@@ -19,10 +19,23 @@ import {
   useMemo,
   useRef,
   useState,
+  type CSSProperties,
   type PointerEvent,
   type RefObject,
 } from "react";
-import { bounds, clamp, DESKTOP, hitTest, indexAt, PHONE, rubber, slotOf } from "./fan";
+import {
+  bounds,
+  clamp,
+  DESKTOP,
+  hitTest,
+  indexAt,
+  PHONE,
+  rubber,
+  SCATTER,
+  scatterOf,
+  slotOf,
+  tossRank,
+} from "./fan";
 import HandCard, { usePacket } from "./hand-card";
 
 export type Shot = {
@@ -55,13 +68,23 @@ const IN_VIEW = { amount: 0.5 } as const;
 /** Screens roomy enough for the wider desktop fan. */
 const WIDE = "(min-width: 898px) and (min-height: 548px)";
 
-/** Shuffle and deal timings in ms, and their springs. */
-const RIFFLES = [350, 900];
-/** How far each riffle splits the halves (% of card width) and tilts them (deg); phones keep the deck on screen. */
-const RIFFLE = { wide: { spread: [58, 50], tilt: 5 }, narrow: { spread: [22, 18], tilt: 1.5 } };
+/** Intro timings in ms: toss the cards onto the table, flip them face down, gather and riffle, deal. */
+const TOSS_GAP = 45;
+const FLIP_AT = 850;
+const FLIP_GAP = 30;
+const GATHER_AT = 1350;
+const GATHER_GAP = 28;
+const RIFFLE_AT = 1900;
 const RIFFLE_SPLIT = 240;
-const DEAL_AT = 1500;
-const DEAL_GAP = 85;
+const DEAL_AT = 2450;
+const DEAL_GAP = 80;
+/** Cards turn face up a beat after they leave the pile. */
+const DEAL_FLIP_LAG = 90;
+/** How far the riffle splits the halves (% of card width) and tilts them (deg); phones keep the deck on screen. */
+const RIFFLE = { wide: { spread: 58, tilt: 5 }, narrow: { spread: 22, tilt: 1.5 } };
+const TOSS = { tension: 170, friction: 18 };
+const FLIP = { tension: 260, friction: 24 };
+const GATHER = { tension: 220, friction: 26 };
 const SPLIT = { tension: 340, friction: 28 };
 const MERGE = { tension: 420, friction: 32 };
 const DEAL = { tension: 240, friction: 22 };
@@ -92,9 +115,18 @@ function Hand({ projects, onFocusEnter }: Props) {
   const prevName = useRef("");
   const readyRef = useRef(false);
 
-  const [deck, api] = useSpring(() => ({ pos: 0, rise: 70, opacity: 0 }));
-  // Per card: `d` 0 in the pile → 1 dealt into the fan, `x` riffle offset (% of card width), `r` riffle tilt
-  const [cards, cardsApi] = useSprings(projects.length, () => ({ d: 0, x: 0, r: 0 }));
+  const [deck, api] = useSpring(() => ({ pos: 0, opacity: 0 }));
+  // Per card intro state (see HandCard); cards start above the table, ready to be tossed on
+  const [cards, cardsApi] = useSprings(projects.length, (i) => ({
+    d: 0,
+    f: 0,
+    sx: 0,
+    sy: -260,
+    sr: SCATTER[i % SCATTER.length].r * 2,
+    x: 0,
+    r: 0,
+  }));
+  const [back, setBack] = useState<[string, string]>(["#fb923c", "#a3e635"]);
   const [tilt, tiltApi] = useSpring(() => ({ rx: 0, ry: 0 }));
 
   const lead = projects[0];
@@ -113,6 +145,8 @@ function Hand({ projects, onFocusEnter }: Props) {
 
   useEffect(() => {
     setColors(glowOf(new Date()));
+    const ramps = currentGlowRamps(new Date(), window.matchMedia("(prefers-color-scheme: dark)").matches);
+    setBack([`rgb(${ramps[0][2].join(" ")})`, `rgb(${ramps[1][2].join(" ")})`]);
     const wide = window.matchMedia(WIDE);
     const fine = window.matchMedia("(hover: hover) and (pointer: fine)");
     const sync = () => {
@@ -128,40 +162,49 @@ function Hand({ projects, onFocusEnter }: Props) {
     };
   }, []);
 
-  // Shuffle and deal: the pile rises, is riffled twice (left half and right half split, then
-  // interleave back), then dealt out from the edges in so the first project lands last, on top
+  // Intro: the cards are tossed onto the table face up in a mess, flipped face down, gathered
+  // and riffled, then dealt out from the edges in, turning face up, so the first project lands last
   useEffect(() => {
     if (!inView || ready) return;
     if (reduced) {
-      api.set({ rise: 0, opacity: 1 });
-      cardsApi.set({ d: 1, x: 0, r: 0 });
+      api.set({ opacity: 1 });
+      cardsApi.set({ d: 1, f: 0, sx: 0, sy: 0, sr: 0, x: 0, r: 0 });
       setDealt(true);
       setReady(true);
       return;
     }
+    const n = projects.length;
     const timers: ReturnType<typeof setTimeout>[] = [];
     const at = (ms: number, run: () => void) => timers.push(setTimeout(run, ms));
     const side = (i: number) => (slotOf(i) > 0 ? 1 : -1);
-    // Bottom of the pile first: the outermost cards sit lowest
+    const { spread, tilt } = RIFFLE[geo === PHONE ? "narrow" : "wide"];
+    // Bottom of the pile first: the outermost cards sit lowest and are dealt first
     const pile = projects
       .map((_, i) => i)
       .sort((a, b) => Math.abs(slotOf(b)) - Math.abs(slotOf(a)) || slotOf(a) - slotOf(b));
 
-    api.start({ rise: 0, opacity: 1, config: { tension: 220, friction: 26 } });
-    RIFFLES.forEach((start, n) => {
-      const { spread: spreads, tilt } = RIFFLE[geo === PHONE ? "narrow" : "wide"];
-      const spread = spreads[n];
-      at(start, () =>
-        cardsApi.start((i) => ({ x: side(i) * spread, r: side(i) * tilt, delay: pile.indexOf(i) * 8, config: SPLIT }))
-      );
-      at(start + RIFFLE_SPLIT, () =>
-        cardsApi.start((i) => ({ x: 0, r: 0, delay: pile.indexOf(i) * 24, config: MERGE }))
-      );
+    api.start({ opacity: 1, config: { duration: 150 } });
+    cardsApi.start((i) => {
+      const { x, y, r } = scatterOf(i, geo);
+      return { sx: x, sy: y, sr: r, delay: tossRank(i, n) * TOSS_GAP, config: TOSS };
     });
-    at(DEAL_AT, () => cardsApi.start((i) => ({ d: 1, delay: pile.indexOf(i) * DEAL_GAP, config: DEAL })));
-    const last = DEAL_AT + (projects.length - 1) * DEAL_GAP;
+    at(FLIP_AT, () => cardsApi.start((i) => ({ f: 1, delay: tossRank(i, n) * FLIP_GAP, config: FLIP })));
+    at(GATHER_AT, () =>
+      cardsApi.start((i) => ({ sx: 0, sy: 0, sr: 0, delay: pile.indexOf(i) * GATHER_GAP, config: GATHER }))
+    );
+    at(RIFFLE_AT, () =>
+      cardsApi.start((i) => ({ x: side(i) * spread, r: side(i) * tilt, delay: pile.indexOf(i) * 8, config: SPLIT }))
+    );
+    at(RIFFLE_AT + RIFFLE_SPLIT, () =>
+      cardsApi.start((i) => ({ x: 0, r: 0, delay: pile.indexOf(i) * 24, config: MERGE }))
+    );
+    at(DEAL_AT, () => {
+      cardsApi.start((i) => ({ d: 1, delay: pile.indexOf(i) * DEAL_GAP, config: DEAL }));
+      cardsApi.start((i) => ({ f: 0, delay: pile.indexOf(i) * DEAL_GAP + DEAL_FLIP_LAG, config: FLIP }));
+    });
+    const last = DEAL_AT + (n - 1) * DEAL_GAP;
     at(last, () => setDealt(true));
-    at(last + 350, () => setReady(true));
+    at(last + 450, () => setReady(true));
     return () => timers.forEach(clearTimeout);
   }, [inView, ready, reduced, api, cardsApi, projects, geo]);
 
@@ -343,6 +386,7 @@ function Hand({ projects, onFocusEnter }: Props) {
       <section
         aria-label="Projects"
         className="hand relative flex h-full w-full flex-col items-center justify-center px-4"
+        style={{ "--back-from": back[0], "--back-to": back[1] } as CSSProperties}
         onPointerDownCapture={() => (interacted.current = true)}
         onFocusCapture={(e) => {
           interacted.current = true;
@@ -375,6 +419,7 @@ function Hand({ projects, onFocusEnter }: Props) {
               geo={geo}
               deck={deck}
               card={cards[index]}
+              toss={tossRank(index, projects.length)}
               tilt={index === focus && canTilt && !reduced ? tilt : undefined}
               focused={index === focus}
               hovered={index === hover && index !== focus}
