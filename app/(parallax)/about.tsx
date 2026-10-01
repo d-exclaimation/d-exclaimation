@@ -7,9 +7,8 @@
 //  Created by d-exclaimation on 08 Jul 2023
 //
 
+import { glowOf } from "@/(common)/glow";
 import Scrambled from "@/(components)/scrambled";
-import type { Palette } from "@d-exclaimation/common/tailwind";
-import { rc } from "@d-exclaimation/next";
 import { useEffect, useState } from "react";
 import ResponsiveParallaxLayer from "../(components)/responsive-parallax-layer";
 
@@ -22,35 +21,14 @@ type Props = {
   onNext: () => void;
 };
 
-const About = rc<Props>(({ onNext }) => {
-  const [colors, setColors] = useState({
-    left: "bg-fuchsia-400/75" as `${Palette["bg"]}/75`,
-    right: "bg-blue-400/75" as `${Palette["bg"]}/75`,
-  });
+function About({ onNext }: Props) {
+  const [colors, setColors] = useState<{ left: string; right: string }>(
+    glowOf(new Date(0))
+  );
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    const date = new Date();
-    switch (date.getDay() % 3) {
-      case 0:
-        setColors({
-          left: "bg-fuchsia-400/75",
-          right: "bg-blue-400/75",
-        });
-        break;
-      case 1:
-        setColors({
-          left: "bg-orange-400/75",
-          right: "bg-lime-400/75",
-        });
-        break;
-      case 2:
-        setColors({
-          left: "bg-purple-400/75",
-          right: "bg-emerald-400/75",
-        });
-        break;
-    }
+    setColors(glowOf(new Date()));
   }, [setColors]);
 
   useEffect(() => {
@@ -66,41 +44,41 @@ const About = rc<Props>(({ onNext }) => {
     >
       <section className="w-[80vw] max-w-2xl flex flex-col items-center animate-fade-in">
         <div
-          className="relative w-24 h-24 lg:w-32 lg:h-32 flex-shrink-0 flex items-center justify-center group mb-5"
+          className="relative w-24 h-24 lg:w-32 lg:h-32 shrink-0 flex items-center justify-center group mb-5"
           data-active={loaded}
           onMouseEnter={() => setLoaded(true)}
           onTouchStart={() => setLoaded(true)}
         >
           <span
-            className={`w-24 h-24 lg:w-32 lg:h-32 absolute rounded-full transition-all duration-1000 ${colors.left} [will-change:filter]
-            dark:bg-orange-400/30 group-data-active:blur-md md:group-data-active:blur-lg group-data-active:-translate-x-2`}
+            className={`w-24 h-24 lg:w-32 lg:h-32 absolute rounded-full transition-all duration-1000 ${colors.left} will-change-[filter]
+            dark:bg-orange-400/30 group-data-[active=true]:blur-md md:group-data-[active=true]:blur-lg group-data-[active=true]:-translate-x-2`}
           />
           <span
-            className={`w-24 h-24 lg:w-32 lg:h-32 absolute rounded-full transition-all duration-1000 ${colors.right} [will-change:filter]
-            dark:bg-lime-400/30 group-data-active:blur-md md:group-data-active:blur-lg group-data-active:translate-x-2`}
+            className={`w-24 h-24 lg:w-32 lg:h-32 absolute rounded-full transition-all duration-1000 ${colors.right} will-change-[filter]
+            dark:bg-lime-400/30 group-data-[active=true]:blur-md md:group-data-[active=true]:blur-lg group-data-[active=true]:translate-x-2`}
           />
           <img
-            className="relative w-24 h-24 lg:w-32 lg:h-32 object-cover aspect-square transition-all duration-700 rounded-full group-data-active:grayscale-0 grayscale"
+            className="relative w-24 h-24 lg:w-32 lg:h-32 object-cover aspect-square transition-all duration-700 rounded-full group-data-[active=true]:grayscale-0 grayscale"
             src="https://avatars.githubusercontent.com/u/70748917?v=4"
           />
         </div>
         <Scrambled
           align="items-start"
           justify="justify-start"
-          phrases={["d-exclaimation", "vincent"]}
+          phrases={["vincent", "d-exclaimation"]}
           className="text-3xl font-bold dark:text-white dark:data-[dud=true]:text-white/50 mt-2"
           speed={scramble.speed}
           delay={scramble.delay}
         />
-        <div className="w-full flex items-center justify-center text-center [text-wrap:balance] gap-4 my-4 dark:text-white">
+        <div className="w-full flex items-center justify-center text-center text-balance gap-4 my-4 dark:text-white">
           <p>
-            I'm not much of a talker, so let's make this short and sweet, I'm a
-            software engineer trying to build things that are meaningful and
-            impactful.
+            Professional run-now-and-apologise-later, software engineer, and
+            product-obsessed person trying to make a good product without
+            having to say it.
           </p>
         </div>
         <button
-          className="mt-8 flex flex-col items-center animate-up-down select-none focus:outline-none"
+          className="mt-8 flex flex-col items-center animate-up-down select-none focus:outline-hidden"
           onClick={onNext}
         >
           <span className="text-xs text-black/40 dark:text-white/40 mb-1">
@@ -118,6 +96,6 @@ const About = rc<Props>(({ onNext }) => {
       </section>
     </ResponsiveParallaxLayer>
   );
-});
+}
 
 export default About;

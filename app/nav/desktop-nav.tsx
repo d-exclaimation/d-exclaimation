@@ -9,7 +9,6 @@ import { manifest } from "@/(common)/manifest";
 import Link from "@/(components)/link";
 import Scrambled from "@/(components)/scrambled";
 import { entries } from "@d-exclaimation/common";
-import { rc } from "@d-exclaimation/next";
 
 const scramble = {
   delay: 10_000,
@@ -24,7 +23,7 @@ const elements = entries(manifest.stories).map(
   })
 );
 
-const DesktopNavigation = rc(() => {
+function DesktopNavigation() {
   return (
     <nav
       id="desktop-nav"
@@ -51,10 +50,10 @@ const DesktopNavigation = rc(() => {
             >
               <Scrambled
                 className="block relative opacity-30 my-1
-                group-hover:data-[dud=true]:text-neutral-400
+                data-[dud=true]:group-hover:text-neutral-400
                 group-hover:opacity-100 group-hover:z-30
                 dark:text-white dark:data-[dud=true]:text-white
-                dark:group-hover:data-[dud=true]:text-neutral-600"
+                dark:data-[dud=true]:group-hover:text-neutral-600"
                 delay={scramble.delay}
                 speed={scramble.speed}
                 color={{
@@ -81,6 +80,6 @@ const DesktopNavigation = rc(() => {
       ))}
     </nav>
   );
-});
+}
 
 export default DesktopNavigation;

@@ -5,7 +5,6 @@
 //  Created by d-exclaimation on 17 May 2023
 //
 
-import { rc } from "@d-exclaimation/next";
 import { default as NextLink } from "next/link";
 import { type ReactNode } from "react";
 
@@ -16,10 +15,10 @@ type Props = {
   children: ReactNode;
 };
 
-const Link = rc<Props>(({ className, href, external, children }) => {
+function Link({ className, href, external, children }: Props) {
   if (external) {
     return (
-      <a className={className} href={href} target="_blank">
+      <a className={className} href={href} target="_blank" rel="noopener noreferrer">
         {children}
       </a>
     );
@@ -29,6 +28,6 @@ const Link = rc<Props>(({ className, href, external, children }) => {
       {children}
     </NextLink>
   );
-});
+}
 
 export default Link;

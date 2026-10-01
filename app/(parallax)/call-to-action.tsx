@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "@/(components)/link";
-import { rc } from "@d-exclaimation/next";
 import ResponsiveParallaxLayer from "../(components)/responsive-parallax-layer";
 
 type OptionsProps = {
@@ -12,11 +11,11 @@ type OptionsProps = {
   external?: boolean;
 };
 
-const Option = rc<OptionsProps>(({ href, action, title, icon, external }) => {
+function Option({ href, action, title, icon, external }: OptionsProps) {
   return (
     <Link
       className="relative flex cursor-pointer rounded-lg px-5 py-4
-      focus:outline-none group bg-neutral-50 w-[20rem] md:w-[28rem]
+      focus:outline-hidden group bg-neutral-50 w-[20rem] md:w-md
       hover:bg-neutral-100 dark:hover:bg-neutral-800 dark:bg-neutral-900"
       href={href}
       external={external}
@@ -36,17 +35,17 @@ const Option = rc<OptionsProps>(({ href, action, title, icon, external }) => {
       </div>
     </Link>
   );
-});
+}
 
 type Props = {
   offset: number;
   options: OptionsProps[];
 };
 
-const CallToAction = rc<Props>(({ offset, options }) => {
+function CallToAction({ offset, options }: Props) {
   return (
     <ResponsiveParallaxLayer
-      className="z-10 w-full !h-[100dvh] py-12 flex flex-col items-center justify-center gap-4"
+      className="z-10 w-full h-dvh! py-12 flex flex-col items-center justify-center gap-4"
       offset={offset}
       speed={0.2}
     >
@@ -62,6 +61,6 @@ const CallToAction = rc<Props>(({ offset, options }) => {
       </div>
     </ResponsiveParallaxLayer>
   );
-});
+}
 
 export default CallToAction;

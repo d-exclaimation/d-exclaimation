@@ -9,7 +9,6 @@
 
 import Link from "@/(components)/link";
 import Scrambled from "@/(components)/scrambled";
-import { rc } from "@d-exclaimation/next";
 import { ParallaxLayer } from "@react-spring/parallax";
 import type { StaticImageData } from "next/image";
 import Image from "next/image";
@@ -140,7 +139,7 @@ type Props = {
   onClick: (offset: number) => void;
 };
 
-const Work = rc<Props>(({ kind, offset, maxOffset, onClick }) => {
+function Work({ kind, offset, maxOffset, onClick }: Props) {
   const { name, description, href, year, images } = works.find(
     (work) => work.name === kind
   ) as Work;
@@ -229,6 +228,6 @@ const Work = rc<Props>(({ kind, offset, maxOffset, onClick }) => {
       </ResponsiveParallaxLayer>
     </>
   );
-});
+}
 
 export default Work;

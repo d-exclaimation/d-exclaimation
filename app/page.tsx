@@ -5,17 +5,14 @@
 //  Created by d-exclaimation on 07 Jul 2023
 //
 
-import { page } from "@d-exclaimation/next";
 import PageClient from "./page.client";
 
-const Page = page(() => {
+function Page() {
   return (
-    <div className="flex items-center justify-center min-w-full min-h-[100dvh]">
+    <div className="flex items-center justify-center min-w-full min-h-dvh">
       <PageClient />
     </div>
   );
-});
-
-export const runtime = "edge";
+}
 
 export default Page;

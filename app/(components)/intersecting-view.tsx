@@ -8,7 +8,6 @@
 //
 
 import { useWithinView } from "@/(hooks)/useWithinView";
-import { rc } from "@d-exclaimation/next";
 import { type ReactNode } from "react";
 
 type Props = {
@@ -16,7 +15,7 @@ type Props = {
   children: ReactNode;
 };
 
-const IntersectingView = rc<Props>(({ children, rootMargin }) => {
+function IntersectingView({ children, rootMargin }: Props) {
   const { ref, inView } = useWithinView({
     rootMargin,
     threshold: 0,
@@ -27,6 +26,6 @@ const IntersectingView = rc<Props>(({ children, rootMargin }) => {
       {children}
     </div>
   );
-});
+}
 
 export default IntersectingView;

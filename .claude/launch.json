@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "site",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["start", "--port", "3123"],
+      "port": 3123
+    },
+    {
+      "name": "dev",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["dev", "--port", "3124"],
+      "port": 3124
+    }
+  ]
+}

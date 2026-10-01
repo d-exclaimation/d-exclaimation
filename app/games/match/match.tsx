@@ -8,7 +8,6 @@
 //
 
 import { type Union } from "@d-exclaimation/common/union";
-import { rc } from "@d-exclaimation/next";
 import { useEffect, useReducer, useRef } from "react";
 import FlippableCard from "./card";
 
@@ -91,7 +90,7 @@ function shuffle() {
   return current;
 }
 
-const Match = rc(() => {
+function Match() {
   const timeoutRef = useRef<number | NodeJS.Timeout | null>(null);
   const [cards, dispatch] = useReducer(matchReducer, []);
   useEffect(() => {
@@ -103,7 +102,7 @@ const Match = rc(() => {
         {cards.map((props, i) => (
           <FlippableCard
             key={i}
-            className="w-16 h-16 md:w-32 md:h-32 [perspective:500px] group"
+            className="w-16 h-16 md:w-32 md:h-32 perspective-normal group"
             onClick={() => {
               if (props.flipped) return;
               dispatch({ kind: "flip", index: i });
@@ -125,6 +124,6 @@ const Match = rc(() => {
       </div>
     </div>
   );
-});
+}
 
 export default Match;

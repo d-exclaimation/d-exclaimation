@@ -10,7 +10,6 @@ import FocusIntersectingView from "@/(components)/focus-intersecting-view";
 import Link from "@/(components)/link";
 import Scrambled from "@/(components)/scrambled";
 import { entries } from "@d-exclaimation/common";
-import { rc } from "@d-exclaimation/next";
 
 const scramble = {
   delay: 10_000,
@@ -25,7 +24,7 @@ const elements = entries(manifest.stories).map(
   })
 );
 
-const MobileNavigation = rc(() => {
+function MobileNavigation() {
   return (
     <nav
       id="mobile-nav"
@@ -36,24 +35,24 @@ const MobileNavigation = rc(() => {
           <Link
             className="font-sans text-4xl sm:text-6xl md:text-8xl no-underline relative z-10
             text-center lg:text-start transition-all duration-300 text-black/25 scale-90
-            group-data-in-view:text-blue-100 group-data-in-view:scale-100 group-data-in-view:z-30
-            dark:text-white/25 dark:group-data-in-view:text-blue-900"
+            group-data-[in-view=true]:text-blue-100 group-data-[in-view=true]:scale-100 group-data-[in-view=true]:z-30
+            dark:text-white/25 dark:group-data-[in-view=true]:text-blue-900"
             {...props}
           >
             <div
-              className="transition-all group-data-in-view:bg-neutral-300/20
-              scale-95 group-data-in-view:scale-100 px-2
+              className="transition-all group-data-[in-view=true]:bg-neutral-300/20
+              scale-95 group-data-[in-view=true]:scale-100 px-2
               border-y-0 border-y-neutral-900 z-10
-              group-data-in-view:border-y-2 py-3 
-              group-data-in-view:z-30 relative
-              dark:group-data-in-view:bg-neutral-700/20
+              group-data-[in-view=true]:border-y-2 py-3 
+              group-data-[in-view=true]:z-30 relative
+              dark:group-data-[in-view=true]:bg-neutral-700/20
               dark:border-y-neutral-100"
             >
               <Scrambled
-                className="block relative opacity-25 group-data-in-view:opacity-100 transition-all
-                group-data-in-view:data-[dud=true]:text-neutral-400 group-data-in-view:z-30
+                className="block relative opacity-25 group-data-[in-view=true]:opacity-100 transition-all
+                data-[dud=true]:group-data-[in-view=true]:text-neutral-400 group-data-[in-view=true]:z-30
                 dark:text-white dark:data-[dud=true]:text-white
-                dark:group-data-in-view:data-[dud=true]:text-neutral-600"
+                dark:data-[dud=true]:group-data-[in-view=true]:text-neutral-600"
                 delay={scramble.delay}
                 speed={scramble.speed}
                 color={{
@@ -70,6 +69,6 @@ const MobileNavigation = rc(() => {
       ))}
     </nav>
   );
-});
+}
 
 export default MobileNavigation;

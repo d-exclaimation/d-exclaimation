@@ -7,10 +7,8 @@
 //  Created by d-exclaimation on 24 Dec 2022
 //
 
-import { rc } from "@d-exclaimation/next";
 import Link from "next/link";
 import {
-  cloneElement,
   ReactNode,
   SetStateAction,
   useCallback,
@@ -18,16 +16,32 @@ import {
   useRef,
   useState,
 } from "react";
-import { Tooltip as BaseTooltip, TooltipProps } from "react-tippy";
 import { manifest, Manifest } from "../(common)/manifest";
 
-const Tooltip = (props: TooltipProps & { children: ReactNode }) =>
-  cloneElement(<BaseTooltip />, { ...props });
+type TooltipProps = {
+  html: ReactNode;
+  open: boolean;
+  children: ReactNode;
+};
+
+const Tooltip = ({ html, open, children }: TooltipProps) => (
+  <span className="relative inline-block">
+    <span
+      className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 whitespace-nowrap
+      transition-all duration-300 data-[open=false]:opacity-0 data-[open=false]:translate-y-1
+      data-[open=false]:pointer-events-none"
+      data-open={open}
+    >
+      {html}
+    </span>
+    {children}
+  </span>
+);
 
 const DELAY = 750;
 
-const InteractiveHandle = rc(() => {
-  const timeoutRef = useRef<number | NodeJS.Timer | null>(null);
+function InteractiveHandle() {
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [selected, setSelected] = useState<keyof Manifest["handles"] | null>(
     null
   );
@@ -66,8 +80,6 @@ const InteractiveHandle = rc(() => {
           {selected}
         </Link>
       }
-      position="top"
-      trigger="manual"
       open={!!selected}
     >
       <span
@@ -194,6 +206,6 @@ const InteractiveHandle = rc(() => {
       </span>
     </Tooltip>
   );
-});
+}
 
 export default InteractiveHandle;

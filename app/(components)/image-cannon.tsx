@@ -1,10 +1,9 @@
-import { rc } from "@d-exclaimation/next";
 import Image, { ImageProps } from "next/image";
 import { tw } from "../(common)/tailwind";
 
 type Props = ImageProps;
 
-export default rc<ImageProps>(({ className, ...rest }) => {
+export default function ImageCannon({ className, ...rest }: ImageProps) {
   return (
     <div className="relative w-max h-max flex items-center justify-center">
       <Image
@@ -46,4 +45,4 @@ export default rc<ImageProps>(({ className, ...rest }) => {
       <Image className={tw("relative z-30", className)} {...rest} />
     </div>
   );
-});
+}
