@@ -6,6 +6,7 @@
 //
 
 import { tw } from "@/(common)/tailwind";
+import DiscoTiles from "@/(components)/disco/disco-tiles";
 import Navicon from "@/(components)/nav-icon";
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
@@ -22,6 +23,7 @@ function RootLayout({ children }: { children: ReactNode }) {
           "min-w-screen min-h-screen grid place-items-center"
         )}
       >
+        <DiscoTiles />
         <Navicon />
         <main className="z-10 relative min-w-screen min-h-screen flex items-center justify-center">
           {children}

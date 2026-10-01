@@ -7,8 +7,8 @@
 //  Created by d-exclaimation on 08 Jul 2023
 //
 
+import { glowOf } from "@/(common)/glow";
 import Scrambled from "@/(components)/scrambled";
-import type { Palette } from "@d-exclaimation/common/tailwind";
 import { useEffect, useState } from "react";
 import ResponsiveParallaxLayer from "../(components)/responsive-parallax-layer";
 
@@ -22,34 +22,13 @@ type Props = {
 };
 
 function About({ onNext }: Props) {
-  const [colors, setColors] = useState({
-    left: "bg-fuchsia-400/75" as `${Palette["bg"]}/75`,
-    right: "bg-blue-400/75" as `${Palette["bg"]}/75`,
-  });
+  const [colors, setColors] = useState<{ left: string; right: string }>(
+    glowOf(new Date(0))
+  );
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    const date = new Date();
-    switch (date.getDay() % 3) {
-      case 0:
-        setColors({
-          left: "bg-fuchsia-400/75",
-          right: "bg-blue-400/75",
-        });
-        break;
-      case 1:
-        setColors({
-          left: "bg-orange-400/75",
-          right: "bg-lime-400/75",
-        });
-        break;
-      case 2:
-        setColors({
-          left: "bg-purple-400/75",
-          right: "bg-emerald-400/75",
-        });
-        break;
-    }
+    setColors(glowOf(new Date()));
   }, [setColors]);
 
   useEffect(() => {
@@ -86,16 +65,16 @@ function About({ onNext }: Props) {
         <Scrambled
           align="items-start"
           justify="justify-start"
-          phrases={["d-exclaimation", "vincent"]}
+          phrases={["vincent", "d-exclaimation"]}
           className="text-3xl font-bold dark:text-white dark:data-[dud=true]:text-white/50 mt-2"
           speed={scramble.speed}
           delay={scramble.delay}
         />
         <div className="w-full flex items-center justify-center text-center text-balance gap-4 my-4 dark:text-white">
           <p>
-            I'm not much of a talker, so let's make this short and sweet, I'm a
-            software engineer trying to build things that are meaningful and
-            impactful.
+            Professional run-now-and-apologise-later, software engineer, and
+            product-obsessed person trying to make a good product without
+            having to say it.
           </p>
         </div>
         <button

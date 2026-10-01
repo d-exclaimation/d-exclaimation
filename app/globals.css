@@ -78,20 +78,7 @@
 
 body {
   font-family: var(--font-geist-sans);
-  background:
-  linear-gradient(180deg, rgba(255, 255, 255, 0) 0, #fff 500px),
-  fixed 0 0 /20px 20px radial-gradient(#d1d1d1 1px, transparent 0),
-  fixed 10px 10px /20px 20px radial-gradient(#d1d1d1 1px, transparent 0);
   overflow-y: auto;
-}
-
-@media (prefers-color-scheme: dark) {
-  body {
-    background:
-    linear-gradient(180deg, rgba(0, 0, 0, 0) 0, black 500px),
-    fixed 0 0 /20px 20px radial-gradient(#2f2f2f 1px, transparent 0),
-    fixed 10px 10px /20px 20px radial-gradient(#2f2f2f 1px, transparent 0);
-  }
 }
 
 :root {

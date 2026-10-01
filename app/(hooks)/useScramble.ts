@@ -129,6 +129,7 @@ export function useScramble(
   };
 
   useEffect(() => {
+    index.current = 0;
     next(currText);
     return clearAllTimeout;
   }, []);
