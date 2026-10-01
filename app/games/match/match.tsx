@@ -8,7 +8,6 @@
 //
 
 import { type Union } from "@d-exclaimation/common/union";
-import { rc } from "@/(common)/next";
 import { useEffect, useReducer, useRef } from "react";
 import FlippableCard from "./card";
 
@@ -91,7 +90,7 @@ function shuffle() {
   return current;
 }
 
-const Match = rc(() => {
+function Match() {
   const timeoutRef = useRef<number | NodeJS.Timeout | null>(null);
   const [cards, dispatch] = useReducer(matchReducer, []);
   useEffect(() => {
@@ -125,6 +124,6 @@ const Match = rc(() => {
       </div>
     </div>
   );
-});
+}
 
 export default Match;

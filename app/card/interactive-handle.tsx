@@ -7,7 +7,6 @@
 //  Created by d-exclaimation on 24 Dec 2022
 //
 
-import { rc } from "@/(common)/next";
 import Link from "next/link";
 import {
   ReactNode,
@@ -41,7 +40,7 @@ const Tooltip = ({ html, open, children }: TooltipProps) => (
 
 const DELAY = 750;
 
-const InteractiveHandle = rc(() => {
+function InteractiveHandle() {
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [selected, setSelected] = useState<keyof Manifest["handles"] | null>(
     null
@@ -207,6 +206,6 @@ const InteractiveHandle = rc(() => {
       </span>
     </Tooltip>
   );
-});
+}
 
 export default InteractiveHandle;

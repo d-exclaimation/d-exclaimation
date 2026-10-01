@@ -9,7 +9,6 @@
 
 import About from "@/(parallax)/about";
 import CallToAction from "@/(parallax)/call-to-action";
-import { rc } from "@/(common)/next";
 import { Parallax, type IParallax } from "@react-spring/parallax";
 import { useCallback, useEffect, useRef } from "react";
 import Poker from "./(parallax)/poker";
@@ -117,7 +116,7 @@ const cta = [
   },
 ];
 
-const Projects = rc(() => {
+function Projects() {
   const panel = useRef<IParallax | null>(null);
 
   const nextLayer = useCallback(() => {
@@ -150,6 +149,6 @@ const Projects = rc(() => {
       </Parallax>
     </>
   );
-});
+}
 
 export default Projects;

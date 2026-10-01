@@ -9,7 +9,6 @@
 
 import { DUDS, useScramble } from "@/(hooks)/useScramble";
 import { type Palette } from "@d-exclaimation/common/tailwind";
-import { rc } from "@/(common)/next";
 
 type Props = {
   className?: string;
@@ -37,42 +36,40 @@ type Props = {
  * @param param0.wrap Should the text wrap around or not
  * @param param0.color The color styling for the text and its state
  */
-const Scrambled = rc<Props>(
-  ({
-    phrases,
-    delay,
-    speed,
-    align,
-    justify,
-    className,
-    wrap,
-    color,
-    active,
-  }) => {
-    const text = useScramble(phrases, speed, delay);
+function Scrambled({
+  phrases,
+  delay,
+  speed,
+  align,
+  justify,
+  className,
+  wrap,
+  color,
+  active,
+}: Props) {
+  const text = useScramble(phrases, speed, delay);
 
-    return (
-      <span
-        className={`group flex flex-row ${justify} ${align} 
-        ${wrap ? "flex-wrap" : ""}`}
-      >
-        {text.map((char, i) => (
-          <span
-            className={`font-mono data-[space=true]:opacity-0! 
-            ${color?.normal ?? "text-gray-800"}
-            ${color?.dud ?? "data-[dud=true]:text-gray-300"}
-            ${className}`}
-            key={`${i}-${char}`}
-            data-dud={DUDS.indexOf(char) !== -1}
-            data-space={char === " "}
-            data-active={active}
-          >
-            {char === " " ? "_" : char}
-          </span>
-        ))}
-      </span>
-    );
-  }
-);
+  return (
+    <span
+      className={`group flex flex-row ${justify} ${align} 
+      ${wrap ? "flex-wrap" : ""}`}
+    >
+      {text.map((char, i) => (
+        <span
+          className={`font-mono data-[space=true]:opacity-0! 
+          ${color?.normal ?? "text-gray-800"}
+          ${color?.dud ?? "data-[dud=true]:text-gray-300"}
+          ${className}`}
+          key={`${i}-${char}`}
+          data-dud={DUDS.indexOf(char) !== -1}
+          data-space={char === " "}
+          data-active={active}
+        >
+          {char === " " ? "_" : char}
+        </span>
+      ))}
+    </span>
+  );
+}
 
 export default Scrambled;

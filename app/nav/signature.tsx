@@ -6,9 +6,8 @@
 //
 
 import IntersectingView from "@/(components)/intersecting-view";
-import { rc } from "@/(common)/next";
 
-const Signature = rc(() => {
+function Signature() {
   return (
     <div className="flex items-center w-full justify-end px-6 h-[60vh] lg:h-[25vh]">
       <IntersectingView rootMargin="0% 0px 0% 0px">
@@ -28,6 +27,6 @@ const Signature = rc(() => {
       </IntersectingView>
     </div>
   );
-});
+}
 
 export default Signature;

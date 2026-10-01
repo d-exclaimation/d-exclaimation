@@ -5,11 +5,10 @@
 //  Created by d-exclaimation on 07 Jul 2023
 //
 
-import { layout } from "@/(common)/next";
-import { Fragment } from "react";
+import { Fragment, type ReactNode } from "react";
 
-const Layout = layout(({ children }) => {
+function Layout({ children }: { children: ReactNode }) {
   return <Fragment>{children}</Fragment>;
-});
+}
 
 export default Layout;

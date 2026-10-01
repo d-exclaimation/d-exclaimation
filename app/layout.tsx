@@ -7,13 +7,13 @@
 
 import { tw } from "@/(common)/tailwind";
 import Navicon from "@/(components)/nav-icon";
-import { layout, meta } from "@/(common)/next";
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
-import type { Viewport } from "next";
+import type { Metadata, Viewport } from "next";
+import type { ReactNode } from "react";
 import "./globals.css";
 
-const RootLayout = layout(({ children }) => {
+function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className="bg-white dark:bg-black">
       <body
@@ -29,9 +29,9 @@ const RootLayout = layout(({ children }) => {
       </body>
     </html>
   );
-});
+}
 
-export const metadata = meta({
+export const metadata: Metadata = {
   metadataBase: new URL("https://d-exclaimation.me"),
   title: "d-exclaimation",
   description: "My work, my art, my passion",
@@ -59,7 +59,7 @@ export const metadata = meta({
     apple: "/apple-touch-icon.png",
   },
   manifest: "/manifest.json",
-});
+};
 
 export const viewport: Viewport = {
   initialScale: 1,

@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "@/(components)/link";
-import { rc } from "@/(common)/next";
 import ResponsiveParallaxLayer from "../(components)/responsive-parallax-layer";
 
 type OptionsProps = {
@@ -12,7 +11,7 @@ type OptionsProps = {
   external?: boolean;
 };
 
-const Option = rc<OptionsProps>(({ href, action, title, icon, external }) => {
+function Option({ href, action, title, icon, external }: OptionsProps) {
   return (
     <Link
       className="relative flex cursor-pointer rounded-lg px-5 py-4
@@ -36,14 +35,14 @@ const Option = rc<OptionsProps>(({ href, action, title, icon, external }) => {
       </div>
     </Link>
   );
-});
+}
 
 type Props = {
   offset: number;
   options: OptionsProps[];
 };
 
-const CallToAction = rc<Props>(({ offset, options }) => {
+function CallToAction({ offset, options }: Props) {
   return (
     <ResponsiveParallaxLayer
       className="z-10 w-full h-dvh! py-12 flex flex-col items-center justify-center gap-4"
@@ -62,6 +61,6 @@ const CallToAction = rc<Props>(({ offset, options }) => {
       </div>
     </ResponsiveParallaxLayer>
   );
-});
+}
 
 export default CallToAction;

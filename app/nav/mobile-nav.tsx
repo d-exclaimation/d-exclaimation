@@ -10,7 +10,6 @@ import FocusIntersectingView from "@/(components)/focus-intersecting-view";
 import Link from "@/(components)/link";
 import Scrambled from "@/(components)/scrambled";
 import { entries } from "@d-exclaimation/common";
-import { rc } from "@/(common)/next";
 
 const scramble = {
   delay: 10_000,
@@ -25,7 +24,7 @@ const elements = entries(manifest.stories).map(
   })
 );
 
-const MobileNavigation = rc(() => {
+function MobileNavigation() {
   return (
     <nav
       id="mobile-nav"
@@ -70,6 +69,6 @@ const MobileNavigation = rc(() => {
       ))}
     </nav>
   );
-});
+}
 
 export default MobileNavigation;

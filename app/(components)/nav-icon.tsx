@@ -7,11 +7,10 @@
 //  Created by d-exclaimation on 08 May 2023
 //
 
-import { rc } from "@/(common)/next";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const Navicon = rc(() => {
+function Navicon() {
   const pathname = usePathname();
 
   return (
@@ -31,6 +30,6 @@ const Navicon = rc(() => {
       />
     </Link>
   );
-});
+}
 
 export default Navicon;

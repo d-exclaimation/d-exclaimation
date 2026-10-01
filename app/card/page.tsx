@@ -5,11 +5,10 @@
 //  Created by d-exclaimation on 29 Apr 2023
 //
 
-import { page } from "@/(common)/next";
 import InteractiveHandle from "./interactive-handle";
 
-const Page = page(() => {
+function Page() {
   return <InteractiveHandle />;
-});
+}
 
 export default Page;

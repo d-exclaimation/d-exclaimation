@@ -5,12 +5,11 @@
 //  Created by d-exclaimation on 29 Apr 2023
 //
 
-import { page } from "@/(common)/next";
 import DesktopNavigation from "./desktop-nav";
 import MobileNavigation from "./mobile-nav";
 import Signature from "./signature";
 
-const Page = page(async () => {
+async function Page() {
   return (
     <div className="animate-fade-in w-screen bg-transparent">
       <div className="lg:h-screen lg:overflow-auto">
@@ -21,6 +20,6 @@ const Page = page(async () => {
       </div>
     </div>
   );
-});
+}
 
 export default Page;

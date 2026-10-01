@@ -9,7 +9,6 @@
 
 import Scrambled from "@/(components)/scrambled";
 import type { Palette } from "@d-exclaimation/common/tailwind";
-import { rc } from "@/(common)/next";
 import { useEffect, useState } from "react";
 import ResponsiveParallaxLayer from "../(components)/responsive-parallax-layer";
 
@@ -22,7 +21,7 @@ type Props = {
   onNext: () => void;
 };
 
-const About = rc<Props>(({ onNext }) => {
+function About({ onNext }: Props) {
   const [colors, setColors] = useState({
     left: "bg-fuchsia-400/75" as `${Palette["bg"]}/75`,
     right: "bg-blue-400/75" as `${Palette["bg"]}/75`,
@@ -118,6 +117,6 @@ const About = rc<Props>(({ onNext }) => {
       </section>
     </ResponsiveParallaxLayer>
   );
-});
+}
 
 export default About;

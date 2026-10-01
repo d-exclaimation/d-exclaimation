@@ -8,14 +8,13 @@
 //
 
 import { useWithinView } from "@/(hooks)/useWithinView";
-import { rc } from "@/(common)/next";
 import { type ReactNode } from "react";
 
 type Props = {
   children: ReactNode;
 };
 
-const FocusIntersectingView = rc<Props>(({ children }) => {
+function FocusIntersectingView({ children }: Props) {
   const { ref, inView } = useWithinView({
     rootMargin: "-39% 0px -59% 0px",
     threshold: 0,
@@ -26,6 +25,6 @@ const FocusIntersectingView = rc<Props>(({ children }) => {
       {children}
     </div>
   );
-});
+}
 
 export default FocusIntersectingView;

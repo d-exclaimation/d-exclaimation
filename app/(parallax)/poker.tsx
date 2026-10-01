@@ -7,7 +7,6 @@
 //  Created by d-exclaimation on 27 Oct 2023
 //
 
-import { rc } from "@/(common)/next";
 import { animated, to, useInView, useSprings } from "@react-spring/web";
 import { useDrag } from "@use-gesture/react";
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -49,7 +48,7 @@ type Props = {
   }[];
 };
 
-const Poker = rc<Props>(({ cards }) => {
+function Poker({ cards }: Props) {
   const [index, setIndex] = useState(-1);
   const [isLoaded, setIsLoaded] = useState(false);
   const [ref, isInView] = useInView({
@@ -207,6 +206,6 @@ const Poker = rc<Props>(({ cards }) => {
       )}
     </ResponsiveParallaxLayer>
   );
-});
+}
 
 export default Poker;

@@ -9,7 +9,6 @@ import { manifest } from "@/(common)/manifest";
 import Link from "@/(components)/link";
 import Scrambled from "@/(components)/scrambled";
 import { entries } from "@d-exclaimation/common";
-import { rc } from "@/(common)/next";
 
 const scramble = {
   delay: 10_000,
@@ -24,7 +23,7 @@ const elements = entries(manifest.stories).map(
   })
 );
 
-const DesktopNavigation = rc(() => {
+function DesktopNavigation() {
   return (
     <nav
       id="desktop-nav"
@@ -81,6 +80,6 @@ const DesktopNavigation = rc(() => {
       ))}
     </nav>
   );
-});
+}
 
 export default DesktopNavigation;
