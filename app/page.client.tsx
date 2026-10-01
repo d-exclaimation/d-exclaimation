@@ -11,72 +11,96 @@ import About from "@/(parallax)/about";
 import CallToAction from "@/(parallax)/call-to-action";
 import { Parallax, type IParallax } from "@react-spring/parallax";
 import { useCallback, useEffect, useRef } from "react";
-import Poker from "./(parallax)/poker";
+import Hand, { type Project } from "./(parallax)/hand";
 
-const projects = [
+/** The first project is centred and dealt on top; the rest fan out from it, alternating right then left. */
+const projects: Project[] = [
+  {
+    name: "partly",
+    description:
+      "Product Engineer, responsible for Partly Repair and Partly Capture, currently working on Partly RepairAI mobile",
+    href: "https://partly.com",
+    year: "now",
+    capture: "clean",
+    finish: "silver",
+    shots: [
+      { src: "/artpiece/projects/partly/home.webp", alt: "Partly home page" },
+      { src: "/artpiece/projects/partly/home-2.webp", alt: "Partly home page, scrolled" },
+      { src: "/artpiece/projects/partly/repair-2.webp", alt: "PartlyRepair page" },
+      { src: "/artpiece/projects/partly/labs.webp", alt: "PartlyLabs page" },
+    ],
+  },
+  {
+    name: "partspal",
+    description: "Worked on Partly's core seller experience, PartsPal",
+    href: "https://partly.com",
+    year: "2022",
+    capture: "iphone",
+    shots: [{ src: "/artpiece/projects/partspal.webp", alt: "Partly careers page in 2022" }],
+  },
   {
     name: "seraph",
     description: "Hassle-free web apps in an instant",
     href: "https://seraph.talker.dev",
     year: "2023",
-    image: "/artpiece/projects/seraph.webp",
+    capture: "iphone",
+    shots: [{ src: "/artpiece/projects/seraph.webp", alt: "seraph screenshot" }],
   },
   {
     name: "relax",
     description: "AI powered Slack assistant for agile teams",
     href: "https://relax.d-exclaimation.me",
     year: "2023",
-    image: "/artpiece/projects/relax.webp",
+    capture: "iphone",
+    shots: [{ src: "/artpiece/projects/relax.webp", alt: "relax screenshot" }],
   },
   {
     name: "pioneer",
     description: "GraphQL server for Swift",
     href: "https://pioneer.talker.dev",
     year: "2022",
-    image: "/artpiece/projects/pioneer.webp",
-  },
-  {
-    name: "partly",
-    description: "Worked on Partly's core seller experience, PartsPal",
-    href: "https://partly.com",
-    year: "2022",
-    image: "/artpiece/projects/partly.webp",
+    capture: "iphone",
+    shots: [{ src: "/artpiece/projects/pioneer.webp", alt: "pioneer screenshot" }],
   },
   {
     name: "omdb",
     description: "Web movies made simple",
     href: "https://omdb.d-exclaimation.me",
     year: "2023",
-    image: "/artpiece/projects/omdb.webp",
+    capture: "iphone",
+    shots: [{ src: "/artpiece/projects/omdb.webp", alt: "omdb screenshot" }],
   },
   {
     name: "pixle",
     description: "Time to start making memories, 1 photo at a time",
     href: "https://experimental.pixle.app",
     year: "2023",
-    image: "/artpiece/projects/pixle.webp",
+    capture: "iphone",
+    shots: [{ src: "/artpiece/projects/pixle.webp", alt: "pixle screenshot" }],
   },
   {
     name: "d-exclaimation.me",
     description: "My life, my work, my passion",
     href: "https://d-exclaimation.me",
     year: "2021",
-    image: "/artpiece/projects/website.webp",
+    capture: "iphone",
+    shots: [{ src: "/artpiece/projects/website.webp", alt: "d-exclaimation.me screenshot" }],
   },
   {
     name: "spotlight",
     description: "Browsing news streamlined, supercharged, and simplified",
     href: "https://spotlight.d-exclaimation.me",
     year: "2023",
-    image: "/artpiece/projects/spotlight.webp",
+    capture: "iphone",
+    shots: [{ src: "/artpiece/projects/spotlight.webp", alt: "spotlight screenshot" }],
   },
   {
     name: "mirage-ai",
-    description:
-      "Embracing the future, crafting today with the most advanced content creation AI in the world",
+    description: "Embracing the future, crafting today with the most advanced content creation AI in the world",
     href: "https://mirageai.xyz",
     year: "2023",
-    image: "/artpiece/projects/mirageai.webp",
+    capture: "iphone",
+    shots: [{ src: "/artpiece/projects/mirageai.webp", alt: "mirage-ai screenshot" }],
   },
 ];
 
@@ -144,7 +168,7 @@ function Projects() {
     <>
       <Parallax pages={3} ref={panel}>
         <About onNext={() => panel?.current?.scrollTo(1)} />
-        <Poker cards={projects} />
+        <Hand projects={projects} onFocusEnter={() => panel.current?.scrollTo(1)} />
         <CallToAction offset={2} options={cta} />
       </Parallax>
     </>

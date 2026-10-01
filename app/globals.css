@@ -76,6 +76,22 @@
   }
 }
 
+/* Dealt hand of project cards: card sizes come from the viewport so nothing is measured in JS */
+.hand {
+  --pad: 4px;
+  --card-h: clamp(120px, min((100dvh - 200px) / 1.18, 100vw - 16px), 420px);
+  --card-w: calc((var(--card-h) - 2 * var(--pad)) * 828 / 1592 + 2 * var(--pad));
+  --box-h: calc(var(--card-h) * 1.18);
+}
+
+@media (min-width: 898px) and (min-height: 548px) {
+  .hand {
+    --pad: 6px;
+    --card-h: clamp(300px, (100dvh - 200px) / 1.16, 560px);
+    --box-h: calc(var(--card-h) * 1.16);
+  }
+}
+
 body {
   font-family: var(--font-geist-sans);
   overflow-y: auto;

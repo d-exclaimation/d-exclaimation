@@ -36,19 +36,21 @@ function randomChar(): string {
  * @param phrases The phrases to transition from one to another
  * @param speed The delay of each character transition
  * @param delay The delay of phrases
+ * @param from The text to start from, defaults to the first phrase
  * @returns An array of individual character states
  */
 export function useScramble(
   phrases: string[],
   speed = 25,
-  delay = 1000
+  delay = 1000,
+  from?: string
 ): string[] {
   const updateTimeout = useRef<number | NodeJS.Timeout | null>(null);
   const recursiveTimeout = useRef<number | NodeJS.Timeout | null>(null);
   const index = useRef(0);
 
   /**  To use React change detections */
-  const [currText, setText] = useState(phrases[0].split(""));
+  const [currText, setText] = useState((from ?? phrases[0]).split(""));
 
   /** Make an update to the currText */
   const update = (

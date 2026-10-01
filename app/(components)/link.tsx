@@ -18,7 +18,7 @@ type Props = {
 function Link({ className, href, external, children }: Props) {
   if (external) {
     return (
-      <a className={className} href={href} target="_blank">
+      <a className={className} href={href} target="_blank" rel="noopener noreferrer">
         {children}
       </a>
     );
