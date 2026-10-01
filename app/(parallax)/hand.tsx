@@ -42,6 +42,9 @@ export type Shot = {
   alt: string;
   /** CSS object-position of the shot inside the card, when the default crop misses the good part. */
   position?: string;
+  /** Title and link while this shot is in front of a packet, when it shows a different product. */
+  title?: string;
+  href?: string;
 };
 
 export type Project = {
@@ -130,6 +133,10 @@ function Hand({ projects, onFocusEnter }: Props) {
   const lead = projects[0];
   const packet = usePacket(lead.shots.length, reduced);
   const project = projects[focus];
+  // A packet's front shot can name and link its own product; the title scrambles between them
+  const frontShot = project.shots[focus === 0 && lead.shots.length > 1 ? packet.front : 0];
+  const title = frontShot.title ?? project.name;
+  const href = frontShot.href ?? project.href;
   const previewing = preview ?? hover;
   const previewProject = previewing !== null && previewing !== focus ? projects[previewing] : null;
 
@@ -347,8 +354,8 @@ function Hand({ projects, onFocusEnter }: Props) {
 
   // The scramble morphs from the last project shown
   useEffect(() => {
-    if (ready) prevName.current = project.name;
-  }, [ready, project.name]);
+    if (ready) prevName.current = title;
+  }, [ready, title]);
 
   // Partly's packet cuts through its shots once, then stops for good
   const { cut } = packet;
@@ -437,22 +444,22 @@ function Hand({ projects, onFocusEnter }: Props) {
           data-ready={ready}
           className="relative z-10 mt-5 flex w-full max-w-[34ch] flex-col items-center gap-2 text-center opacity-0 transition-opacity duration-300 data-[ready=true]:opacity-100 md:mt-6 md:max-w-[52ch]"
         >
-          <Link className="group flex min-h-8 items-center justify-center md:min-h-10" href={project.href} external>
+          <Link className="group flex min-h-8 items-center justify-center md:min-h-10" href={href} external>
             {!ready ? (
-              <span className="sr-only">{project.name}</span>
+              <span className="sr-only">{title}</span>
             ) : reduced ? (
                 <span className="font-mono text-2xl font-bold group-hover:underline md:text-4xl dark:text-white">
-                  {project.name}
+                  {title}
                 </span>
               ) : (
                 <Scrambled
-                  key={project.name}
+                  key={title}
                   from={prevName.current}
-                  label={project.name}
+                  label={title}
                   className="text-2xl font-bold group-hover:underline md:text-4xl dark:text-white dark:data-[dud=true]:text-white/50"
                   align="items-start"
                   justify="justify-center"
-                  phrases={[project.name, project.name]}
+                  phrases={[title, title]}
                   speed={25}
                   delay={10_000}
                 />
@@ -471,7 +478,7 @@ function Hand({ projects, onFocusEnter }: Props) {
               </span>
             ) : (
               <span>
-                {project.year} · {new URL(project.href).host}
+                {project.year} · {new URL(href).host}
               </span>
             )}
             {focus === 0 && lead.shots.length > 1 && (

@@ -25,9 +25,25 @@ const projects: Project[] = [
     finish: "silver",
     shots: [
       { src: "/artpiece/projects/partly/home.webp", alt: "Partly" },
-      { src: "/artpiece/projects/partly/repair-2.webp", alt: "Partly Repair" },
-      { src: "/artpiece/projects/partly/capture.webp", alt: "Partly Capture", position: "50% 40%" },
-      { src: "/artpiece/projects/partly/repair-ai.webp", alt: "Partly Repair AI" },
+      {
+        src: "/artpiece/projects/partly/repair-2.webp",
+        alt: "Partly Repair",
+        title: "partly repair",
+        href: "https://partly.com/repair",
+      },
+      {
+        src: "/artpiece/projects/partly/capture.webp",
+        alt: "Partly Capture",
+        position: "50% 40%",
+        title: "partly capture",
+        href: "https://capture.partly.com",
+      },
+      {
+        src: "/artpiece/projects/partly/repair-ai.webp",
+        alt: "Partly Repair AI",
+        title: "partly repair ai",
+        href: "https://www.partly.com/us/repair",
+      },
     ],
   },
   {
