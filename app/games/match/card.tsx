@@ -29,7 +29,9 @@ function FlippableCard({ className, value, flipped, active, onClick }: Props) {
         group-data-[flipped=true]:transform-[rotateY(180deg)] group-data-[active=true]:border-2 border-lime-400
         dark:border-sky-600 rounded"
       >
-        <div className="absolute w-full h-full rounded-sm bg-linear-to-bl from-black via-zinc-700 to-zinc-500 backface-hidden" />
+        <div className="card-back absolute grid w-full h-full place-items-center rounded-sm backface-hidden">
+          <span className="font-mono text-lg font-bold text-white md:text-3xl">d!</span>
+        </div>
         <div
           className="absolute w-full h-full rounded transform-[rotateY(180deg)] backface-hidden
         bg-white flex items-center justify-center text-3xl md:text-6xl dark:bg-black"

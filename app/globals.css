@@ -86,12 +86,10 @@
   --box-h: calc(var(--card-h) * 1.18);
 }
 
-/* Card back: disco tiles over today's glow colours */
+/* Card back shared by the project hand and the match game: black with white disco tiles in two
+   opposite corners, thinning out towards the middle (generated pattern in public/card-back.svg) */
 .card-back {
-  background:
-    linear-gradient(to right, rgb(0 0 0 / 0.22) 2px, transparent 2px) 0 0 / 12px 12px,
-    linear-gradient(to bottom, rgb(0 0 0 / 0.22) 2px, transparent 2px) 0 0 / 12px 12px,
-    linear-gradient(135deg, var(--back-from, #fb923c), var(--back-to, #a3e635));
+  background: #0a0a0a url("/card-back.svg") center / cover no-repeat;
 }
 
 body {

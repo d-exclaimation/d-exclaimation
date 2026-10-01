@@ -257,7 +257,7 @@ function HandCard({
               className="absolute inset-0 rounded-(--radius) bg-white p-(--pad) shadow-[0_1px_2px_rgb(0_0_0/.06),0_10px_24px_-12px_rgb(0_0_0/.28)] ring-1 ring-black/5 backface-hidden [transform:rotateY(180deg)] dark:bg-neutral-900 dark:shadow-[0_1px_2px_rgb(0_0_0/.4),0_16px_32px_-12px_rgb(0_0_0/.7)] dark:ring-white/10"
             >
               <div className="card-back grid size-full place-items-center rounded-[calc(var(--radius)_-_var(--pad))]">
-                <span className="font-mono text-4xl font-bold text-black/70">d!</span>
+                <span className="font-mono text-4xl font-bold text-white">d!</span>
               </div>
             </div>
           </animated.div>

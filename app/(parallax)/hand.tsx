@@ -7,7 +7,7 @@
 //  Projects dealt as a hand of cards that turns like a dial
 //
 
-import { currentGlowRamps, glowOf } from "@/(common)/glow";
+import { glowOf } from "@/(common)/glow";
 import Link from "@/(components)/link";
 import ResponsiveParallaxLayer from "@/(components)/responsive-parallax-layer";
 import Scrambled from "@/(components)/scrambled";
@@ -19,7 +19,6 @@ import {
   useMemo,
   useRef,
   useState,
-  type CSSProperties,
   type PointerEvent,
   type RefObject,
 } from "react";
@@ -126,7 +125,6 @@ function Hand({ projects, onFocusEnter }: Props) {
     x: 0,
     r: 0,
   }));
-  const [back, setBack] = useState<[string, string]>(["#fb923c", "#a3e635"]);
   const [tilt, tiltApi] = useSpring(() => ({ rx: 0, ry: 0 }));
 
   const lead = projects[0];
@@ -145,8 +143,6 @@ function Hand({ projects, onFocusEnter }: Props) {
 
   useEffect(() => {
     setColors(glowOf(new Date()));
-    const ramps = currentGlowRamps(new Date(), window.matchMedia("(prefers-color-scheme: dark)").matches);
-    setBack([`rgb(${ramps[0][2].join(" ")})`, `rgb(${ramps[1][2].join(" ")})`]);
     const wide = window.matchMedia(WIDE);
     const fine = window.matchMedia("(hover: hover) and (pointer: fine)");
     const sync = () => {
@@ -386,7 +382,6 @@ function Hand({ projects, onFocusEnter }: Props) {
       <section
         aria-label="Projects"
         className="hand relative flex h-full w-full flex-col items-center justify-center px-4"
-        style={{ "--back-from": back[0], "--back-to": back[1] } as CSSProperties}
         onPointerDownCapture={() => (interacted.current = true)}
         onFocusCapture={(e) => {
           interacted.current = true;
