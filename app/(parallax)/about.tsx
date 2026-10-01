@@ -9,7 +9,7 @@
 
 import Scrambled from "@/(components)/scrambled";
 import type { Palette } from "@d-exclaimation/common/tailwind";
-import { rc } from "@d-exclaimation/next";
+import { rc } from "@/(common)/next";
 import { useEffect, useState } from "react";
 import ResponsiveParallaxLayer from "../(components)/responsive-parallax-layer";
 
@@ -66,21 +66,21 @@ const About = rc<Props>(({ onNext }) => {
     >
       <section className="w-[80vw] max-w-2xl flex flex-col items-center animate-fade-in">
         <div
-          className="relative w-24 h-24 lg:w-32 lg:h-32 flex-shrink-0 flex items-center justify-center group mb-5"
+          className="relative w-24 h-24 lg:w-32 lg:h-32 shrink-0 flex items-center justify-center group mb-5"
           data-active={loaded}
           onMouseEnter={() => setLoaded(true)}
           onTouchStart={() => setLoaded(true)}
         >
           <span
-            className={`w-24 h-24 lg:w-32 lg:h-32 absolute rounded-full transition-all duration-1000 ${colors.left} [will-change:filter]
-            dark:bg-orange-400/30 group-data-active:blur-md md:group-data-active:blur-lg group-data-active:-translate-x-2`}
+            className={`w-24 h-24 lg:w-32 lg:h-32 absolute rounded-full transition-all duration-1000 ${colors.left} will-change-[filter]
+            dark:bg-orange-400/30 group-data-[active=true]:blur-md md:group-data-[active=true]:blur-lg group-data-[active=true]:-translate-x-2`}
           />
           <span
-            className={`w-24 h-24 lg:w-32 lg:h-32 absolute rounded-full transition-all duration-1000 ${colors.right} [will-change:filter]
-            dark:bg-lime-400/30 group-data-active:blur-md md:group-data-active:blur-lg group-data-active:translate-x-2`}
+            className={`w-24 h-24 lg:w-32 lg:h-32 absolute rounded-full transition-all duration-1000 ${colors.right} will-change-[filter]
+            dark:bg-lime-400/30 group-data-[active=true]:blur-md md:group-data-[active=true]:blur-lg group-data-[active=true]:translate-x-2`}
           />
           <img
-            className="relative w-24 h-24 lg:w-32 lg:h-32 object-cover aspect-square transition-all duration-700 rounded-full group-data-active:grayscale-0 grayscale"
+            className="relative w-24 h-24 lg:w-32 lg:h-32 object-cover aspect-square transition-all duration-700 rounded-full group-data-[active=true]:grayscale-0 grayscale"
             src="https://avatars.githubusercontent.com/u/70748917?v=4"
           />
         </div>
@@ -92,7 +92,7 @@ const About = rc<Props>(({ onNext }) => {
           speed={scramble.speed}
           delay={scramble.delay}
         />
-        <div className="w-full flex items-center justify-center text-center [text-wrap:balance] gap-4 my-4 dark:text-white">
+        <div className="w-full flex items-center justify-center text-center text-balance gap-4 my-4 dark:text-white">
           <p>
             I'm not much of a talker, so let's make this short and sweet, I'm a
             software engineer trying to build things that are meaningful and
@@ -100,7 +100,7 @@ const About = rc<Props>(({ onNext }) => {
           </p>
         </div>
         <button
-          className="mt-8 flex flex-col items-center animate-up-down select-none focus:outline-none"
+          className="mt-8 flex flex-col items-center animate-up-down select-none focus:outline-hidden"
           onClick={onNext}
         >
           <span className="text-xs text-black/40 dark:text-white/40 mb-1">

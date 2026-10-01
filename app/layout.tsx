@@ -7,8 +7,10 @@
 
 import { tw } from "@/(common)/tailwind";
 import Navicon from "@/(components)/nav-icon";
-import { layout, meta } from "@d-exclaimation/next";
-import { GeistMono, GeistSans } from "geist/font";
+import { layout, meta } from "@/(common)/next";
+import { GeistMono } from "geist/font/mono";
+import { GeistSans } from "geist/font/sans";
+import type { Viewport } from "next";
 import "./globals.css";
 
 const RootLayout = layout(({ children }) => {
@@ -56,16 +58,17 @@ export const metadata = meta({
     ],
     apple: "/apple-touch-icon.png",
   },
-  viewport: {
-    initialScale: 1,
-    width: "device-width",
-    viewportFit: "cover",
-  },
   manifest: "/manifest.json",
+});
+
+export const viewport: Viewport = {
+  initialScale: 1,
+  width: "device-width",
+  viewportFit: "cover",
   themeColor: [
     { media: "(prefers-color-scheme: dark)", color: "#000000" },
     { media: "(prefers-color-scheme: light)", color: "#ffffff" },
   ],
-});
+};
 
 export default RootLayout;

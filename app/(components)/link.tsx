@@ -5,7 +5,7 @@
 //  Created by d-exclaimation on 17 May 2023
 //
 
-import { rc } from "@d-exclaimation/next";
+import { rc } from "@/(common)/next";
 import { default as NextLink } from "next/link";
 import { type ReactNode } from "react";
 

@@ -1,4 +1,4 @@
-import { rc } from "@d-exclaimation/next";
+import { rc } from "@/(common)/next";
 import Image, { ImageProps } from "next/image";
 import { tw } from "../(common)/tailwind";
 

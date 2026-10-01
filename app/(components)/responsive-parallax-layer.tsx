@@ -1,6 +1,6 @@
 "use client";
 
-import { rc } from "@d-exclaimation/next";
+import { rc } from "@/(common)/next";
 import { ParallaxLayer, type ParallaxLayerProps } from "@react-spring/parallax";
 
 const ResponsiveParallaxLayer = rc<ParallaxLayerProps>(

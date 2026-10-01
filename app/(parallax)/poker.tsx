@@ -7,7 +7,7 @@
 //  Created by d-exclaimation on 27 Oct 2023
 //
 
-import { rc } from "@d-exclaimation/next";
+import { rc } from "@/(common)/next";
 import { animated, to, useInView, useSprings } from "@react-spring/web";
 import { useDrag } from "@use-gesture/react";
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -119,7 +119,7 @@ const Poker = rc<Props>(({ cards }) => {
 
   return (
     <ResponsiveParallaxLayer
-      className="z-10 w-full h-[100dvh] overflow-hidden flex items-center justify-center gap-4"
+      className="z-10 w-full h-dvh overflow-hidden flex items-center justify-center gap-4"
       offset={1}
       speed={0.2}
     >
@@ -142,7 +142,7 @@ const Poker = rc<Props>(({ cards }) => {
               }}
             >
               <img
-                className="[user-drag:none] [-webkit-user-drag:none] select-none h-[400px] md:h-[500px] rounded-sm"
+                className="[user-drag:none] [-webkit-user-drag:none] select-none h-[400px] md:h-[500px] rounded-xs"
                 src={cards[i].image}
                 alt={cards[i].name}
               />
@@ -200,7 +200,7 @@ const Poker = rc<Props>(({ cards }) => {
               delay={scramble.delay}
             />
           </Link>
-          <span className="text-sm text-center [text-wrap:balance] text-black dark:text-white">
+          <span className="text-sm text-center text-balance text-black dark:text-white">
             {card.description}
           </span>
         </div>

@@ -137,14 +137,14 @@ const Snake: FC = () => {
 
   return (
     <>
-      <div className="grid grid-cols-[repeat(20,minmax(0,1fr))] grid-rows-[repeat(20,minmax(0,1fr))]">
+      <div className="grid grid-cols-20 grid-rows-20">
         {Array.from({ length: MAX_Y }).map((_, y) =>
           Array.from({ length: MAX_X }).map((_, x) => (
             <div
               key={`${x}-${y}`}
               className="w-4 h-4 border transition-all duration-100 border-gray-500/20 
               data-[snake=false]:data-[food=true]:bg-lime-400 data-[dead=true]:duration-500
-              data-[snake=true]:bg-zinc-900 data-[snake=true]:data-[dead=true]:!bg-red-500
+              data-[snake=true]:bg-zinc-900 data-[snake=true]:data-[dead=true]:bg-red-500!
               dark:data-[snake=true]:bg-zinc-100"
               data-snake={snake.snake.some((vec) => vec.x === x && vec.y === y)}
               data-food={snake.food.x === x && snake.food.y === y}
@@ -155,14 +155,14 @@ const Snake: FC = () => {
       </div>
       <div className="md:hidden flex flex-col my-4 items-center w-56 h-40 gap-1 justify-center">
         <button
-          className="bg-zinc-50 text-black text-xl py-2 px-4 rounded-md shadow active:scale-95"
+          className="bg-zinc-50 text-black text-xl py-2 px-4 rounded-md shadow-sm active:scale-95"
           onClick={() => dispatch({ kind: "change", direction: "up" })}
         >
           &uarr;
         </button>
         <div className="flex flex-row items-center w-full gap-1 justify-center">
           <button
-            className="bg-zinc-50 text-black text-xl py-2 px-4 rounded-md shadow active:scale-95"
+            className="bg-zinc-50 text-black text-xl py-2 px-4 rounded-md shadow-sm active:scale-95"
             onClick={() => dispatch({ kind: "change", direction: "left" })}
           >
             &larr;
@@ -171,14 +171,14 @@ const Snake: FC = () => {
             _
           </button>
           <button
-            className="bg-zinc-50 text-black text-xl py-2 px-4 rounded-md shadow active:scale-95"
+            className="bg-zinc-50 text-black text-xl py-2 px-4 rounded-md shadow-sm active:scale-95"
             onClick={() => dispatch({ kind: "change", direction: "right" })}
           >
             &rarr;
           </button>
         </div>
         <button
-          className="bg-zinc-50 text-black text-xl py-2 px-4 rounded-md shadow active:scale-95"
+          className="bg-zinc-50 text-black text-xl py-2 px-4 rounded-md shadow-sm active:scale-95"
           onClick={() => dispatch({ kind: "change", direction: "down" })}
         >
           &darr;

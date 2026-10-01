@@ -8,7 +8,7 @@
 //
 
 import { type Union } from "@d-exclaimation/common/union";
-import { rc } from "@d-exclaimation/next";
+import { rc } from "@/(common)/next";
 import { useEffect, useReducer, useRef } from "react";
 import FlippableCard from "./card";
 
@@ -103,7 +103,7 @@ const Match = rc(() => {
         {cards.map((props, i) => (
           <FlippableCard
             key={i}
-            className="w-16 h-16 md:w-32 md:h-32 [perspective:500px] group"
+            className="w-16 h-16 md:w-32 md:h-32 perspective-normal group"
             onClick={() => {
               if (props.flipped) return;
               dispatch({ kind: "flip", index: i });

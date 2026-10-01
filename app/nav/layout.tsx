@@ -5,7 +5,7 @@
 //  Created by d-exclaimation on 07 Jul 2023
 //
 
-import { layout } from "@d-exclaimation/next";
+import { layout } from "@/(common)/next";
 import { Fragment } from "react";
 
 const Layout = layout(({ children }) => {

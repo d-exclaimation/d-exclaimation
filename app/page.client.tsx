@@ -9,7 +9,7 @@
 
 import About from "@/(parallax)/about";
 import CallToAction from "@/(parallax)/call-to-action";
-import { rc } from "@d-exclaimation/next";
+import { rc } from "@/(common)/next";
 import { Parallax, type IParallax } from "@react-spring/parallax";
 import { useCallback, useEffect, useRef } from "react";
 import Poker from "./(parallax)/poker";

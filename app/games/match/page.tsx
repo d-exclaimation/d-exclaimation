@@ -5,7 +5,7 @@
 //  Created by d-exclaimation on 29 May 2023
 //
 
-import { page } from "@d-exclaimation/next";
+import { page } from "@/(common)/next";
 import Match from "./match";
 
 const Page = page(() => {
@@ -15,7 +15,5 @@ const Page = page(() => {
     </div>
   );
 });
-
-export const runtime = "edge";
 
 export default Page;

@@ -8,7 +8,7 @@
 //
 
 import { useWithinView } from "@/(hooks)/useWithinView";
-import { rc } from "@d-exclaimation/next";
+import { rc } from "@/(common)/next";
 import { type ReactNode } from "react";
 
 type Props = {

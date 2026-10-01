@@ -7,7 +7,7 @@
 //  Created by d-exclaimation on 29 May 2023
 //
 
-import { rc } from "@d-exclaimation/next";
+import { rc } from "@/(common)/next";
 
 type Props = {
   className?: string;
@@ -27,13 +27,13 @@ const FlippableCard = rc<Props>(
         onClick={onClick}
       >
         <div
-          className="w-full h-full shadow transition-transform duration-500 [transform-style:preserve-3d]
-          group-data-[flipped=true]:[transform:rotateY(180deg)] group-data-active:border-2 border-lime-400
+          className="w-full h-full shadow transition-transform duration-500 transform-3d
+          group-data-[flipped=true]:transform-[rotateY(180deg)] group-data-[active=true]:border-2 border-lime-400
           dark:border-sky-600 rounded"
         >
-          <div className="absolute w-full h-full rounded bg-gradient-to-bl from-black via-zinc-700 to-zinc-500 [backface-visibility:hidden]" />
+          <div className="absolute w-full h-full rounded-sm bg-linear-to-bl from-black via-zinc-700 to-zinc-500 backface-hidden" />
           <div
-            className="absolute w-full h-full rounded [transform:rotateY(180deg)] [backface-visibility:hidden]
+            className="absolute w-full h-full rounded transform-[rotateY(180deg)] backface-hidden
           bg-white flex items-center justify-center text-3xl md:text-6xl dark:bg-black"
           >
             {value}

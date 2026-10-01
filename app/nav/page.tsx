@@ -5,7 +5,7 @@
 //  Created by d-exclaimation on 29 Apr 2023
 //
 
-import { page } from "@d-exclaimation/next";
+import { page } from "@/(common)/next";
 import DesktopNavigation from "./desktop-nav";
 import MobileNavigation from "./mobile-nav";
 import Signature from "./signature";
@@ -22,7 +22,5 @@ const Page = page(async () => {
     </div>
   );
 });
-
-export const runtime = "edge";
 
 export default Page;
