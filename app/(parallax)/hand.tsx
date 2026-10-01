@@ -11,7 +11,7 @@ import { glowOf } from "@/(common)/glow";
 import Link from "@/(components)/link";
 import ResponsiveParallaxLayer from "@/(components)/responsive-parallax-layer";
 import Scrambled from "@/(components)/scrambled";
-import { useInView, useReducedMotion, useSpring } from "@react-spring/web";
+import { useInView, useReducedMotion, useSpring, useSprings } from "@react-spring/web";
 import { useGesture } from "@use-gesture/react";
 import {
   useCallback,
@@ -25,7 +25,12 @@ import {
 import { bounds, clamp, DESKTOP, hitTest, indexAt, PHONE, rubber, slotOf } from "./fan";
 import HandCard, { usePacket } from "./hand-card";
 
-export type Shot = { src: string; alt: string };
+export type Shot = {
+  src: string;
+  alt: string;
+  /** CSS object-position of the shot inside the card, when the default crop misses the good part. */
+  position?: string;
+};
 
 export type Project = {
   name: string;
@@ -34,7 +39,7 @@ export type Project = {
   year: string;
   /** The first shot is the cover; more than one makes a packet (first project only). */
   shots: [Shot, ...Shot[]];
-  /** `iphone` crops off the status bar and Safari bar; `clean` keeps the top of the page. */
+  /** `iphone` crops off the status bar; `clean` keeps the top of the page. */
   capture: "iphone" | "clean";
   finish?: "silver";
 };
@@ -47,8 +52,19 @@ type Props = {
 
 const AUTOPLAY_MS = 2600;
 const IN_VIEW = { amount: 0.5 } as const;
-/** Desktop sizing needs room for the panel under the hand; matches `.hand` in globals.css. */
+/** Screens roomy enough for the wider desktop fan. */
 const WIDE = "(min-width: 898px) and (min-height: 548px)";
+
+/** Shuffle and deal timings in ms, and their springs. */
+const RIFFLES = [350, 900];
+/** How far each riffle splits the halves (% of card width) and tilts them (deg); phones keep the deck on screen. */
+const RIFFLE = { wide: { spread: [58, 50], tilt: 5 }, narrow: { spread: [22, 18], tilt: 1.5 } };
+const RIFFLE_SPLIT = 240;
+const DEAL_AT = 1500;
+const DEAL_GAP = 85;
+const SPLIT = { tension: 340, friction: 28 };
+const MERGE = { tension: 420, friction: 32 };
+const DEAL = { tension: 240, friction: 22 };
 
 function Hand({ projects, onFocusEnter }: Props) {
   const reduced = !!useReducedMotion();
@@ -74,8 +90,11 @@ function Hand({ projects, onFocusEnter }: Props) {
   const interacted = useRef(false);
   const refocus = useRef(false);
   const prevName = useRef("");
+  const readyRef = useRef(false);
 
-  const [deck, api] = useSpring(() => ({ pos: 0, spread: 0, rise: 70, opacity: 0 }));
+  const [deck, api] = useSpring(() => ({ pos: 0, rise: 70, opacity: 0 }));
+  // Per card: `d` 0 in the pile → 1 dealt into the fan, `x` riffle offset (% of card width), `r` riffle tilt
+  const [cards, cardsApi] = useSprings(projects.length, () => ({ d: 0, x: 0, r: 0 }));
   const [tilt, tiltApi] = useSpring(() => ({ rx: 0, ry: 0 }));
 
   const lead = projects[0];
@@ -87,6 +106,10 @@ function Hand({ projects, onFocusEnter }: Props) {
   useEffect(() => {
     inViewNow.current = inView;
   }, [inView]);
+
+  useEffect(() => {
+    readyRef.current = ready;
+  }, [ready]);
 
   useEffect(() => {
     setColors(glowOf(new Date()));
@@ -105,26 +128,42 @@ function Hand({ projects, onFocusEnter }: Props) {
     };
   }, []);
 
-  // Deal: a squared pile rises, then fans open with the first project centred
+  // Shuffle and deal: the pile rises, is riffled twice (left half and right half split, then
+  // interleave back), then dealt out from the edges in so the first project lands last, on top
   useEffect(() => {
     if (!inView || ready) return;
     if (reduced) {
-      api.set({ rise: 0, opacity: 1, spread: 1 });
+      api.set({ rise: 0, opacity: 1 });
+      cardsApi.set({ d: 1, x: 0, r: 0 });
       setDealt(true);
       setReady(true);
       return;
     }
+    const timers: ReturnType<typeof setTimeout>[] = [];
+    const at = (ms: number, run: () => void) => timers.push(setTimeout(run, ms));
+    const side = (i: number) => (slotOf(i) > 0 ? 1 : -1);
+    // Bottom of the pile first: the outermost cards sit lowest
+    const pile = projects
+      .map((_, i) => i)
+      .sort((a, b) => Math.abs(slotOf(b)) - Math.abs(slotOf(a)) || slotOf(a) - slotOf(b));
+
     api.start({ rise: 0, opacity: 1, config: { tension: 220, friction: 26 } });
-    const open = setTimeout(() => {
-      api.start({ spread: 1, config: { tension: 260, friction: 22 } });
-      setDealt(true);
-    }, 380);
-    const done = setTimeout(() => setReady(true), 700);
-    return () => {
-      clearTimeout(open);
-      clearTimeout(done);
-    };
-  }, [inView, ready, reduced, api]);
+    RIFFLES.forEach((start, n) => {
+      const { spread: spreads, tilt } = RIFFLE[geo === PHONE ? "narrow" : "wide"];
+      const spread = spreads[n];
+      at(start, () =>
+        cardsApi.start((i) => ({ x: side(i) * spread, r: side(i) * tilt, delay: pile.indexOf(i) * 8, config: SPLIT }))
+      );
+      at(start + RIFFLE_SPLIT, () =>
+        cardsApi.start((i) => ({ x: 0, r: 0, delay: pile.indexOf(i) * 24, config: MERGE }))
+      );
+    });
+    at(DEAL_AT, () => cardsApi.start((i) => ({ d: 1, delay: pile.indexOf(i) * DEAL_GAP, config: DEAL })));
+    const last = DEAL_AT + (projects.length - 1) * DEAL_GAP;
+    at(last, () => setDealt(true));
+    at(last + 350, () => setReady(true));
+    return () => timers.forEach(clearTimeout);
+  }, [inView, ready, reduced, api, cardsApi, projects, geo]);
 
   const resetTilt = useCallback(
     () => tiltApi.start({ rx: 0, ry: 0, config: { tension: 180, friction: 20 } }),
@@ -173,6 +212,7 @@ function Hand({ projects, onFocusEnter }: Props) {
   const bind = useGesture(
     {
       onDrag: ({ first, last, tap, event, movement: [mx], velocity: [vx], direction: [dirX], memo }) => {
+        if (!readyRef.current) return memo;
         if (tap) {
           const e = event as unknown as globalThis.PointerEvent;
           if ((e.target as HTMLElement | null)?.closest('[aria-selected="true"]')) return;
@@ -242,7 +282,7 @@ function Hand({ projects, onFocusEnter }: Props) {
     let last = 0;
     const onKeydown = (e: KeyboardEvent) => {
       if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
-      if (!inViewNow.current || e.defaultPrevented) return;
+      if (!inViewNow.current || !readyRef.current || e.defaultPrevented) return;
       if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
       const target = e.target instanceof Element ? e.target : null;
       if (target?.closest("[data-shots], input, textarea, select, [contenteditable]")) return;
@@ -334,6 +374,7 @@ function Hand({ projects, onFocusEnter }: Props) {
               slot={slot}
               geo={geo}
               deck={deck}
+              card={cards[index]}
               tilt={index === focus && canTilt && !reduced ? tilt : undefined}
               focused={index === focus}
               hovered={index === hover && index !== focus}

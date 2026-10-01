@@ -76,20 +76,14 @@
   }
 }
 
-/* Dealt hand of project cards: card sizes come from the viewport so nothing is measured in JS */
+/* Dealt hand of project cards: a genuine trading card, 2.5in x 3.5in (63 x 88 mm) with 3mm corners,
+   shrunk only when the screen is too short for it and the text under the hand */
 .hand {
-  --pad: 4px;
-  --card-h: clamp(120px, min((100dvh - 200px) / 1.18, 100vw - 16px), 420px);
-  --card-w: calc((var(--card-h) - 2 * var(--pad)) * 828 / 1592 + 2 * var(--pad));
+  --pad: 5px;
+  --radius: 3mm;
+  --card-h: min(3.5in, max(150px, (100dvh - 200px) / 1.18));
+  --card-w: calc(var(--card-h) * 63 / 88);
   --box-h: calc(var(--card-h) * 1.18);
-}
-
-@media (min-width: 898px) and (min-height: 548px) {
-  .hand {
-    --pad: 6px;
-    --card-h: clamp(300px, (100dvh - 200px) / 1.16, 560px);
-    --box-h: calc(var(--card-h) * 1.16);
-  }
 }
 
 body {

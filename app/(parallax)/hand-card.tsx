@@ -91,10 +91,11 @@ type Props = {
   geo: Geo;
   deck: {
     pos: SpringValue<number>;
-    spread: SpringValue<number>;
     rise: SpringValue<number>;
     opacity: SpringValue<number>;
   };
+  /** This card's deal (`d`, 0 in the pile → 1 in the fan) and riffle offset (`x` %, `r` deg). */
+  card: { d: SpringValue<number>; x: SpringValue<number>; r: SpringValue<number> };
   /** Only passed to the centred card when tilting is enabled. */
   tilt?: { rx: SpringValue<number>; ry: SpringValue<number> };
   focused: boolean;
@@ -119,6 +120,7 @@ function HandCard({
   slot,
   geo,
   deck,
+  card,
   tilt,
   focused,
   hovered,
@@ -130,7 +132,7 @@ function HandCard({
   onTiltEnd,
 }: Props) {
   const layers = packet ? project.shots : project.shots.slice(0, 1);
-  const crop = project.capture === "iphone" ? "object-[50%_48%]" : "object-top";
+  const crop = project.capture === "iphone" ? "50% 16%" : "50% 0%";
 
   /** Where a shot sits in the packet: lifted out, fanned when centred, or squared up in the hand. */
   const placement = (layer: number) => {
@@ -151,9 +153,9 @@ function HandCard({
       className="absolute left-[calc(50%_-_var(--card-w)/2)] top-[calc(var(--card-h)*0.12)] h-(--card-h) w-(--card-w) origin-[50%_160%] will-change-transform"
       style={{
         transform: to(
-          [deck.pos, deck.spread],
-          (p, s) =>
-            `rotate(${angle(slot - p, geo) * s + JITTER[index % JITTER.length] * (1 - s)}deg)`
+          [deck.pos, card.d, card.x, card.r],
+          (p, d, x, r) =>
+            `translateX(${x}%) rotate(${angle(slot - p, geo) * d + JITTER[index % JITTER.length] * (1 - d) + r}deg)`
         ),
         zIndex: deck.pos.to((p) => zOf(slot - p)),
         opacity: deck.opacity,
@@ -167,7 +169,7 @@ function HandCard({
         aria-controls="project-panel"
         aria-label={`${project.name}, ${project.year}`}
         tabIndex={focused ? 0 : -1}
-        className={`block size-full origin-bottom rounded-[14px] outline-none focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-4 focus-visible:outline-black dark:focus-visible:outline-white ${
+        className={`block size-full origin-bottom rounded-(--radius) outline-none focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-4 focus-visible:outline-black dark:focus-visible:outline-white ${
           focused ? (packet ? "cursor-pointer" : "") : "pointer-events-none"
         }`}
         style={{
@@ -200,13 +202,13 @@ function HandCard({
               return (
                 <div
                   key={shot.src}
-                  className={`absolute inset-0 rounded-[14px] p-(--pad) shadow-[0_1px_2px_rgb(0_0_0/.06),0_10px_24px_-12px_rgb(0_0_0/.28)] transition-transform duration-300 ease-[cubic-bezier(.2,.8,.2,1)] motion-reduce:transition-none dark:shadow-[0_1px_2px_rgb(0_0_0/.4),0_16px_32px_-12px_rgb(0_0_0/.7)] ${
+                  className={`absolute inset-0 rounded-(--radius) p-(--pad) shadow-[0_1px_2px_rgb(0_0_0/.06),0_10px_24px_-12px_rgb(0_0_0/.28)] transition-transform duration-300 ease-[cubic-bezier(.2,.8,.2,1)] motion-reduce:transition-none dark:shadow-[0_1px_2px_rgb(0_0_0/.4),0_16px_32px_-12px_rgb(0_0_0/.7)] ${
                     FRAME[project.finish ?? "plain"]
                   } ${k > 0 ? "pointer-events-none" : ""}`}
                   style={style}
                 >
                   <div
-                    className={`relative aspect-[828/1592] w-full overflow-hidden rounded-[calc(14px_-_var(--pad))] ${
+                    className={`relative size-full overflow-hidden rounded-[calc(var(--radius)_-_var(--pad))] ${
                       project.finish === "silver" ? "ring-1 ring-[#C62127]" : ""
                     }`}
                   >
@@ -214,15 +216,16 @@ function HandCard({
                       fill
                       src={shot.src}
                       alt=""
-                      sizes="(min-width: 898px) 300px, 200px"
+                      sizes="240px"
                       loading="eager"
                       draggable={false}
-                      className={`select-none object-cover ${crop}`}
+                      className="select-none object-cover"
+                      style={{ objectPosition: shot.position ?? crop }}
                     />
                   </div>
                   <animated.span
                     aria-hidden
-                    className="pointer-events-none absolute inset-0 rounded-[14px] bg-white/35 dark:bg-black/50"
+                    className="pointer-events-none absolute inset-0 rounded-(--radius) bg-white/35 dark:bg-black/50"
                     style={{ opacity: dim }}
                   />
                 </div>

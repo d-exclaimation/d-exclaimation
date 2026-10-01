@@ -25,9 +25,9 @@ const projects: Project[] = [
     finish: "silver",
     shots: [
       { src: "/artpiece/projects/partly/home.webp", alt: "Partly home page" },
-      { src: "/artpiece/projects/partly/home-2.webp", alt: "Partly home page, scrolled" },
       { src: "/artpiece/projects/partly/repair-2.webp", alt: "PartlyRepair page" },
-      { src: "/artpiece/projects/partly/labs.webp", alt: "PartlyLabs page" },
+      { src: "/artpiece/projects/partly/capture.webp", alt: "Partly Capture", position: "50% 40%" },
+      { src: "/artpiece/projects/partly/home-2.webp", alt: "Interpreter on the Partly home page" },
     ],
   },
   {
