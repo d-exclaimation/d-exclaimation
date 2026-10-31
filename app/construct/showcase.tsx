@@ -130,6 +130,12 @@ const LANDED = 120;
 const REST = 6000;
 /** The pages each key moves by. */
 const KEYS: Record<string, number> = { arrowleft: -1, a: -1, arrowright: 1, d: 1 };
+/** How far the wheel has to travel in one go to turn the page: a real swipe, or four notches of a mouse wheel. */
+const WHEEL_REACH = 400;
+/** Milliseconds without the wheel that end a go, which a trackpad's momentum never leaves. */
+const WHEEL_QUIET = 300;
+/** Milliseconds a page holds the wheel off for, so it gets taken in before it can be left. */
+const WHEEL_REST = 3000;
 
 function Showcase() {
   const pager = useRef<HTMLDivElement>(null);
@@ -146,6 +152,8 @@ function Showcase() {
   const [picked, setPicked] = useState<number | null>(null);
   // Which game the arcade cabinet is showing, if any
   const [playing, setPlaying] = useState<number | null>(null);
+  // How far this go of the wheel has come, and whether it has already had its one page
+  const wheel = useRef({ travel: 0, at: 0, spent: false, restUntil: 0 });
   // Only one construct ever draws, so there's one canvas, sat over whichever page is on show
   const [canvas, setCanvas] = useState<HTMLCanvasElement | null>(null);
   const { titles } = pages[active];
@@ -205,6 +213,34 @@ function Showcase() {
     window.addEventListener("keydown", onKeydown);
     return () => window.removeEventListener("keydown", onKeydown);
   }, [active, go]);
+
+  // Every page gets its moment, however it was reached and from when it lands
+  useEffect(() => {
+    wheel.current.restUntil = performance.now() + WHEEL_REST;
+  }, [active, live]);
+
+  useEffect(() => {
+    function onWheel(e: WheelEvent) {
+      // Pinches and sideways swipes aren't asking for this, and a game shouldn't be left by accident
+      if (e.ctrlKey || playing !== null || Math.abs(e.deltaX) >= Math.abs(e.deltaY)) return;
+      const turn = wheel.current;
+      // A go that starts while the page is resting doesn't count, even if it carries on past the rest
+      if (e.timeStamp - turn.at > WHEEL_QUIET) {
+        turn.travel = 0;
+        turn.spent = e.timeStamp < turn.restUntil;
+      }
+      turn.at = e.timeStamp;
+      if (turn.spent) return;
+      const by = e.deltaMode === WheelEvent.DOM_DELTA_PIXEL ? e.deltaY : e.deltaY * 33;
+      turn.travel = by * turn.travel < 0 ? by : turn.travel + by;
+      const to = active + Math.sign(turn.travel);
+      if (Math.abs(turn.travel) < WHEEL_REACH || !pages[to]) return;
+      turn.spent = true;
+      go(to);
+    }
+    window.addEventListener("wheel", onWheel, { passive: true });
+    return () => window.removeEventListener("wheel", onWheel);
+  }, [active, go, playing]);
 
   return (
     <div className="fixed inset-0 z-20" style={{ background: "#f4f3ef" }}>
