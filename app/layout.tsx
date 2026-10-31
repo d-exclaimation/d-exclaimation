@@ -36,14 +36,14 @@ export const metadata: Metadata = {
   title: "talker",
   description: "My work, my art, my passion",
   twitter: {
-    images: { url: "/preview.png", width: 1200, height: 630 },
+    images: { url: "/preview.gif", width: 720, height: 378 },
     title: "talker",
     description: "My work, my art, my passion",
     card: "summary_large_image",
     creator: "@dexclaimation",
   },
   openGraph: {
-    images: { url: "/preview.png", width: 1200, height: 630 },
+    images: { url: "/preview.gif", width: 720, height: 378 },
     title: "talker",
     url: "https://www.talker.dev",
     description: "My work, my art, my passion",
