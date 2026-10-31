@@ -32,23 +32,23 @@ function RootLayout({ children }: { children: ReactNode }) {
 }
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://d-exclaimation.me"),
-  title: "d-exclaimation",
+  metadataBase: new URL("https://www.talker.dev"),
+  title: "talker",
   description: "My work, my art, my passion",
   twitter: {
-    images: "/me.gif",
-    title: "d-exclaimation",
+    images: { url: "/preview.png", width: 1200, height: 630 },
+    title: "talker",
     description: "My work, my art, my passion",
     card: "summary_large_image",
     creator: "@dexclaimation",
   },
   openGraph: {
-    images: "/me.gif",
-    title: "d-exclaimation",
-    url: "https://d-exclaimation.me",
+    images: { url: "/preview.png", width: 1200, height: 630 },
+    title: "talker",
+    url: "https://www.talker.dev",
     description: "My work, my art, my passion",
     type: "article",
-    siteName: "d-exclaimation",
+    siteName: "talker",
   },
   icons: {
     icon: [
