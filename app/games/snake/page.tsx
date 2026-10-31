@@ -5,14 +5,11 @@
 //  Created by d-exclaimation on 18 May 2023
 //
 
-import Snake from "./snake";
+import { redirect } from "next/navigation";
 
+/** The game lives on the arcade cabinet now; this keeps the old address working. */
 function Page() {
-  return (
-    <div className="flex flex-col items-center justify-center min-w-screen min-h-screen">
-      <Snake />
-    </div>
-  );
+  redirect("/#arcade");
 }
 
 export default Page;

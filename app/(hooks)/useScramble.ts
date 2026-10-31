@@ -134,7 +134,7 @@ export function useScramble(
     index.current = 0;
     next(currText);
     return clearAllTimeout;
-  }, []);
+  }, [phrases.join("\n")]);
 
   return currText;
 }
