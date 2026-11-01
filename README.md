@@ -1,6 +1,13 @@
 <div align="start">
+  <a href="https://talker.dev">
+    <img
+      src="https://raw.githubusercontent.com/d-exclaimation/d-exclaimation/main/public/preview.gif"
+    >
+  </a>
+
+  <br />
   <div align="start">
-  I make products now for a living, and yaps a lot.
+  There's always one person already in the air while everyone else is still arguing about the jump. From the ground it looks like a stupid idea. Maybe it's brave, nobody really knows until it lands. Every good thing that ever existed looked like a bad idea for a long time, until it wasn't. It's just a matter of whether they fall or fly.
   </div>
   
   <br />
