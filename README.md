@@ -1,19 +1,10 @@
 <div align="start">
   <a href="https://talker.dev">
     <img
-      src="https://raw.githubusercontent.com/d-exclaimation/d-exclaimation/main/public/preview.gif"
+      src="https://raw.githubusercontent.com/d-exclaimation/d-exclaimation/main/public/readme.gif"
       width="100%"
     >
   </a>
-
-  <br />
-  <div align="start">
-  <a href="https://talker.dev">
-    <img
-      src="https://img.shields.io/badge/-talker.dev-000000?style=flat-square&logo=Google-Chrome&logoColor=white&link=https://talker.dev"
-    >
-  </a>
-  </div>
 
   <br />
 
