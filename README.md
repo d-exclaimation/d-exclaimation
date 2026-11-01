@@ -2,29 +2,15 @@
   <a href="https://talker.dev">
     <img
       src="https://raw.githubusercontent.com/d-exclaimation/d-exclaimation/main/public/preview.gif"
+      width="100%"
     >
   </a>
 
   <br />
   <div align="start">
-  There's always one person already in the air while everyone else is still arguing about the jump. From the ground it looks like a stupid idea. Maybe it's brave, nobody really knows until it lands. Every good thing that ever existed looked like a bad idea for a long time, until it wasn't. It's just a matter of whether they fall or fly.
-  </div>
-  
-  <br />
-  <div align="start">
-  <a href="https://d-exclaimation.me">
-    <img
-      src="https://img.shields.io/badge/-d--exclaimation.me-000000?style=flat-square&logo=Google-Chrome&logoColor=white&link=https://d-exclaimation.me"
-    >
-  </a>
   <a href="https://talker.dev">
     <img
       src="https://img.shields.io/badge/-talker.dev-000000?style=flat-square&logo=Google-Chrome&logoColor=white&link=https://talker.dev"
-    >
-  </a>
-  <a href="https://linkedin.com/in/d-exclaimation">
-    <img
-      src="https://img.shields.io/badge/-d--exclaimation-000000?style=flat-square&logo=Linkedin&logoColor=white&link=https://linkedin.com/in/d-exclaimation"
     >
   </a>
   </div>
