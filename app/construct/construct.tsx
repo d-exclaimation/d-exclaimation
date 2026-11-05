@@ -10,8 +10,10 @@
 import { useEffect, useRef } from "react";
 import { arcade } from "./arcade";
 import { bodyshop } from "./bodyshop";
-import { mountConstruct } from "./engine";
+import { mountConstruct, type Blueprint } from "./engine";
 import { capture } from "./capture";
+import { commander } from "./commander";
+import { drifter } from "./drifter";
 import { exploded } from "./exploded";
 import { jet } from "./jet";
 import { mirage } from "./mirage";
@@ -19,7 +21,7 @@ import { partly } from "./partly";
 import { repair } from "./repair";
 import { shelf } from "./shelf";
 
-const blueprints = { jet, repair, capture, partly, bodyshop, exploded, mirage, shelf, arcade };
+const blueprints = { jet, repair, capture, partly, drifter, commander, bodyshop, exploded, mirage, shelf, arcade };
 
 export type Name = keyof typeof blueprints;
 
@@ -43,15 +45,29 @@ function Construct({ canvas, name, live, className, picked }: Props) {
   const stage = useRef<HTMLDivElement>(null);
   const world = useRef<ReturnType<typeof mountConstruct> | null>(null);
 
+  // Kept for a blueprint that's still loading what it's drawn from when the page lands on it
+  const now = useRef({ live, picked });
+  now.current = { live, picked };
+
   useEffect(() => {
     if (!canvas || !stage.current) return;
+    let gone = false;
+    const mount = (blueprint: Blueprint) => {
+      if (gone || !stage.current) return;
+      world.current = mountConstruct(canvas, stage.current, blueprint);
+      if (now.current.live) world.current.play();
+      world.current.pick(now.current.picked ?? -1);
+    };
     // A construct that can't start leaves bare paper rather than taking the whole page down with it
     try {
-      world.current = mountConstruct(canvas, stage.current, blueprints[name]());
+      const blueprint = blueprints[name]();
+      if (blueprint instanceof Promise) blueprint.then(mount).catch(() => {});
+      else mount(blueprint);
     } catch {
       return;
     }
     return () => {
+      gone = true;
       world.current?.destroy();
       world.current = null;
     };

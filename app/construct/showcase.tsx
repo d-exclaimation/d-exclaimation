@@ -33,6 +33,8 @@ type Page = {
   titles: string[];
   about: string;
   links: Destination[];
+  /** A plain word beside the links, for what they don't say. */
+  note?: string;
   /** Lists the links one per line, for ones too long to share a row. */
   stacked?: boolean;
 };
@@ -75,6 +77,22 @@ const pages: Page[] = [
       { label: "partly.com", href: manifest.stories.partly.href, external: true },
       { label: "partly.com/repair", href: "https://partly.com/repair", external: true },
     ],
+  },
+  {
+    name: "drifter",
+    titles: ["unnamed rpg"],
+    about:
+      "A hooded drifter up against horrors far bigger than he is. Fights go turn by turn: he picks his move, then dodges theirs on the beat, or doesn't.",
+    links: [{ label: "drifter.talker.dev", href: "https://drifter.talker.dev", external: true }],
+    note: "work in progress (demo available)",
+  },
+  {
+    name: "commander",
+    titles: ["magic no gathering"],
+    about:
+      "A table of AI agents playing Commander like they mean it. They make deals, point at whoever's ahead, plead for one more turn and break their promises the turn after. The rules come from a modified XMage engine underneath.",
+    links: [],
+    note: "private, not public yet",
   },
   {
     name: "bodyshop",
@@ -123,7 +141,7 @@ const pages: Page[] = [
   },
 ];
 /** Milliseconds in, once the intro has finished, that the remaining pages load one at a time. */
-const LOADS = [4600, 5400, 6200, 7000, 7800, 8600, 9400];
+const LOADS = [4600, 5400, 6200, 7000, 7800, 8600, 9400, 10200, 11000];
 /** Milliseconds without scrolling before the pager counts as having landed. */
 const LANDED = 120;
 /** Milliseconds the title holds still between glitches. */
@@ -255,7 +273,7 @@ function Showcase() {
           className="pointer-events-none absolute top-0 block h-full w-full"
           style={{ left: `${live * 100}%` }}
         />
-        {pages.map(({ name, about, links, stacked }, index) => (
+        {pages.map(({ name, about, links, stacked, note }, index) => (
           <section
             key={name}
             className="relative grid h-full w-full shrink-0 snap-center snap-always grid-rows-[minmax(0,1fr)_auto] pb-24 md:grid-cols-[43%_minmax(0,1fr)] md:grid-rows-[minmax(0,1fr)]"
@@ -314,6 +332,7 @@ function Showcase() {
                     </div>
                   );
                 })}
+                {note && <span className="px-3 py-1 text-neutral-500">{note}</span>}
               </div>
             </div>
           </section>
@@ -321,7 +340,7 @@ function Showcase() {
       </div>
       <nav className="pointer-events-none absolute inset-x-0 bottom-0 z-10 flex items-center justify-center pb-6 font-mono text-[28px] font-bold text-[#141414] md:pb-8 md:text-5xl">
         <Arrow direction="previous" disabled={active === 0} onClick={() => go(active - 1)} />
-        <div className="flex w-[17ch] justify-center">
+        <div className="flex w-[18ch] justify-center">
           {reduced ? (
             titles[0]
           ) : (
