@@ -80,7 +80,7 @@ const pages: Page[] = [
   },
   {
     name: "drifter",
-    titles: ["unnamed rpg"],
+    titles: ["unnamed trpg"],
     about:
       "A hooded drifter up against horrors far bigger than he is. Fights go turn by turn: he picks his move, then dodges theirs on the beat, or doesn't.",
     links: [{ label: "drifter.talker.dev", href: "https://drifter.talker.dev", external: true }],

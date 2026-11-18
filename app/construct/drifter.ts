@@ -2,80 +2,133 @@
 //  drifter.ts
 //  d-exclaimation
 //
-//  The Drifter game's first fight, on the beat: the Walker has fired Dead Aim from its mark, braced and kicked back, and its round has blown up the floor
-//  a stride behind him as he runs across its line. Every piece is one of the game's own drawings (public/drifter, copied
-//  from the game as they are) given depth pixel for pixel, so face on each is exactly as it's drawn. They stand the way the game stands them, seen from
-//  where its camera sees them, and the only change is colour: what's darkest in a drawing is inked onto its face, and the rest is paper
+//  The Drifter game, five ways, each going to sand as the next comes out of it: three frames of the two of them fighting the Heart Hoarder as the game
+//  draws them, her Cut, its spin into him, and his Star Blast fired from the cannon he's built over his head; and between the fights, the cutscenes:
+//  the city seen whole from the colony's height with her looking out over it, and her close up looking at him after the Walker's down. Every piece
+//  is one of the game's own drawings (public/drifter, copied from the game as they are) given depth pixel for pixel, so face on each is exactly as
+//  it's drawn, and his cannon is the game's own model of it (model/cannon.ts, read off the game opened as it fires), built part by part as he
+//  builds it. The fights stand as the game stands them, seen from where its camera sees them, and the only change is colour: what's darkest in a
+//  drawing is inked onto its face, the rest is drawn in pencil as dark as the drawing is there, and the only colour kept is the game's red, with
+//  his grey
 //
 
 import type { Blueprint, Section } from "./engine";
-import { Mesh, add, cross, norm, scale, sub, type Vec3 } from "./mesh";
+import { Mesh, add, axis, cross, norm, scale, sub, type Vec3 } from "./mesh";
 import { brightness } from "./voxels";
 
 /** Construct units per metre. */
 const U = 100;
 
-// The game's own numbers: its page and camera, where the fight stands them, and how the Walker stands and aims (render/book.ts, game/battle.ts,
-// game/walker.ts, game/hooded.ts)
+// The game's own page and camera (render/book.ts)
 const PIXELS = 29.5;
 const PITCH = (30 * Math.PI) / 180;
-const VIEW = [0, Math.sin(PITCH), Math.cos(PITCH)];
-const MARKS = { him: [-3.4, 0, 2.4], it: [3.2, 0, -2.2] };
-/** How far across its line he's run from his mark, and how far behind him its round lands. */
-const RAN = 3.0;
-const BEHIND = 2.7;
-const HIGH = 2.4;
-const HIPS = { back: -1.5, front: 1.15, high: 4.2, near: 0.35, far: -0.35 };
-const FEET = { back: -3.3, front: 3, near: 0.8, far: -0.9 };
-const ANKLE = 49;
-const SLUNG = [8, 34];
-const DOWNMOST = -0.65;
-const UPMOST = 0.3;
-const SHOULDER = [44, 70];
-const ARM_HANGS = -0.35;
-const DROOP = -0.45;
-/** Firing: how far down it's braced, in metres, and how far its hull and rifle are kicked back, in pixels. */
-const BRACES = 0.75;
-const KICK = { hull: 5, rifle: 10 };
-/** His run, drawn going down and right of the page, which takes him across its line, the frame at full stride. */
-const SOUTHEAST = 1;
-const STRIDE = 2;
+const VIEW: Point = [0, Math.sin(PITCH), Math.cos(PITCH)];
 
-/** Where its round lands it crashes as the game's does (walker.ts `crash`, rubble.ts): the blast, and a dust either side of it rolling out along the floor,
- *  how far out, how fast for a round's weight, and each one's strip: its size, how fast it plays, and the pixel it goes off from. This is the blast at its
- *  fireball, and the dust as far as it's got by then. */
-const BLAST = { w: 122, h: 76, fps: 22, from: [61, 70], frame: 2 };
-const DUST = { w: 101, h: 64, fps: 14, from: [6, 56], out: 0.6, rolls: 2.5 * 0.9 };
+/** How a drawing's colours wash: as him, her, or the Hoarder, or as a plate. */
+type Look = "him" | "her" | "it" | "plate";
+type Point = [number, number, number];
+type Flat = [number, number];
 
-/** What a pixel washes to past paper: ink, or one of the page's own colours, counted from 1 as the page counts them. */
+/** A drawing the game laid: the sheet, the rectangle on it, whether it's turned over, where it stands in the room, its box on the page round that
+ *  point, how deep it's made, and how it washes. */
+type Card = { sheet: string; frame: number[]; flip: boolean; at: Point; box: number[]; deep: number; look: Look };
+/** A frame of the fight, read off the game's book as it laid each drawing: how big its page was, in its pixels, where the room's middle was on it
+ *  then, what it laid, and his cannon if it's up: its model, where its heart is, and what it's firing on. */
+type Frame = { size: Flat; middle: Flat; cards: Card[]; cannon?: { model: string; heart: Point; on: Point } };
+
+/** Her Cut (her press, then cut, the game's `?scene=pick&them=hoarder&duo`): its arc right through the Hoarder, him out in front. */
+const CUT: Frame = {
+  size: [424, 339],
+  middle: [141, 222],
+  cards: [
+    { sheet: "drifter/atlas.png", frame: [1338, 266, 33, 62], flip: false, at: [3.884, 0, 5.816], box: [-17, 16, -1, 61], deep: 0.6, look: "him" },
+    { sheet: "eleanor/anim.png", frame: [220, 1557, 110, 129], flip: false, at: [1.773, 0, -1.254], box: [-45, 65, -33, 96], deep: 0.6, look: "her" },
+    { sheet: "hoarder/frames.png", frame: [549, 1, 136, 119], flip: false, at: [3.2, 0, -2.2], box: [-68, 68, -1, 118], deep: 1, look: "it" },
+  ],
+};
+/** It spins into him (its "Move Attack"), its sweep round it, as he goes into his roll out of it, her on its far side with her sword out. */
+const STRIKE: Frame = {
+  size: [424, 339],
+  middle: [272, 193],
+  cards: [
+    { sheet: "drifter/atlas.png", frame: [992, 266, 56, 62], flip: false, at: [-3.466, 0, -0.58], box: [-34, 22, -2, 60], deep: 0.6, look: "him" },
+    { sheet: "eleanor/anim.png", frame: [0, 3322, 88, 67], flip: true, at: [1.762, 0, -1.246], box: [-49, 39, -1, 66], deep: 0.6, look: "her" },
+    { sheet: "hoarder/frames.png", frame: [1248, 320, 157, 116], flip: true, at: [-1.199, 0, 1.675], box: [-82, 75, 6, 122], deep: 1, look: "it" },
+  ],
+};
+/** His Star Blast, its three circles all met: the cannon he built over his head thrown open, its light gone from it right into the Hoarder's
+ *  heart, her back behind him. The fight stands its cannon right over him, its heart a way up the page from his feet (its `CANNON.over`), turned
+ *  to fire on the Hoarder's eyes, as the game turns its model (game.ts, aimCannon). */
+const BLAST: Frame = {
+  size: [424, 339],
+  middle: [229, 191],
+  cards: [
+    { sheet: "drifter/atlas.png", frame: [1468, 266, 32, 62], flip: false, at: [-3.4, 0, 2.4], box: [-20, 12, -1, 61], deep: 0.6, look: "him" },
+    { sheet: "eleanor/anim.png", frame: [130, 213, 65, 71], flip: false, at: [-6.3, 0, 4.1], box: [-33, 32, -5, 66], deep: 0.6, look: "her" },
+    { sheet: "hoarder/frames.png", frame: [895, 1212, 124, 109], flip: true, at: [3.2, 0, -2.2], box: [-62, 62, 0, 109], deep: 1, look: "it" },
+  ],
+  cannon: { model: "fight/cannon.bin", heart: [-3.4, 98 / (PIXELS * VIEW[2]), 2.4], on: [3.2, 2.623, -2.2] },
+};
+/** The cannon's model: where its blast leaves it, along its length, how wide its light is as it goes, in metres, and the inside of its barrel, its
+ *  only part drawn in ink (`model/cannon.ts`). */
+const CANNON = { muzzle: 1.47, beam: 0.2, inked: 16 };
+
+/** The city seen whole, from the colony's height (the cutscene `vista`): its plate, and her on it with her back to us (`eleanor-idle`, its last row),
+ *  her feet where the shot has them. */
+const VISTA = {
+  plate: { sheet: "cutscene/vista.png", frame: [0, 0, 600, 340] },
+  her: { sheet: "cutscene/eleanor-idle.png", frame: [0, 284, 65, 71], feet: [33, 66], on: [300, 318] },
+};
+/** Her close up as the cutscenes draw her looking at him (the first frame of `eleanor-look`, the game's tools/source/icon). */
+const CLOSE = { sheet: "eleanor/look.png", frame: [0, 0, 169, 202], feet: [84, 202] };
+/** How big each of them is made, across and up in the game's pixels, so whichever is up fills the stage the same. */
+const FILLS: Flat = [400, 290];
+
+/** In the order they come round: the fights with the cutscenes between them. */
+const ORDER = ["cut", "vista", "strike", "blast", "close"] as const;
+/** How long each holds once it's whole, how long one takes to go to sand and the next to come out of it, and how far behind the one before each of
+ *  its pieces comes, in seconds. */
+const SWAP = { hold: 6.5, turn: 1.6, after: 0.1 };
+
+/** What a pixel washes to past paper: ink, the game's red, or his grey, counted from 1 as the page counts its colours. */
 const INK = -1;
 const RED = 1;
-const ORANGE = 2;
-const YELLOW = 3;
-const GREEN = 4;
-const BLUE = 5;
-const MINT = 6;
 const GREY = 7;
-const SMOKE = 8;
 
 /** Where the light falls from. */
 const LIGHT: Vec3 = [-0.45, -0.7, 0.55];
 
-/** How deep each drawing is made, in metres. */
-const DEEP = { hull: 1.7, boot: 0.9, block: 1.2, upper: 0.35, lower: 0.45, rifle: 0.32, gatling: 0.55, him: 0.6, blast: 0.9, dust: 0.5 };
-
-type Frame = number[];
 type Sheet = { pixels: Uint8ClampedArray; width: number };
-type Point = [number, number, number];
-type Flat = [number, number];
 
 /** Where a point in the game's room is on its page, in its pixels: across, and up the page. */
 const onPage = ([x, y, z]: Point): Flat => [x * PIXELS, (y * VIEW[2] - z * VIEW[1]) * PIXELS];
 /** A point in the game's room in the construct's: the game stands things up y with its camera out along +z. */
 const room = ([x, y, z]: Point): Vec3 => [x * U, -z * U, y * U];
+const less = (a: Point, b: Point): Point => [a[0] - b[0], a[1] - b[1], a[2] - b[2]];
+/** A point straight out toward the game's camera from the middle of the room, so on the page it's still the middle. */
+const forward = (metres: number): Point => [VIEW[0] * metres, VIEW[1] * metres, VIEW[2] * metres];
+const along = (from: Point, to: Point): Point => {
+  const d = less(to, from);
+  const l = Math.hypot(...d) || 1;
+  return [d[0] / l, d[1] / l, d[2] / l];
+};
+const crossed = (a: Point, b: Point): Point => [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]];
+
+const smooth = (t: number) => {
+  const k = Math.min(1, Math.max(0, t));
+  return k * k * (3 - 2 * k);
+};
+/** How much of one of them is there, given the seconds since the first was whole: each holds, goes to sand, and the next comes out of it. */
+const shown = (moment: number, seconds: number) => {
+  const { hold, turn } = SWAP;
+  const each = hold + 2 * turn;
+  const all = ORDER.length * each;
+  const t = ((((seconds - moment * each + turn) % all) + all) % all) - turn;
+  return t < 0 ? smooth((t + turn) / turn) : t < hold ? 1 : t < hold + turn ? 1 - smooth((t - hold) / turn) : 0;
+};
 
 async function sheet(path: string): Promise<Sheet> {
-  const image = await createImageBitmap(await (await fetch(path)).blob());
+  const image = await createImageBitmap(await (await fetch(`/drifter/${path}`)).blob());
   const canvas = document.createElement("canvas");
   canvas.width = image.width;
   canvas.height = image.height;
@@ -85,13 +138,11 @@ async function sheet(path: string): Promise<Sheet> {
 }
 
 export async function drifter(): Promise<Blueprint> {
-  const [hooded, walker, blast, dust, frames, parts] = await Promise.all([
-    sheet("/drifter/hooded/atlas.png"),
-    sheet("/drifter/walker/parts.png"),
-    sheet("/drifter/fx/blast.png"),
-    sheet("/drifter/fx/dust.png"),
-    fetch("/drifter/hooded/frames.json").then((r) => r.json()),
-    fetch("/drifter/walker/parts.json").then((r) => r.json() as Promise<{ pieces: Record<string, { frames: Frame[]; steps?: number; length?: number }> }>),
+  const fights = [CUT, STRIKE, BLAST];
+  const paths = [...fights.flatMap((f) => f.cards.map((c) => c.sheet)), VISTA.plate.sheet, VISTA.her.sheet, CLOSE.sheet];
+  const [sheets, model] = await Promise.all([
+    Promise.all([...new Set(paths)].map(async (path) => [path, await sheet(path)] as const)).then((all) => new Map(all)),
+    fetch(`/drifter/${BLAST.cannon!.model}`).then((r) => r.arrayBuffer()),
   ]);
   const M = new Mesh();
   const sections: Section[] = [];
@@ -104,30 +155,32 @@ export async function drifter(): Promise<Blueprint> {
   const facing = sun[0] * toward[0] + sun[1] * toward[1] + sun[2] * toward[2];
   const away = norm(scale(sub(sun, scale(toward, facing)), -1));
   const LEANS = [0, 0.55, 0.81, 1.06].map((turn): Vec3 => norm(add(scale(toward, Math.cos(turn)), scale(away, Math.sin(turn)))));
+  const sideways = norm(right);
+  const upward = norm(up);
 
   /** A drawing given depth, pixel for pixel: its pixels as a solid through `near`, with its pixel (`px`, `py`) on page pixel `at`, turned over if `flip`,
-   *  every step of its outline a step of the solid, and its dark pixels inked on its face where they are. The rest is drawn in pencil, hatched as dark as
-   *  the drawing is there, over what colour it keeps in the page's own: his navy body grey, and a crash's fire orange, its smoke and dust the teal grey
-   *  they are and its lightning mint, the fire and the lightning left clean. */
-  const solid = (from: Sheet, [x, y, w, h]: Frame, [px, py]: Frame, flip: boolean, near: Point, at: Flat, deep: number, look?: "him" | "crash" | "sketch") => {
+   *  every step of its outline a step of the solid, and its dark pixels inked on its face where they are. The rest is drawn in pencil, hatched as dark
+   *  as the drawing is there, and the only colour it keeps is the game's red, and his navy body as grey. */
+  const solid = (from: Sheet, [x, y, w, h]: number[], [px, py]: number[], flip: boolean, near: Point, at: Flat, deep: number, look: Look) => {
+    // A plate's painted all in the middle tones, so its steps of dark are its own: its darkest few in a hundred inked, the rest in quarters
+    const [inked, ...steps] = look === "plate" ? [0.235, 0.45, 0.36, 0.29] : [0.12, 0.6, 0.45, 0.3];
     const [nx, ny] = onPage(near);
     const origin = room(near);
     const pixel = (i: number, j: number) => ((y + j) * from.width + x + i) * 4;
     const solidAt = (i: number, j: number) => i >= 0 && j >= 0 && i < w && j < h && from.pixels[pixel(i, j) + 3] > 127;
-    /** What a pixel washes to: ink if it's near black, then by what the drawing is, otherwise the nearest of the page's colours if it's a strong one, or paper. */
+    /** What a pixel washes to: ink if it's near black, his grey if it's his body, the game's red if it's that, or paper. */
     const wash = (i: number, j: number) => {
       const p = pixel(i, j);
       const [r, g, b] = [from.pixels[p], from.pixels[p + 1], from.pixels[p + 2]];
       const light = brightness((r << 16) | (g << 8) | b);
-      if (light < 0.12) return INK;
-      if (look === "sketch") return 0;
+      if (light < inked) return INK;
       if (look === "him") return light < 0.4 && b >= r ? GREY : 0;
       const most = Math.max(r, g, b);
       const spread = most - Math.min(r, g, b);
       const hue = spread ? (((most === r ? (g - b) / spread : most === g ? 2 + (b - r) / spread : 4 + (r - g) / spread) * 60) + 360) % 360 : 0;
-      if (look === "crash") return hue < 45 && spread / most > 0.45 ? ORANGE : light < 0.6 ? SMOKE : spread / most > 0.15 ? MINT : 0;
-      if (spread / (most || 1) < 0.45 || light < 0.3) return 0;
-      return hue < 15 || hue >= 330 ? RED : hue < 45 ? ORANGE : hue < 70 ? YELLOW : hue < 150 ? GREEN : hue < 200 ? MINT : hue < 260 ? BLUE : 0;
+      const red = (hue < 15 || hue >= 330) && spread / (most || 1) >= 0.45;
+      // The Hoarder's red is deep, its swords and its heart, and what it is
+      return red && (look === "it" || light >= 0.3) ? RED : 0;
     };
     // A corner of the drawing's pixel grid, on the page and out toward the camera by `depth`
     const put = (i: number, j: number, depth: number): Vec3 => {
@@ -136,14 +189,11 @@ export async function drifter(): Promise<Blueprint> {
       return [origin[0] + right[0] * across + toward[0] * depth, origin[1] + up[1] * high + toward[1] * depth, origin[2] + up[2] * high + toward[2] * depth];
     };
     const half = (deep * U) / 2;
-    const sideways = norm(right);
-    const upward = norm(up);
-    /** How dark a pixel is drawn in hatching, if this is drawn that way, as one of the steps of `LEANS`. */
+    /** How dark a pixel is drawn in hatching, as one of the steps of `LEANS`. */
     const tone = (i: number, j: number) => {
-      if (!look || (look === "crash" && (wash(i, j) === ORANGE || wash(i, j) === MINT))) return 0;
       const p = pixel(i, j);
       const light = brightness((from.pixels[p] << 16) | (from.pixels[p + 1] << 8) | from.pixels[p + 2]);
-      return light >= 0.6 ? 0 : light >= 0.45 ? 1 : light >= 0.3 ? 2 : 3;
+      return light >= steps[0] ? 0 : light >= steps[1] ? 1 : light >= steps[2] ? 2 : 3;
     };
     /** A flat face from pixel corner (i0, j0) to (i1, j1), at a depth, facing the camera or away, its front leant off the light as far as its tone says. */
     const face = (i0: number, i1: number, j: number, depth: number, front: boolean, shade = 0) => {
@@ -158,8 +208,8 @@ export async function drifter(): Promise<Blueprint> {
       M.quad(add(a, scale(toward, -half)), add(b, scale(toward, -half)), add(b, scale(toward, half)), add(a, scale(toward, half)), out);
     };
     for (let j = 0; j < h; j++) {
-      // Its faces, a run of pixels at a time, then its ink and its fire over the front
-      for (const shade of [0, INK, RED, ORANGE, YELLOW, GREEN, BLUE, MINT, GREY, SMOKE]) {
+      // Its faces, a run of pixels at a time, then its ink and its colours over the front
+      for (const shade of [0, INK, RED, GREY]) {
         M.ink = shade === INK;
         M.paint = shade > 0 ? shade : 0;
         let start = -1;
@@ -168,7 +218,8 @@ export async function drifter(): Promise<Blueprint> {
           const on = i < w && solidAt(i, j) && (shade === 0 || wash(i, j) === shade) && (start < 0 || tone(i, j) === tone(start, j));
           if (start >= 0 && !on) {
             face(start, i, j, shade === 0 ? half : half + 2.5, true, shade === INK ? 0 : tone(start, j));
-            if (shade === 0) face(start, i, j, -half, false);
+            // (a plate's back is never seen)
+            if (shade === 0 && look !== "plate") face(start, i, j, -half, false);
             start = -1;
           }
           if (i < w && solidAt(i, j) && (shade === 0 || wash(i, j) === shade) && start < 0) start = i;
@@ -187,110 +238,106 @@ export async function drifter(): Promise<Blueprint> {
       }
     }
   };
-  const part = (rank: number, offset: Vec3, rest: Partial<Section> = {}) => {
+
+  /** One part of the construct: the first one up builds in order and hangs above where it goes till then; the rest wait out of sight for their turn,
+   *  each piece a little behind the one before it. */
+  const part = (moment: number, n: number) => {
     M.section = sections.length;
-    sections.push({ offset, rank, ...rest });
+    const first = moment === 0;
+    const after = n * SWAP.after;
+    sections.push({
+      offset: first ? [0, 0, 220 + n * 30] : [0, 0, 0],
+      rank: first ? n : 100 + sections.length,
+      late: !first,
+      idle: (seconds) => ({ form: first && seconds < SWAP.hold ? 1 : shown(moment, seconds - after) }),
+    });
   };
 
-  /** A frame of one of the Walker's pieces, turned to an angle on the page if it turns, as the game's `lay` picks it, with its far end. */
-  const lay = (piece: string, angle: number | null, over: boolean) => {
-    const { frames: list, steps } = parts.pieces[piece];
-    let frame = list[0];
-    let flip = over;
-    if (angle !== null && steps) {
-      const round = Math.atan2(Math.sin(angle), Math.cos(angle));
-      const ahead = Math.cos(round) >= 0;
-      const a = ahead ? round : Math.atan2(Math.sin(round), -Math.cos(round));
-      frame = list[Math.min(list.length - 1, Math.max(0, Math.round(((a + Math.PI / 2) / Math.PI) * steps)))];
-      flip = !ahead;
+  /** His cannon as the game's model has it, opened as it fires, a part at a time from its heart out, turned so its length points at what it fires
+   *  on; then its light, a shaft from its mouth into that. The model comes as each corner of each triangle, then a byte a triangle: its part, and
+   *  whether it's inked. */
+  const cannon = ({ heart, on }: NonNullable<Frame["cannon"]>, middle: Point, moment: number, n: number) => {
+    const corners = (model.byteLength / 37) * 3;
+    const points = new Float32Array(model, 0, corners * 3);
+    const marks = new Uint8Array(model, corners * 12);
+    const x = along(heart, on);
+    const z = along([0, 0, 0], crossed(x, [0, 1, 0]));
+    const y = crossed(z, x);
+    const placed = (k: number): Vec3 => {
+      const [a, b, c] = [points[k * 3], points[k * 3 + 1], points[k * 3 + 2]];
+      return room(less([heart[0] + x[0] * a + y[0] * b + z[0] * c, heart[1] + x[1] * a + y[1] * b + z[1] * c, heart[2] + x[2] * a + y[2] * b + z[2] * c], middle));
+    };
+    const parts = Math.max(...marks.map((m) => m % CANNON.inked)) + 1;
+    for (let p = 0; p < parts; p++) {
+      part(moment, n++);
+      marks.forEach((m, t) => {
+        if (m % CANNON.inked !== p) return;
+        const [a, b, c] = [placed(t * 3), placed(t * 3 + 1), placed(t * 3 + 2)];
+        M.ink = m >= CANNON.inked;
+        M.quad(a, b, c, c, norm(cross(sub(b, a), sub(c, a))));
+      });
+      M.ink = false;
     }
-    return { frame, flip, end: [(frame[6] - frame[4]) * (flip ? -1 : 1), frame[5] - frame[7]] as Flat };
+    part(moment, n);
+    const mouth: Point = [heart[0] + x[0] * CANNON.muzzle, heart[1] + x[1] * CANNON.muzzle, heart[2] + x[2] * CANNON.muzzle];
+    const from = room(less(mouth, middle));
+    const to = room(less(on, middle));
+    const length = Math.hypot(...sub(to, from));
+    M.lathe(axis(from, sub(to, from)), [[0, 0], [CANNON.beam * U, 0], [CANNON.beam * U, length], [0, length]], 24);
   };
-  const show = (piece: ReturnType<typeof lay>, near: Point, at: Flat, deep: number) => solid(walker, piece.frame.slice(0, 4), piece.frame.slice(4, 6), piece.flip, near, at, deep, "sketch");
 
-  // ---- The Walker on its mark, facing him, braced down and kicked back by its shot
-  const it = MARKS.it as Point;
-  const stood = MARKS.him as Point;
-  const face = stood[0] < it[0] ? -1 : 1;
-  const over = face < 0;
-  const high = HIGH - BRACES;
-  const base = onPage(it);
-  const bottom: Flat = [base[0] - KICK.hull * face, base[1] + high * PIXELS * VIEW[2]];
-  const lift = (y: number): Point => [it[0], y, it[2]];
-  const heaves = (seconds: number) => ({ offset: [0, 0, 4 * Math.sin(seconds * 0.9)] as Vec3 });
+  /** A frame of the fight, stood as the game stood it with the middle of its page in the middle of the construct: what it laid, and his cannon if
+   *  it's up. */
+  const fight = (frame: Frame, moment: number) => {
+    const { size, middle: [mx, my], cards } = frame;
+    const middle: Point = [(size[0] / 2 - mx) / PIXELS, 0, (size[1] / 2 - my) / (PIXELS * VIEW[1])];
+    let n = 0;
+    for (const { sheet: path, frame: rect, flip, at, box, deep, look } of cards) {
+      part(moment, n++);
+      const near = less(at, middle);
+      solid(sheets.get(path)!, rect, [flip ? box[1] : -box[0], box[3]], flip, near, onPage(near), deep, look);
+    }
+    if (frame.cannon) cannon(frame.cannon, middle, moment, n);
+  };
 
-  // Its legs, from its feet up, each strut turned to reach from its hip to its ankle the way the game bends them
-  const legs: ["back" | "front", boolean][] = [["back", false], ["front", false], ["back", true], ["front", true]];
-  legs.forEach(([side, near], n) => {
-    const hipAt: Point = [it[0] + HIPS[side] * face, high - HIGH + HIPS.high, it[2] + (near ? HIPS.near : HIPS.far)];
-    const page = onPage(hipAt);
-    const hip: Flat = [page[0] - KICK.hull * face, page[1]];
-    const block = side === "front" && near;
-    const footAt: Point = [it[0] + FEET[side] * face, 0, it[2] + (near ? FEET.near : FEET.far)];
-    const foot = onPage(footAt);
-    const ankle: Flat = [foot[0], foot[1] + ANKLE];
-    const upper = parts.pieces.upper.length ?? 32;
-    const lower = parts.pieces.lower.length ?? 28;
-    const [dx, dy] = [ankle[0] - hip[0], ankle[1] - hip[1]];
-    const d = Math.min(upper + lower - 0.5, Math.max(Math.abs(upper - lower) + 1, Math.hypot(dx, dy)));
-    const out = dx === 0 ? face : Math.sign(dx);
-    const bend = Math.acos(Math.min(1, Math.max(-1, (upper * upper + d * d - lower * lower) / (2 * upper * d))));
-    const thigh = lay("upper", Math.atan2(dy, dx) + out * bend, false);
-    const knee: Flat = [hip[0] + thigh.end[0], hip[1] + thigh.end[1]];
-    const shin = lay("lower", Math.atan2(ankle[1] - knee[1], ankle[0] - knee[0]), false);
-    part(n * 0.1, [0, 0, -140]);
-    show(lay(block ? "block" : "boot", null, over), footAt, foot, block ? DEEP.block : DEEP.boot);
-    part(0.45 + n * 0.1, [out * 140, 0, 20]);
-    show(shin, hipAt, knee, DEEP.lower);
-    part(0.9 + n * 0.1, [out * 180, 0, 140]);
-    show(thigh, hipAt, hip, DEEP.upper);
+  /** Everything made since `begin` brought into the middle of the construct and made as big as `FILLS`, the same all round, so it's the same drawing
+   *  only bigger or smaller. */
+  const fill = (begin: number) => {
+    const P = M.positions;
+    const along = (axis: Vec3) => {
+      let [low, high] = [Infinity, -Infinity];
+      for (let i = begin; i < P.length; i += 3) {
+        const d = P[i] * axis[0] + P[i + 1] * axis[1] + P[i + 2] * axis[2];
+        [low, high] = [Math.min(low, d), Math.max(high, d)];
+      }
+      return [low, high];
+    };
+    const [across, high, deep] = [sideways, upward, toward].map(along);
+    const k = Math.min((FILLS[0] * U) / PIXELS / (across[1] - across[0]), (FILLS[1] * U) / PIXELS / (high[1] - high[0]));
+    const middle = add(add(scale(sideways, (across[0] + across[1]) / 2), scale(upward, (high[0] + high[1]) / 2)), scale(toward, (deep[0] + deep[1]) / 2));
+    for (let i = begin; i < P.length; i += 3) for (let c = 0; c < 3; c++) P[i + c] = (P[i + c] - middle[c]) * k;
+  };
+
+  ORDER.forEach((name, moment) => {
+    const begin = M.positions.length;
+    if (name === "cut") fight(CUT, moment);
+    if (name === "strike") fight(STRIKE, moment);
+    if (name === "blast") fight(BLAST, moment);
+    if (name === "vista") {
+      // The plate in the middle, and her out in front of it where she's drawn on it
+      const { plate, her } = VISTA;
+      const [, , w, h] = plate.frame;
+      part(moment, 0);
+      solid(sheets.get(plate.sheet)!, plate.frame, [w / 2, h / 2], false, [0, 0, 0], [0, 0], 0.3, "plate");
+      part(moment, 1);
+      solid(sheets.get(her.sheet)!, her.frame, her.feet, false, forward(1), [her.on[0] - w / 2, h / 2 - her.on[1]], 0.6, "her");
+    }
+    if (name === "close") {
+      part(moment, 0);
+      solid(sheets.get(CLOSE.sheet)!, CLOSE.frame, CLOSE.feet, false, [0, 0, 0], [0, 0], 0.8, "her");
+    }
+    fill(begin);
   });
-
-  // Its hull, over its legs
-  part(1.5, [0, 0, 300], { idle: heaves });
-  show(lay("hull", null, over), lift(high), bottom, DEEP.hull);
-
-  // Where he's run to, across its line from his mark, and where its round lands, a stride behind him
-  const across = norm([stood[2] - it[2], 0, -(stood[0] - it[0])]);
-  const ran: Point = [stood[0] + across[0] * RAN, 0, stood[2] + across[2] * RAN];
-  const landed: Point = [ran[0] - across[0] * BEHIND, 0, ran[2] - across[2] * BEHIND];
-
-  // Its rifle, slung under its near side, held on where it fired and kicked back by the round
-  const him = onPage(landed);
-  const hung: Flat = [bottom[0] + SLUNG[0] * face, bottom[1] + SLUNG[1]];
-  const aim = Math.min(UPMOST, Math.max(DOWNMOST, Math.atan2(him[1] - hung[1], Math.max(20, (him[0] - hung[0]) * face))));
-  const angle = over ? Math.PI - aim : aim;
-  const slung: Flat = [hung[0] - Math.cos(angle) * KICK.rifle, hung[1] - Math.sin(angle) * KICK.rifle];
-  const rifle = lay("rifle", angle, false);
-  const rifleAt: Point = [it[0], high + SLUNG[1] / (PIXELS * VIEW[2]), it[2] + DEEP.hull / 2 + DEEP.rifle / 2];
-  part(2.1, [face * 260, 0, 60], { idle: heaves });
-  show(rifle, rifleAt, slung, DEEP.rifle);
-
-  // Its gatling, hanging off its front on its broken arm
-  const shoulderAt: Point = [it[0], high + SHOULDER[1] / (PIXELS * VIEW[2]), it[2] + 0.55];
-  const shoulder: Flat = [bottom[0] + SHOULDER[0] * face, bottom[1] + SHOULDER[1]];
-  const arm = lay("lower", over ? Math.PI - ARM_HANGS : ARM_HANGS, false);
-  part(2.5, [face * 220, 0, 120], { idle: heaves });
-  show(arm, shoulderAt, shoulder, DEEP.lower);
-  const joint: Flat = [shoulder[0] + arm.end[0], shoulder[1] + arm.end[1]];
-  part(2.7, [face * 260, 0, 80], { idle: heaves });
-  show(lay("gatling", over ? Math.PI - DROOP : DROOP, false), shoulderAt, joint, DEEP.gatling);
-
-  // Where its round's landed at his heels, it crashes as the game's does, going off as the construct is whole
-  const age = BLAST.frame / BLAST.fps;
-  part(3.6, [0, 0, 0], { late: true });
-  solid(blast, [BLAST.frame * BLAST.w, 0, BLAST.w, BLAST.h], BLAST.from, false, landed, onPage(landed), DEEP.blast, "crash");
-  for (const way of [-1, 1]) {
-    const rolled: Point = [landed[0] + way * (DUST.out + DUST.rolls * age), 0, landed[2]];
-    const frame = Math.floor(age * DUST.fps);
-    part(3.65, [0, 0, 0], { late: true });
-    solid(dust, [frame * DUST.w, 0, DUST.w, DUST.h], DUST.from, way < 0, rolled, onPage(rolled), DEEP.dust, "crash");
-  }
-
-  // ---- Him, running across its line, a stride ahead of where it's landed
-  const strip = frames.body.animations.run.strips[SOUTHEAST];
-  part(3.2, [0, 0, 200]);
-  solid(hooded, [strip.x + STRIDE * strip.w, strip.y, strip.w, strip.h], strip.feet, false, ran, onPage(ran), DEEP.him, "him");
 
   return {
     mesh: M,
@@ -299,7 +346,7 @@ export async function drifter(): Promise<Blueprint> {
     pace: { spread: 0.7, form: 1.1, start: 2, stagger: 0.5, move: 0.5 },
     light: LIGHT,
     hatch: 4.5,
-    grains: 200_000,
+    grains: 480_000,
     flow: 0.7,
     loop: false,
   };
